@@ -1,6 +1,5 @@
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import { ImUser } from "react-icons/im";
+import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import styled from "styled-components";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -29,7 +28,7 @@ const Userinfo = () => {
       </div>
       <div className="user-right">
         <div className="userData">
-          <ImUser className="icon white" /> <span>My Profile</span>
+          <AiOutlineUser className="icon white" /> <span>My Profile</span>
         </div>
         <div className="userData">
           <TiShoppingCart className="icon" /> <span>items</span>

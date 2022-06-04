@@ -24,8 +24,9 @@ const StyledNav = styled.nav`
   height: 7rem;
   text-transform: uppercase;
   margin: 0 auto;
-  font-weight: 600;
-  padding-bottom: 1rem;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 1rem 0;
   grid-column: 2/5;
   grid-row: 2/3;
 
@@ -34,7 +35,7 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  & > ul {
+  ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,9 +56,7 @@ const StyledNav = styled.nav`
 
   h2 {
     color: #ff4252;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
   }
-
-
 `;

@@ -1,27 +1,49 @@
 import React from "react";
 import styled from "styled-components";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { CarouselImage } from "./Data";
 
 const Carousel = () => {
+  const [slide, setSlide] = React.useState(0);
 
-    function next(){
+  function prev() {
+    setSlide((prevSlide) => {
+      if (prevSlide === 0) {
+        return prevSlide;
+      } else {
+        return prevSlide - 1;
+      }
+    });
+  }
 
-    }
+  function next() {
+    setSlide((prevSlide) => {
+      if (prevSlide < CarouselImage.length) {
+        return prevSlide + 1;
+      } else {
+        return prevSlide -1;
+      }
+    });
+  }
+
   return (
     <StyledDiv className="full-width">
-      <div className="left-content">
-        <button className="icon-left" onClick={next}>
+      <div className="content">
+        <button className="icon" onClick={prev}>
           <IoIosArrowBack />
         </button>
         <div className="info">
-          <p>Name</p>
-          <small>description</small>
+          <h3>{CarouselImage[slide].name}</h3>
+          <small>{CarouselImage[slide].desc}</small>
           <button>more</button>
         </div>
       </div>
-      <div className="right-content">
-        <img src={require("../images/iphone1.png")} alt="carousel" />
-        <button className="icon-right" onClick={next}>
+      <div className="content">
+        <img
+          src={require(`../images/${CarouselImage[slide].imgUrl}`)}
+          alt="carousel"
+        />
+        <button className="icon" onClick={next}>
           <IoIosArrowForward />
         </button>
       </div>
@@ -32,19 +54,21 @@ const Carousel = () => {
 export default Carousel;
 const StyledDiv = styled.div`
   height: 450px;
-  padding: 2rem 2rem 0 2rem;
-  background: linear-gradient(150deg, #ff4858, #8f65ff);
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(to right, #ff4858, #8f65ff);
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 18rem;
 
-  .left-content {
+  @media (max-width: 800px) {
+    padding: 2rem 5rem;
+  }
+
+  .content {
     display: flex;
     align-items: center;
   }
-
   .info {
     display: flex;
     flex-direction: column;
@@ -66,22 +90,28 @@ const StyledDiv = styled.div`
     height: 25rem;
     margin-top: 3.5rem;
   }
-  .icon-left {
+  .icon {
     margin-right: 1rem;
     font-size: 1.2rem;
-  }
-  .icon-right {
-    margin-right: 1rem;
-    font-size: 1.2rem;
-  }
-
-  .right-content {
-    display: flex;
-    align-items: center;
+    background: none;
+    border: none;
   }
 
   button {
     border: none;
     background: transparent;
+  }
+  button > *:hover {
+    transform: scale(1.2);
+  }
+  @keyframes transit {
+    from {
+      /* display: none; */
+      background-color: green;
+    }
+    to {
+      /* display: flex; */
+      background-color: white;
+    }
   }
 `;

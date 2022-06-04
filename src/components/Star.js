@@ -1,23 +1,21 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import { AiFillStar } from "react-icons/ai";
 
 const Star = () => {
-    const [isClicked, setIsClicked] = React.useState(false);
+  const [isClicked, setIsClicked] = React.useState(false);
 
-    function fill() {
-      setIsClicked(!isClicked);
-    }
+  function fill() {
+    setIsClicked(!isClicked);
+  }
   return (
-   
-      <StyledButton onClick={fill} isClicked={isClicked}>
-        <AiFillStar class="icon" />
-      </StyledButton>
-  
+    <StyledButton onClick={fill} isClicked={isClicked}>
+      <AiFillStar className="icon" />
+    </StyledButton>
   );
-}
+};
 
-export default Star
+export default Star;
 
 const StyledButton = styled.button`
   .icon {
@@ -27,4 +25,3 @@ const StyledButton = styled.button`
     color: ${({ isClicked }) => (isClicked ? "gold" : "#ebf3f7")};
   }
 `;
-
