@@ -3,14 +3,13 @@ import styled from "styled-components";
 
 const BestsellerItem = ({ classname,title, imgUrl, description, color, price}) => {
   return (
-    <StyledDiv className={classname}  style={{ backgroundColor: color }}>
+    <StyledDiv className={classname} style={{ backgroundColor: color }}>
       <div className="info">
         <p>{title}</p>
         <small>{description}</small>
         <p>{price}</p>
       </div>
-      {/* <img src={require(`../images/${imgUrl}.png`)} alt={title} /> */}
-      <img src={require (`../images/${imgUrl}`)} />
+      <img src={require(`../images/${imgUrl}`)} alt={title} />
     </StyledDiv>
   );
 };

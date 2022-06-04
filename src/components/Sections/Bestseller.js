@@ -3,7 +3,7 @@ import React from "react";
 import BestsellerItem from "../BestsellerItem";
 import styled from "styled-components";
 
-const Bestseller = (classname) => {
+const Bestseller = () => {
   return (
     <StyledSecion className="partial-width">
       <div className="content">
