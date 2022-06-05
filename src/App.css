@@ -1,14 +1,13 @@
 .App {
-   font-family: 'proxima sans';
-   
+  font-family: "proxima sans";
 }
 
-.full-width{
-  grid-column: 1/ -1;  
+.full-width {
+  grid-column: 1/ -1;
   /* grid-row: ; */
 }
 
-.partial-width{
+.partial-width {
   grid-column: 2/5;
 }
 /* @media(max-width:800px){
@@ -16,18 +15,19 @@
   width: 70%; 
 }  
 } */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-body{
-    font-size: 62.5%;
+button {
+  border: none;
+  background: transparent;
+}
+body {
+  font-size: 62.5%;
 }
 
-
-
-
-
-
+ul {
+  list-style-type: none;
+}

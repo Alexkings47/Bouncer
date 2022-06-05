@@ -11,10 +11,11 @@ const Bestseller = () => {
           imgUrl={"iphone6.png"}
           title={"Iphone 6"}
           description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, nesciunt."
+            "Lorem ipsum dolor sit amet consectetur "
           }
           price={"$399"}
           color={"#FF6875"}
+          textcolor={"white"}
         />
         <BestsellerItem
           imgUrl={"oculus.png"}
@@ -22,18 +23,19 @@ const Bestseller = () => {
           description={""}
           price={"$349"}
           color={"#FFFFFF"}
+          display={"row"}
         />
         <BestsellerItem
-          imgUrl={"iphone6.png"}
+          imgUrl={"camcorder.png"}
           title={"GoPro Hero 6"}
           description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, nesciunt."
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit"
           }
           price={"$299"}
           color={"#C1C8CE"}
         />
       </div>
-      <h3>BEST SELLER</h3>
+      <h2>BEST SELLER</h2>
     </StyledSecion>
   );
 };
@@ -48,7 +50,7 @@ const StyledSecion = styled.section`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
   }
-  h3 {
+  h2 {
     text-align: center;
   }
  

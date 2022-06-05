@@ -1,15 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 
-const BestsellerItem = ({ classname,title, imgUrl, description, color, price}) => {
+const BestsellerItem = ({
+  classname,
+  title,
+  imgUrl,
+  display,
+  description,
+  color,
+  price,
+  textcolor,
+}) => {
   return (
-    <StyledDiv className={classname} style={{ backgroundColor: color }}>
+    <StyledDiv
+      className={classname}
+      style={{
+        backgroundColor: color,
+        color: textcolor,
+        flexDirection: display,
+      }}
+    >
+      <img src={require(`../images/${imgUrl}`)} alt={title} />
+
       <div className="info">
         <p>{title}</p>
         <small>{description}</small>
         <p>{price}</p>
       </div>
-      <img src={require(`../images/${imgUrl}`)} alt={title} />
     </StyledDiv>
   );
 };
@@ -17,15 +34,25 @@ const BestsellerItem = ({ classname,title, imgUrl, description, color, price}) =
 export default BestsellerItem;
 const StyledDiv = styled.div`
   padding: 15px 0 0 10px;
-  
-.partial-width{
-    
-}
-  .info {
-  
+ 
+ 
+
+  .partial-width {
   }
-  img{
-      width: 5rem;
-      float: right;
+  .info {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    justify-content: space-between;
+    /* text-align: left; */
+    
+  }
+  .row{
+  flex-direction:row;  
+  }
+
+  img {
+    width: 8rem;
+    float: right;
   }
 `;

@@ -2,28 +2,27 @@ import React from "react";
 import styled from "styled-components";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { CarouselImage } from "./Data";
+import Button from "./Button";
 
 const Carousel = () => {
   const [slide, setSlide] = React.useState(0);
 
   function prev() {
-    setSlide((prevSlide) => {
-      if (prevSlide === 0) {
-        return prevSlide;
-      } else {
-        return prevSlide - 1;
+    if (slide === 0) {
+        return;
+      }else {
+        setSlide(slide - 1);
       }
-    });
+    
   }
 
   function next() {
-    setSlide((prevSlide) => {
-      if (prevSlide < CarouselImage.length) {
-        return prevSlide + 1;
-      } else {
-        return prevSlide -1;
-      }
-    });
+    if (slide + 1 >= CarouselImage.length) {
+        return;
+      }  else {
+        setSlide( slide + 1);
+     }
+   
   }
 
   return (
@@ -35,7 +34,7 @@ const Carousel = () => {
         <div className="info">
           <h3>{CarouselImage[slide].name}</h3>
           <small>{CarouselImage[slide].desc}</small>
-          <button>more</button>
+          <Button value={"more"} />
         </div>
       </div>
       <div className="content">
@@ -78,12 +77,7 @@ const StyledDiv = styled.div`
     height: 10rem;
     padding: 2rem;
 
-    button {
-      color: white;
-      border-bottom: 2px solid white;
-      text-transform: uppercase;
-      padding: 0 0 3px 0;
-    }
+    
   }
 
   img {
@@ -97,10 +91,7 @@ const StyledDiv = styled.div`
     border: none;
   }
 
-  button {
-    border: none;
-    background: transparent;
-  }
+  
   button > *:hover {
     transform: scale(1.2);
   }

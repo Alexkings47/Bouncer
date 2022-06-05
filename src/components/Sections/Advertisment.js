@@ -30,6 +30,7 @@ const StyledDiv = styled.div`
   justify-content: space-around;
   background-color: #2e90e5;
   overflow: hidden;
+  margin-top: 2rem;
 
   @media (max-width: 800px) {
     justify-content: center;
@@ -57,14 +58,12 @@ const StyledDiv = styled.div`
     font-weight: 500;
   }
   .imgDiv {
-    border: 1px solid red;
     position: absolute;
     top: -3.9rem;
     transform: translateY(3rem);
   }
   img {
     height: 120%;
-
     left: initial;
     /* align-self: flex-end; */
   }

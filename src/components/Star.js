@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { AiFillStar } from "react-icons/ai";
 
 const Star = () => {
-  const [isClicked, setIsClicked] = React.useState(false);
+  const [isClicked, setIsClicked] = React.useState(true);
 
   function fill() {
     setIsClicked(!isClicked);
