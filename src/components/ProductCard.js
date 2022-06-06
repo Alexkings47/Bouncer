@@ -4,21 +4,19 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { TiShoppingCart } from "react-icons/ti";
 import Star from "./Star";
 
-
 const ProductCard = ({ imgUrl, price, title }) => {
   const [oldPrice, setOldPrice] = React.useState(0);
 
   React.useEffect(() => setOldPrice(parseInt(price) + 100), [price]);
 
-  function flip(){}
-  function cart(){}
-  function like(){}
-
+  function flip() {}
+  function cart() {}
+  function like() {}
 
   return (
     <StyledDiv onMouseEnter={flip}>
       <img src={require(`../images/${imgUrl}`)} alt="productcard" />
-      <h2>{title}</h2>
+      <p className="title">{title}</p>
       <div className="star">
         {" "}
         <Star />
@@ -51,11 +49,11 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #d4d5d6; */
+  background-color: rgba(246, 247, 248, 0.8);
   padding: 1rem 1.2rem;
   cursor: pointer;
   border-radius: 3px;
-  border: 3px solid rgba(212, 213, 214, 0.5);
+  border: 2px solid rgb(246, 247, 248);
   position: relative;
   height: 270px;
 
@@ -103,7 +101,8 @@ const StyledDiv = styled.div`
     width: 35%;
     font-size: 12px;
   }
-  h2 {
+ p {
     font-weight: 400;
+    font-size: 13px;
   }
 `;

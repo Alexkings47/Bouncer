@@ -25,7 +25,7 @@ const ProductDisplay = () => {
         </div>
         {NewProducts}
       </div>
-      <Button value={"LOAD MORE"} color={"#33A0FF"} align={"1rem auto"} />
+      <Button value={"LOAD MORE"}  classChosen={"displayBtn"} />
     </StyledSection>
   );
 };
@@ -33,18 +33,23 @@ const ProductDisplay = () => {
 export default ProductDisplay;
 
 const StyledSection = styled.section`
-  padding: 20px 0 2rem;
+  
 
   .grid-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     grid-template-rows: repeat(auto-fill, max-content);
     grid-gap: 10px;
-  } 
-
+  }
+  .displayBtn {
+    margin: 2.5rem auto 5rem;
+    color: #33a0ff;
+    font-size: 11px;
+  }
   .product-types {
     grid-row: 1/2;
     grid-column: 1/-1;
+    padding: 1rem 0;
   }
   ul {
     display: flex;

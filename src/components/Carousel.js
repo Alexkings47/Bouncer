@@ -32,9 +32,9 @@ const Carousel = () => {
           <IoIosArrowBack />
         </button>
         <div className="info">
-          <h3>{CarouselImage[slide].name}</h3>
+          <h2>{CarouselImage[slide].name}</h2>
           <small>{CarouselImage[slide].desc}</small>
-          <Button value={"more"} />
+          <Button value={"more"} classChosen={"carouselButton"}/>
         </div>
       </div>
       <div className="content">
@@ -64,7 +64,9 @@ const StyledDiv = styled.div`
     padding: 2rem 5rem;
   }
 
-  .content {
+  .carouselButton{
+    font-size: 13px;
+  } .content {
     display: flex;
     align-items: center;
   }
@@ -74,10 +76,8 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     color: white;
-    height: 10rem;
+    height: 15rem;
     padding: 2rem;
-
-    
   }
 
   img {
@@ -91,7 +91,6 @@ const StyledDiv = styled.div`
     border: none;
   }
 
-  
   button > *:hover {
     transform: scale(1.2);
   }

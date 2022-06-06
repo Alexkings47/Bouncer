@@ -17,28 +17,36 @@ export default SearchBar;
 const StyledSection = styled.section`
   height: 5rem;
   padding: 1rem;
+  margin-bottom: 2rem;
 
   div {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    border: 0.1px solid #ebf3f7;
-    width: 19.2rem;
     margin: 0 auto;
   }
 
   input {
-    height: 2rem;
-    width: 15rem;
+    height: 2.5rem;
+    width: 16rem;
     text-indent: 1rem;
-    border: 0.1px solid #bdc9c3;
+    border: 1px solid #ebf3f7;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+
+    ::placeholder {
+      color: grey;
+      font-size: 10px;
+    }
   }
   .search {
     border: none;
     background-color: #31a6e0;
-    height: 2rem;
-    width: 4rem;
+    height: 2.5rem;
+    width: 5rem;
     color: white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 `;

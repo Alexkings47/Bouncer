@@ -16,7 +16,7 @@ const OffersItem = ({title, imgUrl}) => {
 
 export default OffersItem;
 const StyledDiv = styled.div`
-width: 7rem;
+width: 8rem;
 height: 7rem;
 display:flex;
 flex-direction: column;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../Button";
 
 const Advertisment = () => {
   // Automatically change advertised elements
@@ -11,10 +12,10 @@ const Advertisment = () => {
       <div className="info">
         <p>Iphone 6 Plus</p>
         <small>performance and design. Taken right to the edge</small>
-        <button>more</button>
+        <Button value={"More"} />
       </div>
       <div className="imgDiv">
-      <img src={require("../../images/iPhone6plus.png")} alt="Advertisment" />
+        <img src={require("../../images/iPhone6plus.png")} alt="Advertisment" />
       </div>
     </StyledDiv>
   );
@@ -30,7 +31,7 @@ const StyledDiv = styled.div`
   justify-content: space-around;
   background-color: #2e90e5;
   overflow: hidden;
-  margin-top: 2rem;
+  font-family: "Proxima Nova Extra Condensed Light";
 
   @media (max-width: 800px) {
     justify-content: center;
@@ -43,27 +44,17 @@ const StyledDiv = styled.div`
     color: white;
     height: 10rem;
     padding: 2rem;
-
-    button {
-      color: white;
-      border-bottom: 2px solid white;
-      text-transform: uppercase;
-      padding: 0 0 3px 0;
-      border: none;
-      background: transparent;
-    }
   }
   p {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 26px;
+    font-weight: 100;
   }
   .imgDiv {
-    position: absolute;
-    top: -3.9rem;
-    transform: translateY(3rem);
+  
   }
   img {
-    height: 120%;
+    height: 140%;
+    width: 125%;
     left: initial;
     /* align-self: flex-end; */
   }
