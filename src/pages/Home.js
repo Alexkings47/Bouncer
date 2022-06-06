@@ -8,9 +8,10 @@ import ProductDisplay from "../components/Sections/ProductDisplay";
 import Advertisment from "../components/Sections/Advertisment";
 import OurOffers from "../components/Sections/OurOffers";
 import LatestNews from "../components/Sections/LatestNews";
-import Featured  from "../components/Sections/Featured"
+import Featured from "../components/Sections/Featured";
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Sections/Footer";
+import Copyright from "../components/Sections/Copyright";
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
       <Featured />
       <SearchBar />
       <Footer />
+      <Copyright />
     </StyledDiv>
   );
 };

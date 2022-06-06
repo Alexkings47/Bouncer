@@ -1,21 +1,35 @@
 import React from "react";
 import styled from "styled-components";
+import useOutsideAlerter from "../OutsideAlerter";
 
 const Navbar = () => {
+
+    const {ref, isComponentVisible, setIsComponentVisible} = useOutsideAlerter(false);
+  const Links = ["Home", "Store", "IpHONE", "IPAD", "MACBOOK", "ACCESORIES"];
+
+  const NewLinks = Links.map((link,index)=>{
+    return (
+      <li
+        ref={ref}
+        key={index}
+        onClick={() => setIsComponentVisible(!isComponentVisible)}
+      >
+        {link}
+      </li>
+    );
+  }
+
+  )
   return (
-    <StyledNav>
+    <StyledNav  isComponentVisible={isComponentVisible}>
       <h2>Bouncer</h2>
       <ul className="nav-parent">
-        <li>Home</li>
-        <li>Store</li>
-        <li>IpHONE</li>
-        <li>IPAD</li>
-        <li>MACBOOK</li>
-        <li>ACCESORIES</li>
+        {NewLinks}
+      
       </ul>
       <div className="nav-menu">
         <div>
-            <h3>Category</h3>
+          <h3>Category</h3>
           <ul>
             <li>Airpoint & Wireless</li>
             <li>AppleCare</li>
@@ -28,7 +42,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div>
-            <h3>Category</h3>
+          <h3>Category</h3>
           <ul>
             <li>Charging Devices</li>
             <li>Connected Home</li>
@@ -40,7 +54,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div>
-            <h3>Category</h3>
+          <h3>Category</h3>
           <ul>
             <li>Mice & Keyboards</li>
             <li>Music Creation</li>
@@ -72,7 +86,7 @@ const StyledNav = styled.nav`
   align-items: center;
 
   .nav-menu {
-    display: none;
+    display: ${(props) => (props.isComponentVisible ? "grid" : "none")};
     grid-template-columns: 2fr 2fr 1fr;
     grid-gap: 35px;
     width: 800px;
@@ -112,9 +126,9 @@ const StyledNav = styled.nav`
     li {
       margin-right: 1.5rem;
     }
-    .nav-parent:hover .nav-menu {
-      display: block;
-    }
+  }
+  .nav-menu:hover {
+    display: grid;
   }
 
   li {
