@@ -10,11 +10,12 @@
 .partial-width {
   grid-column: 2/5;
 }
-/* @media(max-width:800px){
+@media(max-width:700px){
   .partial-width{
-  width: 70%; 
+    grid-column: 1/ -1;
+   padding: 3rem;
 }  
-} */
+}
 * {
   margin: 0;
   padding: 0;

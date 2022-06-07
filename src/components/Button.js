@@ -13,4 +13,8 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   padding: 0 0 3px 0;
   display: block;
+
+  &:hover{
+      transform: scale(1.1);
+  }
 `;

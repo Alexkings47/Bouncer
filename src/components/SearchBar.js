@@ -6,7 +6,7 @@ const SearchBar = () => {
     <StyledSection className="full-width">
       <div>
         <input placeholder="Search query ..." />
-        <button class="search">search</button>
+        <button className="search">search</button>
       </div>
     </StyledSection>
   );

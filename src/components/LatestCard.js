@@ -27,9 +27,19 @@ const StyledDiv = styled.div`
     display: flex;
     flex-direction:column;
     justify-content: space-between;
-    min-height: 70%;
+    min-height: 80%;
+
+    }
+    @media(max-width:800px){
+      &{
+        height: 110%;
+      }
+      .info{
+      height: 100%;
+      padding: 0 0 0 10px;
+      }
+      }
     
-  }
   img {
       height:100%;
       width:40%;

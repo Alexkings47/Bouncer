@@ -10,20 +10,16 @@ const Bestseller = () => {
         <BestsellerItem
           imgUrl={"iphone6.png"}
           title={"Iphone 6"}
-          description={
-            "Lorem ipsum dolor sit amet consectetur "
-          }
+          description={"Lorem ipsum dolor sit amet consectetur "}
           price={"$399"}
-          color={"#FF6875"}
-          textcolor={"white"}
+          chosenClass={"bestsellerCard1"}
         />
         <BestsellerItem
           imgUrl={"oculus.png"}
           title={"Oculus Rift"}
           description={""}
           price={"$349"}
-          color={"#FFFFFF"}
-          display={"row"}
+          chosenClass={"bestsellerCard2"}
         />
         <BestsellerItem
           imgUrl={"camcorder.png"}
@@ -32,7 +28,7 @@ const Bestseller = () => {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit"
           }
           price={"$299"}
-          color={"#C1C8CE"}
+          chosenClass={"bestsellerCard3"}
         />
       </div>
       <h2>BEST SELLER</h2>
@@ -49,9 +45,50 @@ const StyledSecion = styled.section`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
+    margin-bottom: 0.5rem;
   }
   h2 {
     text-align: center;
   }
- 
+  .bestsellerCard1 {
+    background-color: #ff6875;
+    color: white;
+
+    img {
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      right: 5px;
+    }
+  }
+  .bestsellerCard2 {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    .info {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+  .bestsellerCard3 {
+    background-color: #c1c8ce;
+
+    .info {
+      height: 60%;
+    }
+
+    img {
+      position: absolute;
+      bottom: 10px;
+      right: -10px;
+      width: 7rem;
+      height: 60%;
+    }
+  }
 `;

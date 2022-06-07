@@ -48,12 +48,12 @@ const StyledDiv = styled.div`
   width: 100%;
   justify-content: space-around;
   height: 2rem;
-  border-bottom: 2px solid #fafafb;
+  border-bottom: 1px solid #7c7c7c;
   text-transform: capitalize;
-   font-size: 13.5px;
+  font-size: 13.5px;
   font-weight: 500;
   grid-column: 1/ -1;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 200;
 
   & > div {
@@ -77,7 +77,6 @@ const StyledDiv = styled.div`
 
   select {
     border: none;
-    font-size: 13px;
     font-weight: 200;
     letter-spacing: -1px;
     appearance: none;

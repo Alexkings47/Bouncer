@@ -6,10 +6,10 @@ const OffersItem = ({title, imgUrl}) => {
     <StyledDiv>
       <img src={require(`../images/${imgUrl}`)} alt={title} />
       <h3>{title}</h3>
-      <small>
+      <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut deserunt
         architecto asperiores iste, minus consectetur?
-      </small>
+      </p>
     </StyledDiv>
   );
 };

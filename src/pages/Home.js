@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Sections/Navbar";
 import Userinfo from "../components/Sections/Userinfo";
-import Carousel from "../components/Carousel";
+import DemoCarousel from "../components/DemoCarousel";
 import Bestseller from "../components/Sections/Bestseller";
 import styled from "styled-components";
 import ProductDisplay from "../components/Sections/ProductDisplay";
@@ -18,7 +18,7 @@ const Home = () => {
     <StyledDiv>
       <Userinfo classname={"partial-width"} />
       <Navbar classname={"partial-width"} />
-      <Carousel />
+      <DemoCarousel />
       <Bestseller classname={"partial-width"} />
       <ProductDisplay />
       <Advertisment />

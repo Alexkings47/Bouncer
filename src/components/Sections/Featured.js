@@ -5,7 +5,7 @@ import FeaturedCard from "../FeaturedCard";
 const LatestNews = () => {
   return (
     <StyledDiv className="partial-width">
-      <h2>FEATURED</h2>
+      <h2>FEATURED PRODUCTS</h2>
       <div className="featured">
         <FeaturedCard
           price={499}
@@ -29,8 +29,7 @@ const LatestNews = () => {
 
 export default LatestNews;
 const StyledDiv = styled.div`
-  padding: 2rem 0;
-  margin-bottom: 4rem;
+  margin:2rem 0 4rem;
 
   .featured {
     display: grid;

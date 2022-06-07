@@ -33,7 +33,7 @@ const StyledDiv = styled.div`
   overflow: hidden;
   font-family: "Proxima Nova Extra Condensed Light";
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     justify-content: center;
   }
   .info {

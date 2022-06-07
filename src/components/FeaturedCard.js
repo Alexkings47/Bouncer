@@ -20,7 +20,7 @@ const FeaturedCard = ({ imgUrl, title, price }) => {
           <Star />
         </div>
         <p>
-          ${price} <span>${oldPrice}</span>
+          ${price} <s>${oldPrice}</s>
         </p>
       </div>
     </StyledDiv>
@@ -44,6 +44,9 @@ const StyledDiv = styled.div`
   }
   h3 {
     margin-bottom: 15px;
+  }
+  s {
+    color: grey;
   }
   button {
     border: none;

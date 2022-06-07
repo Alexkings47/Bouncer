@@ -1,30 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const BestsellerItem = ({
-  classname,
-  title,
-  imgUrl,
-  display,
-  description,
-  color,
-  price,
-  textcolor,
-}) => {
+const BestsellerItem = ({ chosenClass, title, imgUrl, description, price }) => {
   return (
-    <StyledDiv
-      className={classname}
-      style={{
-        backgroundColor: color,
-        color: textcolor,
-        flexDirection: display,
-      }}
-    >
+    <StyledDiv className={chosenClass}>
       <img src={require(`../images/${imgUrl}`)} alt={title} />
-
       <div className="info">
-        <p>{title}</p>
-        <small>{description}</small>
+        <h3>{title}</h3>
+        <p>{description}</p>
         <p>{price}</p>
       </div>
     </StyledDiv>
@@ -33,26 +16,20 @@ const BestsellerItem = ({
 
 export default BestsellerItem;
 const StyledDiv = styled.div`
-  padding: 15px 0 0 10px;
- 
- 
+  padding: 10px;
+  position: relative;
 
-  .partial-width {
-  }
   .info {
     display: flex;
     flex-direction: column;
     height: 80%;
     justify-content: space-between;
-    /* text-align: left; */
-    
-  }
-  .row{
-  flex-direction:row;  
+    width: 55%;
   }
 
   img {
     width: 8rem;
+    height: 80%;
     float: right;
   }
 `;

@@ -14,7 +14,7 @@ const OurOffers = () => {
 
 export default OurOffers;
 const StyledDiv = styled.div`
-  margin: 4rem 0 3rem;
+  padding: 3rem 0 3rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;

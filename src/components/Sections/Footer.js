@@ -7,14 +7,14 @@ const Footer = () => {
     <StyledSection className="partial-width">
       <div className="top-footer">
         <div>
-          <h2 class="title">BOUNCER</h2>
+          <h2 className="title">BOUNCER</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
           </p>
         </div>
         <div>
-          <h4>Follow Us</h4>
+          <h3>Follow Us</h3>
           <p>
             Since the 1500s, when an unknown printer took a gallery of type and
             scrambled
@@ -99,21 +99,34 @@ const StyledSection = styled.section`
     text-align: left;
     padding: 20px 0;
     margin: 0 auto;
-    height: 6rem;
+    height: 9.5rem;
+    font-size: 12px;
+    font-family: "proxima sans";
   }
-  @media (max-width: 800px) {
-    .top-footer,
-    .bottom-footer {
-      height: 10rem;
-    }
-  }
-
   .top-footer {
     border-bottom: 0.5px solid #ebf3f7;
+    height: 7.5rem;
+  }
+
+  h3 {
+    font-size: 18px;
   }
   .top-footer > div {
     padding: 0 5rem 0 0;
   }
+  @media (max-width: 1100px) {
+    .top-footer,
+    .bottom-footer {
+      height: 12rem;
+    }
+  }
+  @media (max-width: 900px) {
+  
+    .top-footer > div {
+      padding: 0 2rem 0 0;
+    }
+  }
+
   .bottom-footer > div {
     height: 100%;
   }
@@ -124,6 +137,7 @@ const StyledSection = styled.section`
     justify-content: space-between;
     align-items: flex-start;
     height: 90%;
+    flex: 1;
   }
   .icons-1 {
     margin-right: 1rem;
@@ -136,6 +150,7 @@ const StyledSection = styled.section`
   ul {
     list-style-type: none;
     font-weight: 300;
+    font-size: 14px;
   }
   .title {
     color: grey;
