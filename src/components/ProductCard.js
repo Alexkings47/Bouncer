@@ -55,7 +55,7 @@ const StyledDiv = styled.div`
   border-radius: 3px;
   border: 2px solid rgb(246, 247, 248);
   position: relative;
-  height: 270px;
+  min-height: 300px;
 
   .popup {
     display: none;

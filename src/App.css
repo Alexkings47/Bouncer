@@ -10,11 +10,17 @@
 .partial-width {
   grid-column: 2/5;
 }
-@media(max-width:700px){
-  .partial-width{
+@media (max-width: 1000px) {
+  .partial-width {
+    grid-column: 1/-1;
+    padding: 0 6rem;
+  }
+}
+@media (max-width: 700px) {
+  .partial-width {
     grid-column: 1/ -1;
-   padding: 3rem;
-}  
+    padding: 0 3rem;
+  }
 }
 * {
   margin: 0;

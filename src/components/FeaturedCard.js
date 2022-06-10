@@ -32,7 +32,7 @@ export default FeaturedCard;
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
-
+ 
   img {
     width: 35%;
   }

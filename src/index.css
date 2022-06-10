@@ -21,5 +21,7 @@ code {
 @font-face{
 font-family: 'proxima sans';
 src:url(./fonts/Proxima.otf);
+
+font-weight: 400;
 }
 

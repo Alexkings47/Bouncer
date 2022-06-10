@@ -16,8 +16,8 @@ const OffersItem = ({title, imgUrl}) => {
 
 export default OffersItem;
 const StyledDiv = styled.div`
-width: 8rem;
-height: 7rem;
+min-width: 8rem;
+min-height: 7rem;
 display:flex;
 flex-direction: column;
 justify-content: space-between;
@@ -26,7 +26,6 @@ text-align: center;
 
 img{
     width:2rem;
-    /* height: 3.5rem; */
-    /* object-fit: cover; */
 }
+
 `;

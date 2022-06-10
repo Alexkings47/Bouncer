@@ -1,44 +1,41 @@
 import React from "react";
 import styled from "styled-components";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+// import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { CarouselImage } from "./Data";
 import Button from "./Button";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
 const DemoCarousel = () => {
-  const [slide, setSlide] = React.useState(0);
-
-  function prev() {
-    if (slide === 0) {
-      return;
-    } else {
-      setSlide(slide - 1);
-    }
-  }
-
-  function next() {
-    if (slide + 1 >= CarouselImage.length) {
-      return;
-    } else {
-      setSlide(slide + 1);
-    }
-  }
 
   return (
     <StyledDiv className="full-width">
       <Carousel
         showArrows={false}
         showThumbs={false}
-        // onChange={onChange}
-        // onClickItem={onClickItem}
-        // onClickThumb={onClickThumb}
+        stopOnHover={true}
+        autoPlay={true}
+        showStatus={false}
+        renderArrowNext={(clickHandler, hasNext, label) => {
+          return (
+            <button className="iconNext" onClick={clickHandler}>
+              {/* <IoIosArrowBack /> */}
+              next
+            </button>
+          );
+        }}
+        renderArrowPrev={(clickHandler, hasPrev, label) => {
+          return (
+            <button className="iconPrev" onClick={clickHandler}>
+              {/* <IoIosArrowForward /> */}
+              back
+            </button>
+          );
+        }}
       >
         <div className="carouselContent">
           <div className="content">
-            <button className="icon" onClick={prev}>
-              <IoIosArrowBack />
-            </button>
+            
             <div className="info">
               <h2>{CarouselImage[0].name}</h2>
               <p>{CarouselImage[0].desc}</p>
@@ -50,16 +47,11 @@ const DemoCarousel = () => {
               src={require(`../images/${CarouselImage[0].imgUrl}`)}
               alt="carousel"
             />
-            <button className="icon" onClick={next}>
-              <IoIosArrowForward />
-            </button>
+            
           </div>
         </div>
         <div className="carouselContent">
           <div className="content">
-            <button className="icon" onClick={prev}>
-              <IoIosArrowBack />
-            </button>
             <div className="info">
               <h2>{CarouselImage[1].name}</h2>
               <p>{CarouselImage[1].desc}</p>
@@ -71,9 +63,7 @@ const DemoCarousel = () => {
               src={require(`../images/${CarouselImage[1].imgUrl}`)}
               alt="carousel"
             />
-            <button className="icon" onClick={next}>
-              <IoIosArrowForward />
-            </button>
+           
           </div>
         </div>
       </Carousel>
@@ -93,14 +83,14 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+    width: 100%;
+    padding: 0 18rem;
   }
-  @media (max-width: 800px) {
-    padding: 2rem 5rem;
-  .carouselContent {
-    width: 90%;
-  }
-
+  @media (max-width: 1300px) {
+    .carouselContent {
+      width: 90%;
+      padding: 2rem 5rem;
+    }
   }
 
   .carouselButton {
@@ -124,11 +114,16 @@ const StyledDiv = styled.div`
     height: 25rem;
     margin-top: 3.5rem;
   }
-  .icon {
+  .iconNext,
+  .iconPrev {
     margin-right: 1rem;
     font-size: 1.2rem;
     background: none;
     border: none;
+  }
+  .iconNext{
+position: absolute;
+right: 4rem;
   }
 
   button > *:hover {

@@ -30,6 +30,7 @@ const LatestNews = () => {
 export default LatestNews;
 const StyledDiv = styled.div`
   margin:2rem 0 4rem;
+  
 
   .featured {
     display: grid;

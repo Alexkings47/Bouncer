@@ -39,7 +39,7 @@ const Bestseller = () => {
 export default Bestseller;
 
 const StyledSecion = styled.section`
-  padding: 1rem;
+  padding-block: 1rem;
 
   .content {
     display: grid;

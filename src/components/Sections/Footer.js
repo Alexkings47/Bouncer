@@ -117,7 +117,7 @@ const StyledSection = styled.section`
   @media (max-width: 1100px) {
     .top-footer,
     .bottom-footer {
-      height: 12rem;
+      height: 11rem;
     }
   }
   @media (max-width: 900px) {
