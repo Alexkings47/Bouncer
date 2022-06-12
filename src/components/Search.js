@@ -1,39 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchBar = () => {
+const SearchInput = ({buttonVal,chosenClass,inputVal }) => {
   return (
-    <StyledSection className="full-width">
-      <div>
-        <input placeholder="Search query ..." />
-        <button className="search">search</button>
-      </div>
-    </StyledSection>
+    <StyledDiv id="search" className={`full-width ${chosenClass}`}>
+      <input placeholder={inputVal}/>
+      <button className="search">{buttonVal}</button>
+    </StyledDiv>
   );
+  
 };
 
-export default SearchBar;
+export default SearchInput;
 
-const StyledSection = styled.section`
-  height: 5rem;
-  padding: 1rem;
-  margin-bottom: 2rem;
-
-  div {
+const StyledDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-  }
-
+    width: 21rem;
+  
   input {
     height: 2.5rem;
-    width: 16rem;
+    width: 76%;
     text-indent: 1rem;
     border: 1px solid #ebf3f7;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-
 
     ::placeholder {
       color: grey;
@@ -44,7 +37,7 @@ const StyledSection = styled.section`
     border: none;
     background-color: #31a6e0;
     height: 2.5rem;
-    width: 5rem;
+    width: 24%;
     color: white;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;

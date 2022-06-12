@@ -39,7 +39,7 @@ const Footer = () => {
             <h3>Information</h3>
             <li>About Us</li>
             <li>Information</li>
-            <li>Privacy</li>
+            <li>Privacy Policy</li>
             <li>Terms & Conditions</li>
           </ul>
         </div>
@@ -49,7 +49,7 @@ const Footer = () => {
             <h3>Services</h3>
             <li>About Us</li>
             <li>Information</li>
-            <li>Privacy</li>
+            <li>Privacy Policy</li>
             <li>Terms & Conditions</li>
           </ul>
         </div>
@@ -59,7 +59,7 @@ const Footer = () => {
             <h3>Extras</h3>
             <li>About Us</li>
             <li>Information</li>
-            <li>Privacy</li>
+            <li>Privacy Policy</li>
             <li>Terms & Conditions</li>
           </ul>
         </div>
@@ -69,7 +69,7 @@ const Footer = () => {
             <h3>My Account</h3>
             <li>About Us</li>
             <li>Information</li>
-            <li>Privacy</li>
+            <li>Privacy Policy</li>
             <li>Terms & Conditions</li>
           </ul>
         </div>
@@ -79,7 +79,7 @@ const Footer = () => {
             <h3>Useful Links</h3>
             <li>About Us</li>
             <li>Information</li>
-            <li>Privacy</li>
+            <li>Privacy Policy</li>
             <li>Terms & Conditions</li>
           </ul>
         </div>

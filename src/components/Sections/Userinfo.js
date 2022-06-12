@@ -27,15 +27,15 @@ const Userinfo = () => {
         </div>
       </div>
       <div className="user-right">
-        <div className="userData">
+        <a href="/profile" className="userData">
           <AiOutlineUser className="icon white" /> <span>My Profile</span>
-        </div>
-        <div className="userData">
+        </a>
+        <a className="userData" href="/checkout">
           <TiShoppingCart className="icon" /> <span>items</span>
-        </div>
-        <div className="userData search">
+        </a>
+        <a href="#searchBar" className="userData search">
           <AiOutlineSearch className="icon" />
-        </div>
+        </a>
       </div>
     </StyledDiv>
   );
@@ -61,7 +61,12 @@ const StyledDiv = styled.div`
     width: 100%;
     justify-content: center;
   }
-
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 200;
+  }
   .userData {
     display: flex;
     justify-content: space-between;
@@ -99,6 +104,9 @@ const StyledDiv = styled.div`
   .icon {
     font-size: 16px;
     margin-right: 5px;
+  }
+  .icon:hover {
+    transform: scale(1.1);
   }
   .full-width {
     grid-column: 1/ -1;

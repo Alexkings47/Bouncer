@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineHeart } from "react-icons/ai";
 import { TiShoppingCart } from "react-icons/ti";
 import Star from "./Star";
+// import Cart from "./Sections/Cart";
 
 const ProductCard = ({ imgUrl, price, title }) => {
   const [oldPrice, setOldPrice] = React.useState(0);
 
   React.useEffect(() => setOldPrice(parseInt(price) + 100), [price]);
 
+  const [cartArr, setCartArr] = useState([]);
+
   function flip() {}
-  function cart() {}
+  function cartEdit() {
+    setCartArr((prevCartArr) => {
+      prevCartArr.push({ title: title, imgUrl: imgUrl, price: price });
+    });
+  }
   function like() {}
 
   return (
@@ -34,7 +41,7 @@ const ProductCard = ({ imgUrl, price, title }) => {
           {" "}
           <AiOutlineHeart />
         </button>
-        <button className="product-icon" onClick={cart}>
+        <button className="product-icon" onClick={cartEdit}>
           <TiShoppingCart />
         </button>
       </div>
@@ -101,7 +108,7 @@ const StyledDiv = styled.div`
     width: 35%;
     font-size: 12px;
   }
- p {
+  p {
     font-weight: 400;
     font-size: 13px;
   }

@@ -3,11 +3,11 @@ import styled from "styled-components";
 import useOutsideAlerter from "../OutsideAlerter";
 
 const Navbar = () => {
-
-    const {ref, isComponentVisible, setIsComponentVisible} = useOutsideAlerter(false);
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useOutsideAlerter(false);
   const Links = ["Home", "Store", "IpHONE", "IPAD", "MACBOOK", "ACCESORIES"];
 
-  const NewLinks = Links.map((link,index)=>{
+  const NewLinks = Links.map((link, index) => {
     return (
       <li
         ref={ref}
@@ -17,16 +17,11 @@ const Navbar = () => {
         {link}
       </li>
     );
-  }
-
-  )
+  });
   return (
-    <StyledNav  isComponentVisible={isComponentVisible}>
+    <StyledNav isComponentVisible={isComponentVisible}>
       <h2>Bouncer</h2>
-      <ul className="nav-parent">
-        {NewLinks}
-      
-      </ul>
+      <ul className="nav-parent">{NewLinks}</ul>
       <div className="nav-menu">
         <div>
           <h3>Category</h3>
@@ -87,17 +82,19 @@ const StyledNav = styled.nav`
 
   .nav-menu {
     display: ${(props) => (props.isComponentVisible ? "grid" : "none")};
-    grid-template-columns: 2fr 2fr 1fr;
-    grid-gap: 35px;
-    width: 800px;
-    padding: 1rem 3rem 1rem 1rem;
+    grid-template-columns: minmax(min-content, 2fr) minmax(min-content, 2fr) minmax(
+        min-content,
+        1fr
+      );
+    grid-gap: 30px;
+    min-width: 70vw;
+    padding: 1rem;
     background-color: white;
     text-transform: capitalize;
     border-radius: 3.5px;
     margin-top: 1rem;
-
-    div {
-    }
+    z-index: 3;
+    
 
     ul {
       display: flex;
@@ -113,10 +110,14 @@ const StyledNav = styled.nav`
       padding-top: 20px;
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     .nav-menu {
-      width: 650px;
+      grid-template-columns:1fr 1fr;
+    
+    ul{
+      height: auto;
     }
+  }
   }
   .nav-parent {
     display: flex;

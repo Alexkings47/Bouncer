@@ -9,13 +9,38 @@ import Advertisment from "../components/Sections/Advertisment";
 import OurOffers from "../components/Sections/OurOffers";
 import LatestNews from "../components/Sections/LatestNews";
 import Featured from "../components/Sections/Featured";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/Sections/SearchBar";
 import Footer from "../components/Sections/Footer";
 import Copyright from "../components/Sections/Copyright";
+import Newsletter from "../components/Newsletter";
 
 const Home = () => {
+  const [popup, setPopup] = React.useState(false);
+
+  React.useEffect(() => {
+    const timer = setTimeout(function () {
+      setPopup(true);
+    }, 5000);
+   return clearTimeout(timer)
+  }, []);
+
+    // const timer = setTimeout(function () {
+    //   setPopup(true);
+    // }, 5000);
+  
+  function close() {
+    setPopup(false);
+    // clearTimeout(timer)
+  }
+
   return (
-    <StyledDiv>
+    <StyledDiv popup={popup}>
+      {popup && (
+        <div className="popBackground">
+          {" "}
+          <Newsletter close={close} />
+        </div>
+      )}
       <Userinfo classname={"partial-width"} />
       <Navbar classname={"partial-width"} />
       <DemoCarousel />
@@ -38,8 +63,15 @@ const StyledDiv = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(auto-fill, max-content);
 
+  .popBackground {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    backdrop-filter: blur(1px);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
   @media (max-width: 1100px) {
     /* justify-content: center;/ */
   }
-  
 `;
