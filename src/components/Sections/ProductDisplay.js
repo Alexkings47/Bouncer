@@ -4,10 +4,11 @@ import ProductCard from "../ProductCard";
 import { Data } from "../Data";
 import Button from "../Button";
 
+
 const ProductDisplay = () => {
   const NewProducts = Data.map((item, index) => {
     return (
-      <ProductCard title={item.title} key={index} price={item.price} imgUrl={item.imgUrl} />
+      <ProductCard title={item.title} key={index} id={index} price={item.price} imgUrl={item.imgUrl} />
     );
   });
   return (

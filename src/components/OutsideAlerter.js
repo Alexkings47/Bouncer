@@ -13,7 +13,7 @@ export default function useOutsideAlerter(inintialIsVisible) {
    */
   function handleClickOutside(event) {
     if (ref.current && !ref.current.contains(event.target)) {
-      console.log(false);
+      // console.log(false);
       setIsComponentVisible(false);
     }
   }
@@ -21,11 +21,11 @@ export default function useOutsideAlerter(inintialIsVisible) {
   useEffect(() => {
     // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside, true);
-    console.log(true);
+    // console.log(true);
     return () => {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside, true);
-      console.log(true);
+      // console.log(true);
     };
   });
 

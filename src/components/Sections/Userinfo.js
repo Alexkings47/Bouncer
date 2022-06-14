@@ -1,10 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import styled from "styled-components";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoMdArrowDropdown } from "react-icons/io";
+import {useSelector} from "react-redux"
+import {Link} from "react-router-dom"
+
 
 const Userinfo = () => {
+const cartArr = useSelector((state) => state.cart.cartArr);
+
   return (
     <StyledDiv>
       <div>
@@ -27,15 +32,15 @@ const Userinfo = () => {
         </div>
       </div>
       <div className="user-right">
-        <a href="/profile" className="userData">
+        <Link to="/profile" className="userData">
           <AiOutlineUser className="icon white" /> <span>My Profile</span>
-        </a>
-        <a className="userData" href="/checkout">
-          <TiShoppingCart className="icon" /> <span>items</span>
-        </a>
-        <a href="#searchBar" className="userData search">
+        </Link>
+        <Link className="userData" to="/checkout">
+          <TiShoppingCart className="icon" /> <span>{cartArr.length} items</span>
+        </Link>
+        <Link to="#searchBar" className="userData search">
           <AiOutlineSearch className="icon" />
-        </a>
+        </Link>
       </div>
     </StyledDiv>
   );
@@ -72,6 +77,7 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+  
 
   .user-right > * {
     margin-right: 20px;

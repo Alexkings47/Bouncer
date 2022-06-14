@@ -47,6 +47,10 @@ const StyledSecion = styled.section`
     grid-template-rows: 1fr;
     margin-bottom: 0.5rem;
   }
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
   h2 {
     text-align: center;
   }
@@ -66,7 +70,6 @@ const StyledSecion = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
 
     .info {
       flex-direction: row;

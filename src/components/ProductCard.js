@@ -3,20 +3,21 @@ import styled from "styled-components";
 import { AiOutlineHeart } from "react-icons/ai";
 import { TiShoppingCart } from "react-icons/ti";
 import Star from "./Star";
-// import Cart from "./Sections/Cart";
+import { increment, decrement } from "../features/CartSlice";
+import { useSelector, useDispatch } from "react-redux";
 
-const ProductCard = ({ imgUrl, price, title }) => {
+const ProductCard = ({ imgUrl, price, title, id }) => {
   const [oldPrice, setOldPrice] = React.useState(0);
-
   React.useEffect(() => setOldPrice(parseInt(price) + 100), [price]);
 
-  const [cartArr, setCartArr] = useState([]);
+  const cartArr = useSelector((state) => state.cart.cartArr);
+  const dispatch = useDispatch();
 
   function flip() {}
   function cartEdit() {
-    setCartArr((prevCartArr) => {
-      prevCartArr.push({ title: title, imgUrl: imgUrl, price: price });
-    });
+    // setCartArr((prevCartArr) => {
+    //   prevCartArr.push();
+    // });
   }
   function like() {}
 
@@ -38,10 +39,10 @@ const ProductCard = ({ imgUrl, price, title }) => {
       </div>
       <div className="popup">
         <button className="product-icon" onClick={like}>
-          {" "}
+          {" "}  
           <AiOutlineHeart />
         </button>
-        <button className="product-icon" onClick={cartEdit}>
+        <button className="product-icon" onClick={() => dispatch(increment(id))}>
           <TiShoppingCart />
         </button>
       </div>
@@ -80,10 +81,11 @@ const StyledDiv = styled.div`
     border-radius: 50%;
     border: 2px solid #9acbf5;
   }
+  .product-icon:active{
+  transform:scale(1.1) ;
+  }
   .product-icon > * {
-    width: 2.5rem;
-    height: 1.2rem;
-    padding: 0;
+    font-size: 18px;
     display: block;
     margin: 0 auto;
   }

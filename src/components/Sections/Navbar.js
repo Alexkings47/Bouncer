@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import useOutsideAlerter from "../OutsideAlerter";
+import {Link} from "react-router-dom"
 
 const Navbar = () => {
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -9,6 +10,7 @@ const Navbar = () => {
 
   const NewLinks = Links.map((link, index) => {
     return (
+     
       <li
         ref={ref}
         key={index}

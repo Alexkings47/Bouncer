@@ -10,9 +10,9 @@ const Checkout = () => {
     <div>
       <Userinfo classname={"partial-width"} />
       <Navbar classname={"partial-width"} />
-      <Cart />
-      <Footer />
-      <Copyright />
+      <Cart classname={"partial-width"} />
+      <Footer classname={"partial-width"} />
+      <Copyright classname={"partial-width"} />
     </div>
   );
 };
