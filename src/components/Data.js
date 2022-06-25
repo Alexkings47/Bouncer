@@ -1,10 +1,18 @@
 export const Data = [
+  {
+    title: "Philips Hue 7W BR30 Connected Downlight Lamp ",
+    price: 499,
+    imgUrl: "headset.png",
+  },
+  { title: "guage", price: 499, imgUrl: "guage.png" },
   { title: "Apple Macbook Pro", price: 499, imgUrl: "laptop.png" },
+  { title: "guage", price: 499, imgUrl: "guage.png" },
   { title: "Apple Macbook Pro", price: 499, imgUrl: "laptop.png" },
-  { title: "Apple Macbook Pro", price: 499, imgUrl: "laptop.png" },
-  { title: "Apple Macbook Pro", price: 499, imgUrl: "laptop.png" },
-  { title: "Apple Macbook Pro", price: 499, imgUrl: "laptop.png" },
-  { title: "Apple Macbook Pro", price: 499, imgUrl: "laptop.png" },
+  {
+    title: "Philips Hue 7W BR30 Connected Downlight Lamp ",
+    price: 499,
+    imgUrl: "headset.png",
+  },
   { title: "Apple Macbook Pro", price: 499, imgUrl: "laptop.png" },
   { title: "Apple Macbook Pro", price: 499, imgUrl: "laptop.png" },
 ];

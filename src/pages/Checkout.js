@@ -4,17 +4,23 @@ import Navbar from "../components/Sections/Navbar";
 import Footer from "../components/Sections/Footer";
 import Copyright from "../components/Sections/Copyright";
 import Cart from "../components/Sections/Cart";
+import styled from "styled-components";
 
 const Checkout = () => {
   return (
-    <div>
-      <Userinfo classname={"partial-width"} />
-      <Navbar classname={"partial-width"} />
-      <Cart classname={"partial-width"} />
-      <Footer classname={"partial-width"} />
-      <Copyright classname={"partial-width"} />
-    </div>
+    <StyledMain>
+      <Userinfo  />
+      <Navbar  />
+      <Cart  />
+      <Footer  />
+      <Copyright  />
+    </StyledMain>
   );
 };
 
 export default Checkout;
+const StyledMain = styled.main`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(auto-fill, max-content);
+`;

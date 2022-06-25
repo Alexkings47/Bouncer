@@ -3,11 +3,17 @@ import styled from "styled-components";
 import SearchInput from "../Search";
 import CartCard from "../CartCard";
 import { useSelector } from "react-redux";
+import Button from "../Button";
 
 const Cart = () => {
   const [cartArr, setCartArr] = useState(
     useSelector((state) => state.cart.cartArr)
   );
+  const [total, setTotal] = useState({
+    subtotal: "",
+    shipping: "$20",
+    coupon: false,
+  });
 
   useEffect(() => {
     cartArr.length > 0 &&
@@ -35,16 +41,31 @@ const Cart = () => {
     <StyledSection className="partial-width">
       <div className="checkout-heading">
         <h3>product</h3>
-        {/* <div className="right-end"> */}
         <h3>Price</h3>
         <h3>Quantity</h3>
         <h3>Unit Price</h3>
-        {/* </div> */}
       </div>
       <div className="cart-cards">{CartCards}</div>
       <div className="checkout-sections">
-        <SearchInput buttonVal={"Redeem"} inputVal={"Voucher code"} />
-        <div className="right-end"></div>
+        <SearchInput
+          buttonVal={"Redeem"}
+          inputVal={"Voucher code"}
+          chosenClass={"voucher"}
+        />
+        <div className="right">
+          <p>
+            <span> Subtotal </span>
+            <span>{total.subtotal}</span>
+          </p>
+          <p>
+            <span> Shipping fee</span> <span>{total.shipping}</span>
+          </p>
+          <p>
+            Coupon <span>{!total.coupon ? "No" : ""}</span>
+          </p>
+          <p className="total">TOTAL {}</p>
+          <Button value={"Check out"} classChosen={"check-out"} />
+        </div>
       </div>
     </StyledSection>
   );
@@ -53,7 +74,6 @@ const Cart = () => {
 export default Cart;
 const StyledSection = styled.section`
   padding-top: 4rem;
-  grid-column: 2/5;
   text-transform: capitalize;
   min-height: 60vh;
   display: flex;
@@ -61,25 +81,51 @@ const StyledSection = styled.section`
   align-items: center;
   justify-content: flex-start;
 
+  & > * {
+    width: 90%;
+  }
+  .voucher {
+    width: 15rem;
+    margin: 0;
+  }
   .cart-cards {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    border: 1px solid red;
   }
   .checkout-heading {
-    width: 90%;
     display: grid;
     justify-content: space-between;
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-columns: 3.37fr 1fr 1fr 1fr;
     justify-items: start;
   }
-
-  .right-end {
+  .checkout-sections {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 40%;
+    height: 10rem;
+    margin-top: 1rem;
+    align-items: flex-start;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 30%;
+    min-height: 8rem;
+   
+  }
+  .right > p {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .check-out {
+    background-color: #31a6e0;
+    text-decoration: none;
+    text-transform: capitalize;
+    width: 95%;
   }
   .checkout-heading h3 {
     font-weight: 500;

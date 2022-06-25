@@ -46,11 +46,13 @@ const StyledSecion = styled.section`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     margin-bottom: 0.5rem;
+
+    @media (max-width: 800px) {
+      grid-template-columns: minmax(250px, );
+      grid-template-rows: repeat(3, 1fr);
+    }
   }
-  @media (max-width: 800px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-  }
+
   h2 {
     text-align: center;
   }

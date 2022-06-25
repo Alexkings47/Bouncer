@@ -64,6 +64,7 @@ const StyledDiv = styled.div`
   border: 2px solid rgb(246, 247, 248);
   position: relative;
   min-height: 300px;
+  text-align: center;
 
   .popup {
     display: none;

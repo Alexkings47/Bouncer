@@ -36,10 +36,12 @@ const StyledDiv = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-columns: 3.3fr 1fr 1fr 1fr;
   justify-items: start;
+  border-bottom: 1px solid #ebf3f7;
+  padding: 10px 0;
 
-  .product{
+  .product {
     display: flex;
     align-items: center;
     justify-content: space-between;

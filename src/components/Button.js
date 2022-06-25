@@ -14,7 +14,9 @@ const StyledButton = styled.button`
   padding: 0 0 3px 0;
   display: block;
 
-  &:hover{
-      transform: scale(1.1);
+  &:hover,
+  &:active {
+    transform: scale(1.1);
   }
+   
 `;
