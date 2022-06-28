@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-// import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { CarouselImage } from "./Data";
 import Button from "./Button";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
 const DemoCarousel = () => {
-
   return (
     <StyledDiv className="full-width">
       <Carousel
@@ -16,26 +15,25 @@ const DemoCarousel = () => {
         stopOnHover={true}
         autoPlay={true}
         showStatus={false}
-        renderArrowNext={(clickHandler, hasNext, label) => {
+        renderArrowPrev={(previous, hasPrev, prev) => {
+          console.log("WAS CLICKED", hasPrev, prev);
           return (
-            <button className="iconNext" onClick={clickHandler}>
-              {/* <IoIosArrowBack /> */}
-              next
+            <button className="iconPrev" onClick={previous}>
+              <IoIosArrowBack />
             </button>
           );
         }}
-        renderArrowPrev={(clickHandler, hasPrev, label) => {
+        renderArrowNext={(nextFunc, hasNext, next) => {
+          console.log("WAS CLICKED", hasNext, next);
           return (
-            <button className="iconPrev" onClick={clickHandler}>
-              {/* <IoIosArrowForward /> */}
-              back
+            <button className="iconNext" onClick={nextFunc}>
+              <IoIosArrowForward />
             </button>
           );
         }}
       >
         <div className="carouselContent">
           <div className="content">
-            
             <div className="info">
               <h2>{CarouselImage[0].name}</h2>
               <p>{CarouselImage[0].desc}</p>
@@ -47,7 +45,6 @@ const DemoCarousel = () => {
               src={require(`../images/${CarouselImage[0].imgUrl}`)}
               alt="carousel"
             />
-            
           </div>
         </div>
         <div className="carouselContent">
@@ -63,7 +60,6 @@ const DemoCarousel = () => {
               src={require(`../images/${CarouselImage[1].imgUrl}`)}
               alt="carousel"
             />
-           
           </div>
         </div>
       </Carousel>
@@ -116,19 +112,36 @@ const StyledDiv = styled.div`
   }
   .iconNext,
   .iconPrev {
-    margin-right: 1rem;
-    font-size: 1.2rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    width: 5rem;
+    height: 5rem;
     background: none;
     border: none;
+    color: white;
+    z-index: 999999999;
+    text-align: center;
+
   }
-  .iconNext{
-position: absolute;
-right: 4rem;
+  .iconNext {
+    position: absolute;
+    right: 4rem;
+    top: 40%;
+    transform: translate(-50%);
   }
 
-  button > *:hover {
+  .iconPrev {
+    position: absolute;
+    left: 4rem;
+    top: 40%;
+    transform: translate(-50%);
+  }
+
+  .iconNext:hover,
+  .iconPrev:hover {
     transform: scale(1.2);
   }
+
   @keyframes transit {
     from {
       /* display: none; */

@@ -3,14 +3,13 @@ import styled from "styled-components";
 import { AiOutlineHeart } from "react-icons/ai";
 import { TiShoppingCart } from "react-icons/ti";
 import Star from "./Star";
-import { increment, decrement } from "../features/CartSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { increment } from "../features/CartSlice";
+import {  useDispatch } from "react-redux";
 
 const ProductCard = ({ imgUrl, price, title, id }) => {
   const [oldPrice, setOldPrice] = React.useState(0);
   React.useEffect(() => setOldPrice(parseInt(price) + 100), [price]);
 
-  const cartArr = useSelector((state) => state.cart.cartArr);
   const dispatch = useDispatch();
 
   function flip() {}

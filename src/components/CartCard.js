@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
-import Counter from "./Counter";
-import { decrement } from "../features/CartSlice";
-import { useDispatch } from "react-redux";
+import { decrement, increase } from "../features/CartSlice";
+import { useDispatch,  } from "react-redux";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+
+const CartCard = ({ imgUrl, title, price, id, count }) => {
+  const dispatch = useDispatch();
+  // const { cartArr, totalAmount } = useSelector((state) => state.cart);
+  
 
 
-const CartCard = ({ imgUrl, title, price, id }) => {
-   const dispatch = useDispatch(); 
-  const [totalPrice, setTotalPrice] = useState(price * 3);
+
+
   return (
     <StyledDiv>
       <div className="product">
@@ -22,9 +26,17 @@ const CartCard = ({ imgUrl, title, price, id }) => {
         <img src={require(`../images/${imgUrl}`)} alt={title} />
         <p className="title">{title}</p>
       </div>
-
-      <p>{totalPrice}</p>
-      <Counter />
+      <p>{price * count}</p>
+      <div className="product-counter">
+        {/* onClick={(count) => reduce(count)} */}
+        <button className="control__btn" onClick={ ()=> dispatch(increase(id))}>
+          <AiOutlineMinus />
+        </button>
+        <p>{count}</p>
+        <button className="control__btn" onClick={""}>
+          <AiOutlinePlus />
+        </button>
+      </div>
       <p>{price}</p>
     </StyledDiv>
   );
@@ -50,7 +62,29 @@ const StyledDiv = styled.div`
     width: 10rem;
   }
   p {
+    font-size: 14px;
   }
   .title {
+    font-size: 14px;
+  }
+  .product-counter {
+    min-width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 3px;
+    font-size: 12px;
+    /* border: 1px solid black; */
+    background-color: rgba(230, 230, 230, 0.7);
+    /* filter: blur(2px); */
+    padding: 6px 5px;
+
+    button {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #33a0ff;
+    }
   }
 `;

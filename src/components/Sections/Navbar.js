@@ -1,23 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 import useOutsideAlerter from "../OutsideAlerter";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useOutsideAlerter(false);
-  const Links = ["Home", "Store", "IpHONE", "IPAD", "MACBOOK", "ACCESORIES"];
+  const Links = [
+    { name: "Home", path: "/" },
+    { name: "Store", path: "" },
+    { name: "IpHONE", path: "" },
+    { name: "IPAD", path: "" },
+    { name: "MACBOOK", path: "" },
+    { name: "ACCESORIES", path: "" },
+  ];
 
   const NewLinks = Links.map((link, index) => {
     return (
-     
-      <li
-        ref={ref}
-        key={index}
-        onClick={() => setIsComponentVisible(!isComponentVisible)}
-      >
-        {link}
-      </li>
+      <Link to={link.path}>
+        <li
+          ref={ref}
+          key={index}
+          onClick={() => setIsComponentVisible(!isComponentVisible)}
+        >
+          {link.name}
+        </li>
+      </Link>
     );
   });
   return (
@@ -96,7 +104,6 @@ const StyledNav = styled.nav`
     border-radius: 3.5px;
     margin-top: 1rem;
     z-index: 3;
-    
 
     ul {
       display: flex;
@@ -114,12 +121,12 @@ const StyledNav = styled.nav`
   }
   @media (max-width: 900px) {
     .nav-menu {
-      grid-template-columns:1fr 1fr;
-    
-    ul{
-      height: auto;
+      grid-template-columns: 1fr 1fr;
+
+      ul {
+        height: auto;
+      }
     }
-  }
   }
   .nav-parent {
     display: flex;
@@ -133,8 +140,11 @@ const StyledNav = styled.nav`
   .nav-menu:hover {
     display: grid;
   }
-
-  li {
+  a {
+    color:black;
+    text-decoration: none;
+  }
+  li, a {
     font-size: 13px;
     font-family: "proxima sans";
 

@@ -5,25 +5,18 @@ import CartCard from "../CartCard";
 import { useSelector } from "react-redux";
 import Button from "../Button";
 
+
 const Cart = () => {
-  const [cartArr, setCartArr] = useState(
-    useSelector((state) => state.cart.cartArr)
-  );
+  const {cartArr, totalAmount} = useSelector((state) => state.cart)
+  
   const [total, setTotal] = useState({
     subtotal: "",
     shipping: "$20",
     coupon: false,
   });
 
-  useEffect(() => {
-    cartArr.length > 0 &&
-      localStorage.setItem("CartArr", JSON.stringify(cartArr));
-  }, [cartArr]);
+    // console.log(newCartArr)
 
-  useEffect(() => {
-    setCartArr(JSON.parse(localStorage.getItem("CartArr")));
-  }, []);
-  console.log(cartArr);
 
   const CartCards = cartArr.map((cartItem, index) => {
     return (
@@ -32,7 +25,8 @@ const Cart = () => {
         title={cartItem.title}
         price={cartItem.price}
         key={index}
-        id={index}
+        id={cartItem.id}
+        count={cartItem.count}
       />
     );
   });
@@ -126,6 +120,7 @@ const StyledSection = styled.section`
     text-decoration: none;
     text-transform: capitalize;
     width: 95%;
+    padding: 10px;
   }
   .checkout-heading h3 {
     font-weight: 500;

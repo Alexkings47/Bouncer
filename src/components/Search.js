@@ -12,7 +12,6 @@ const SearchInput = ({buttonVal,chosenClass,inputVal }) => {
 };
 
 export default SearchInput;
-
 const StyledDiv = styled.div`
     display: flex;
     align-items: center;

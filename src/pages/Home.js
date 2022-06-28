@@ -21,13 +21,13 @@ const Home = () => {
     const timer = setTimeout(function () {
       setPopup(true);
     }, 5000);
-   return clearTimeout(timer)
+    return clearTimeout(timer);
   }, []);
 
-    // const timer = setTimeout(function () {
-    //   setPopup(true);
-    // }, 5000);
-  
+  // const timer = setTimeout(function () {
+  //   setPopup(true);
+  // }, 5000);
+
   function close() {
     setPopup(false);
     // clearTimeout(timer)
