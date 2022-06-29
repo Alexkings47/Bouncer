@@ -3,9 +3,7 @@ import styled from "styled-components";
 import Button from "../Button";
 
 const Advertisment = () => {
-  // Automatically change advertised elements
-  //   function next(){fetch()}
-  // setInterval(next(), "10000s")
+ 
 
   return (
     <StyledDiv className="full-width">
@@ -31,6 +29,7 @@ const StyledDiv = styled.div`
   justify-content: space-around;
   background-color: #2e90e5;
   overflow: hidden;
+  min-height: 45vh;
   font-family: "Proxima Nova Extra Condensed Light";
 
   @media (max-width: 900px) {

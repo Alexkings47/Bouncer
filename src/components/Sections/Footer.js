@@ -113,6 +113,7 @@ const StyledSection = styled.section`
   }
   .top-footer > div {
     padding: 0 5rem 0 0;
+    min-height:8rem;
   }
   @media (max-width: 1100px) {
     .top-footer,
@@ -121,7 +122,6 @@ const StyledSection = styled.section`
     }
   }
   @media (max-width: 900px) {
-  
     .top-footer > div {
       padding: 0 2rem 0 0;
     }
@@ -149,6 +149,10 @@ const StyledSection = styled.section`
   }
   ul {
     list-style-type: none;
+    font-weight: 300;
+    font-size: 14px;
+  }
+  p {
     font-weight: 300;
     font-size: 14px;
   }

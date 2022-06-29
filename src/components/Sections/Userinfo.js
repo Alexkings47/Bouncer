@@ -53,7 +53,7 @@ const StyledDiv = styled.div`
   width: 100%;
   justify-content: space-around;
   height: 2rem;
-  border-bottom: 1px solid #7c7c7c;
+  border-bottom: 1px solid rgba(50,168,168, 0.5);
   text-transform: capitalize;
   font-size: 13.5px;
   font-weight: 500;
@@ -77,7 +77,6 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-  
 
   .user-right > * {
     margin-right: 20px;

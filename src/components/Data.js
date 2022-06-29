@@ -19,7 +19,7 @@ export const Data = [
     count:1,id:6, imgUrl: "headset.png",
     
   },
-  { title: "Apple Macbook Pro", price: 499, count:1,id:7, imgUrl: "laptop.png" },
+  { title: "Rexon Drone", price: 799, count:1,id:7, imgUrl: "drone.jpg" },
   
   { title: "Apple Macbook Pro", price: 499, count:1,id:8, imgUrl: "laptop.png" },
   

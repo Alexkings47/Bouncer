@@ -29,7 +29,7 @@ const LatestNews = () => {
 
 export default LatestNews;
 const StyledDiv = styled.div`
-  margin: 1rem 0 3rem;
+  margin: 1rem 0 4rem;
   /* padding: 1rem 0 3rem; */
 
   .latestCards {

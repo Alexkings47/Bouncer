@@ -56,13 +56,13 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(246, 247, 248, 0.8);
+  background-color: rgba(246, 247, 248, 0.7);
   padding: 1rem 1.2rem;
   cursor: pointer;
   border-radius: 3px;
   border: 2px solid rgb(246, 247, 248);
   position: relative;
-  min-height: 300px;
+  min-height: 280px;
   text-align: center;
 
   .popup {
@@ -72,7 +72,7 @@ const StyledDiv = styled.div`
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    width: 40%;
+    width: 50%;
   }
   .product-icon {
     color: #33a0ff;
@@ -96,7 +96,7 @@ const StyledDiv = styled.div`
     display: flex;
   }
   img {
-    width: 99%;
+    width: 99%;   
   }
   s {
     color: grey;

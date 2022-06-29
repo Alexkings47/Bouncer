@@ -38,9 +38,10 @@ const StyledSection = styled.section`
 
   .grid-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    grid-template-rows: repeat(auto-fill, max-content);
+    grid-template-columns: repeat(auto-fit, 220px);
+    /* grid-template-rows: repeat(auto-fill, max-content); */
     grid-gap: 10px;
+    justify-content: center;
   }
   .displayBtn {
     margin: 2.5rem auto 5rem;

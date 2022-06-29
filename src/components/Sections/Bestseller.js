@@ -45,12 +45,7 @@ const StyledSecion = styled.section`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    margin-bottom: 0.5rem;
-
-    @media (max-width: 800px) {
-      grid-template-columns: minmax(250px, );
-      grid-template-rows: repeat(3, 1fr);
-    }
+    margin-bottom: 1.5rem;
   }
 
   h2 {
@@ -94,6 +89,11 @@ const StyledSecion = styled.section`
       right: -10px;
       width: 7rem;
       height: 60%;
+    }
+  }
+  @media (max-width: 500px) {
+    .content {
+      overflow-x: scroll;
     }
   }
 `;

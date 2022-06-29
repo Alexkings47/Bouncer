@@ -32,4 +32,9 @@ const StyledDiv = styled.div`
     height: 80%;
     float: right;
   }
+
+  @media (max-width: 500px) {
+        width: 15rem;
+        }
+  
 `;
