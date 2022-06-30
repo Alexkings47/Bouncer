@@ -1,5 +1,6 @@
 .App {
-  font-family: "proxima sans";
+ font-family: 'Karla', sans-serif;
+/* font-family: 'Raleway', sans-serif; */
 }
 
 .full-width {
@@ -10,18 +11,7 @@
 .partial-width {
   grid-column: 2/5;
 }
-@media (max-width: 1000px) {
-  .partial-width {
-    grid-column: 1/-1;
-    padding: 0 6rem;
-  }
-}
-@media (max-width: 700px) {
-  .partial-width {
-    grid-column: 1/ -1;
-    padding: 0 3rem;
-  }
-}
+
 * {
   margin: 0;
   padding: 0;
@@ -40,4 +30,24 @@ body {
 
 ul {
   list-style-type: none;
+}
+
+@media (max-width: 1000px) {
+  .partial-width {
+    grid-column: 1/-1;
+    padding: 0 5rem;
+  }
+}
+@media (max-width: 700px) {
+  .partial-width {
+    grid-column: 1/ -1;
+    padding: 0 3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .partial-width {
+    grid-column: 1/ -1;
+    padding: 0 1rem;
+  }
 }

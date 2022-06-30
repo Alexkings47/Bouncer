@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Checkout from "./pages/Checkout";
 import NotFound from "./components/Sections/NotFound";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/details" element={<ProductPage />} />
           <Route path="/not-found" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/not-found" replace />} />
         </Routes>

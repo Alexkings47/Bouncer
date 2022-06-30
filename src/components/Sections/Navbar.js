@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const NewLinks = Links.map((link, index) => {
     return (
-      <Link to={link.path}>
+      <Link to={link.path} key={index}>
         <li
           ref={ref}
           key={index}

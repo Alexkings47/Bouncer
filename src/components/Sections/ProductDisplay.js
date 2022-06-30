@@ -3,16 +3,38 @@ import styled from "styled-components";
 import ProductCard from "../ProductCard";
 import { Data } from "../Data";
 import Button from "../Button";
-
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const ProductDisplay = () => {
+  // const dispatch = useDispatch();
+
   const NewProducts = Data.map((item, index) => {
     return (
-      <ProductCard title={item.title} key={index} id={index} price={item.price} imgUrl={item.imgUrl} />
+      <Link to="/details" key={index}>
+        <ProductCard
+          title={item.title}
+          key={index}
+          id={index}
+          price={item.price}
+          imgUrl={item.imgUrl}
+        />
+      </Link>
     );
   });
+
   return (
     <StyledSection className="partial-width">
+      <div className="product-types-mobile">
+        <ul>
+          <li>All</li>
+          <li>Mac</li>
+          <li>iPhone</li>
+          <li>iPad</li>
+          <li>iPod</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
       <div className="grid-items">
         <div className="product-types">
           <ul>
@@ -26,7 +48,7 @@ const ProductDisplay = () => {
         </div>
         {NewProducts}
       </div>
-      <Button value={"LOAD MORE"}  classChosen={"displayBtn"} />
+      <Button value={"LOAD MORE"} classChosen={"displayBtn"} />
     </StyledSection>
   );
 };
@@ -34,14 +56,16 @@ const ProductDisplay = () => {
 export default ProductDisplay;
 
 const StyledSection = styled.section`
-  
-
   .grid-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, 220px);
-    /* grid-template-rows: repeat(auto-fill, max-content); */
     grid-gap: 10px;
     justify-content: center;
+    /* border: 1px solid red; */
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }
   .displayBtn {
     margin: 2.5rem auto 5rem;
@@ -52,13 +76,18 @@ const StyledSection = styled.section`
     grid-row: 1/2;
     grid-column: 1/-1;
     padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .product-types-mobile {
+    display: none;
   }
   ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
-    width: 50%;
+    min-width: 50%;
     margin: 0 auto;
 
     & > li {
@@ -71,6 +100,14 @@ const StyledSection = styled.section`
         color: #33a0ff;
         cursor: pointer;
       }
+    }
+  }
+  @media (max-width: 550px) {
+    .product-types {
+      display: none;
+    }
+    .product-types-mobile {
+      display: flex;
     }
   }
 `;

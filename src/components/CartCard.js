@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
 import { decrement, increase } from "../features/CartSlice";
-import { useDispatch,  } from "react-redux";
+import { useDispatch  } from "react-redux";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const CartCard = ({ imgUrl, title, price, id, count }) => {

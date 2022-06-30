@@ -4,7 +4,9 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { TiShoppingCart } from "react-icons/ti";
 import Star from "./Star";
 import { increment } from "../features/CartSlice";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { update } from "../features/Details";
+
 
 const ProductCard = ({ imgUrl, price, title, id }) => {
   const [oldPrice, setOldPrice] = React.useState(0);
@@ -21,7 +23,7 @@ const ProductCard = ({ imgUrl, price, title, id }) => {
   function like() {}
 
   return (
-    <StyledDiv onMouseEnter={flip}>
+    <StyledDiv onMouseEnter={flip} onClick={() => dispatch(update(id))}>
       <img src={require(`../images/${imgUrl}`)} alt="productcard" />
       <p className="title">{title}</p>
       <div className="star">
@@ -38,10 +40,13 @@ const ProductCard = ({ imgUrl, price, title, id }) => {
       </div>
       <div className="popup">
         <button className="product-icon" onClick={like}>
-          {" "}  
+          {" "}
           <AiOutlineHeart />
         </button>
-        <button className="product-icon" onClick={() => dispatch(increment(id))}>
+        <button
+          className="product-icon"
+          onClick={() => dispatch(increment(id))}
+        >
           <TiShoppingCart />
         </button>
       </div>
@@ -81,8 +86,8 @@ const StyledDiv = styled.div`
     border-radius: 50%;
     border: 2px solid #9acbf5;
   }
-  .product-icon:active{
-  transform:scale(1.1) ;
+  .product-icon:active {
+    transform: scale(1.1);
   }
   .product-icon > * {
     font-size: 18px;
@@ -96,7 +101,7 @@ const StyledDiv = styled.div`
     display: flex;
   }
   img {
-    width: 99%;   
+    width: 99%;
   }
   s {
     color: grey;
