@@ -23,7 +23,7 @@ const ProductCard = ({ imgUrl, price, title, id }) => {
   function like() {}
 
   return (
-    <StyledDiv onMouseEnter={flip} onClick={() => dispatch(update(id))}>
+    <StyledDiv onMouseEnter={flip} onClick={() => dispatch(update([id, oldPrice]))}>
       <img src={require(`../images/${imgUrl}`)} alt="productcard" />
       <p className="title">{title}</p>
       <div className="star">

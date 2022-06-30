@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
-const Counter = ({getCount}) => {
+const Counter = () => {
 
  const [count, setCount] = useState(0) 
 function reduce(){
@@ -21,7 +21,7 @@ function add(){
 
 
   return (
-    <StyledDiv onClick={getCount(count)}>
+    <StyledDiv>
       <button className="control__btn" onClick={ count => reduce(count)}>
         <AiOutlineMinus />
       </button>
@@ -35,7 +35,7 @@ function add(){
 
 export default Counter
 const StyledDiv = styled.div`
-  min-width: 4rem;
+  width: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
