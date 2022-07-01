@@ -20,8 +20,6 @@ export default Star;
 const StyledButton = styled.button`
   .icon {
     font-size: 10px;
-    /* color: green; */
-
     color: ${({ isClicked }) => (isClicked ? "gold" : "#ebf3f7")};
   }
 `;

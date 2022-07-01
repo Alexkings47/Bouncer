@@ -7,24 +7,26 @@ import Button from "../Button";
 
 
 const Cart = () => {
-  const {cartArr, totalAmount} = useSelector((state) => state.cart)
+  const {cartArr} = useSelector((state) => state.cart);
+    const {totalAmount} = useSelector((state) => state.cart);
+
   
-  const [total, setTotal] = useState({
+  const [total] = useState({
     subtotal: "",
     shipping: "$20",
     coupon: false,
   });
 
-    // console.log(newCartArr)
+    console.log(totalAmount);
 
 
-  const CartCards = cartArr.map((cartItem, index) => {
+  const CartCards = cartArr.map((cartItem) => {
     return (
       <CartCard
         imgUrl={cartItem.imgUrl}
         title={cartItem.title}
         price={cartItem.price}
-        key={index}
+        key={cartItem.id}
         id={cartItem.id}
         count={cartItem.count}
       />

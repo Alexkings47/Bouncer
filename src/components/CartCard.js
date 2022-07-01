@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
-import { decrement, increase } from "../features/CartSlice";
-import { useDispatch  } from "react-redux";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { decrement} from "../features/CartSlice";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import ProductCounter from "./ProductCounter";
 
 const CartCard = ({ imgUrl, title, price, id, count }) => {
   const dispatch = useDispatch();
-  // const { cartArr, totalAmount } = useSelector((state) => state.cart);
-  
-
-
-
 
   return (
     <StyledDiv>
@@ -23,20 +19,13 @@ const CartCard = ({ imgUrl, title, price, id, count }) => {
         >
           <AiOutlineClose />
         </button>
-        <img src={require(`../images/${imgUrl}`)} alt={title} />
+        <Link to="/details">
+          <img src={require(`../images/${imgUrl}`)} alt={title} />
+        </Link>
         <p className="title">{title}</p>
       </div>
       <p>{price * count}</p>
-      <div className="product-counter">
-        {/* onClick={(count) => reduce(count)} */}
-        <button className="control__btn" onClick={ ()=> dispatch(increase(id))}>
-          <AiOutlineMinus />
-        </button>
-        <p>{count}</p>
-        <button className="control__btn" onClick={""}>
-          <AiOutlinePlus />
-        </button>
-      </div>
+    <ProductCounter count={count} id={id} />
       <p>{price}</p>
     </StyledDiv>
   );
@@ -67,24 +56,5 @@ const StyledDiv = styled.div`
   .title {
     font-size: 14px;
   }
-  .product-counter {
-    min-width: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 3px;
-    font-size: 12px;
-    /* border: 1px solid black; */
-    background-color: rgba(230, 230, 230, 0.7);
-    /* filter: blur(2px); */
-    padding: 6px 5px;
-
-    button {
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #33a0ff;
-    }
-  }
+  
 `;

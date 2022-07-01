@@ -4,14 +4,13 @@ import Star from "../Star";
 import Button from "../Button";
 import { useSelector } from "react-redux";
 import { Data } from "../Data";
-import Counter from "../Counter";
 import ProductCard from "../ProductCard";
 import BestsellerItem from "../BestsellerItem";
+import ProductCounter from "../ProductCounter";
+import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
-
-  console.log(id, oldPrice);
 
   const starArr = [];
   for (let i = 0; i < 4; i++) {
@@ -66,7 +65,7 @@ const ProductDetails = () => {
 
           {/* review stars and co */}
           <div className="review">
-            {starArr}
+            <span className="star"> {starArr}</span>
             <small> 0 reviews</small>
             <p className="blue-text">Submit a review</p>
           </div>
@@ -74,38 +73,46 @@ const ProductDetails = () => {
           <div className="price-detials">
             <span className="price">$ {Data[id].price}</span>
             <s> $ {oldPrice}</s>
-            <p>
-              Availability:
+          </div>
+          <div className="stock">
+            <div>
+              {" "}
+              <p>Availability:</p>
               <span>{values.isTrue ? "in stock" : "out of stock"}</span>
-            </p>
-            <p>
-              Category: <span>{"type"}</span>
-            </p>
-            <p>
-              Free Shipping <span>{values.shipping ? "yes" : "no"}</span>
-            </p>
+            </div>
+            <div>
+              <p> Category:</p>
+              <span>{"type"}</span>
+            </div>
+            <div>
+              <p>Free Shipping:</p>
+              <span>{values.shipping ? "yes" : "no"}</span>
+            </div>
           </div>
           <div className="color">
-            <Button classChosen={"blue"} />
-            <Button classChosen={"red"} />
-            <Button classChosen={"black"} />
-            <Button classChosen={"yellow"} />
-            <div className="size">
-              Size
-              <select className="product-size">
-                <option>USD</option>
-                <option>NGN</option>
-                <option>AUD</option>
-              </select>
-            </div>
-            <div className="amount">
-              <Counter />
-              <button className="cart">
-                <></>
-                <p>Add to Cart</p>
-                <button className="like"></button>
-              </button>
-            </div>
+            <Button color={"blue"} classChosen={"blue color-picker"} />
+            <Button color={"red"} classChosen={"red color-picker"} />
+            <Button color={"black"} classChosen={"black color-picker"} />
+            <Button color={"yellow"} classChosen={"yellow color-picker"} />
+          </div>
+          <div className="size">
+            Size
+            <select>
+              <option>XS</option>
+              <option>L</option>
+              <option>M</option>
+            </select>
+          </div>
+          <div className="amount">
+            <ProductCounter count={Data[id].count} id={Data[id].id} />
+            <button className="cart-div">
+              <div className="cart"></div>
+              <p>Add to Cart</p>
+              <AiOutlineShoppingCart />
+            </button>
+            <button className="like">
+              <AiOutlineHeart />
+            </button>
           </div>
         </div>
         <div className="buttons">
@@ -139,25 +146,59 @@ export default ProductDetails;
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-left: 8rem;
+  margin-left: 4rem;
 
   .grid-container {
     display: grid;
-    flex: 0.9;
+    flex: 0.8;
     grid-template-columns: 45% 55%;
     column-gap: 1rem;
     row-gap: 4rem;
+    padding: 2rem 0;
   }
+
   .product-image {
   }
   .product-text {
-    /* width: 30%; */
-
     flex-direction: column;
     align-items: center;
 
-    div {
+    & > div {
       border-bottom: 1px solid #f6f7f8;
+      padding: 1rem 0;
+      display: flex;
+
+      align-items: center;
+      justify-content: flex-start;
+    }
+    & > div > * {
+      margin-right: 1rem;
+    }
+    .stock {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      div {
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        span {
+          font-weight: 400;
+          align-self: flex-end;
+          width: 40%;
+        }
+      }
+    }
+    .color {
+      border-bottom: none;
+    }
+    .blue-text {
+      color: #33a0ff;
+      cursor: pointer;
     }
     .title {
       font-size: 14px;
@@ -167,19 +208,75 @@ const StyledDiv = styled.div`
       max-height: 6rem;
     }
     .review {
-      padding: 1rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 60%;
+    }
+
+    .color-picker {
+      border-radius: 50%;
+      width: 1rem;
+      height: 1.1rem;
+    }
+
+    /* .color-picker:hover,
+    .color-picker:active,
+    .color-picker:hover {
+    } */
+    .blue:active,
+    .blue:visited,
+    .blue:hover {
+      outline: 1px solid blue;
+      outline-offset: 3px;
+    }
+    .red:hover {
+      outline: 1px solid red;
+      outline-offset: 3px;
+    }
+    .black:hover {
+      outline: 1px solid black;
+      outline-offset: 3px;
+    }
+    .yellow:hover {
+      outline: 1px solid yellow;
+      outline-offset: 3px;
     }
     s {
       color: grey;
     }
     .price {
       color: #ff4858;
+      font-size: 18px;
+    }
+    .amount {
+      justify-content: space-between;
     }
   }
+  .cart-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 3px;
+    width: 8rem;
+    padding: 0.5rem 1.2rem;
+    color: #33a0ff;
+    position: relative;
+  }
+  .cart {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    border-radius: 2px;
+    background-color: rgba(51, 160, 255, 0.3);
+    filter: blur(1px);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .like {
+    width: 2rem;
+    background-color: rgba(51, 160, 255, 0.3);
+    color: #33a0ff;
+    height: 2rem;
+  }
+
   .thumb {
     width: 3.5rem;
     height: 3.5rem;

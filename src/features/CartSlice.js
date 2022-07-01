@@ -1,15 +1,12 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import { Data } from "../components/Data";
 
-const initialState = {
-  cartArr: [],
-  // totalAmount: 0,
-  // totalCount: 0,
-};
-
 export const CartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: {
+    cartArr: [],
+    totalAmount: 0,
+  },
   reducers: {
     increment: (state, action) => {
       const item = state.cartArr.find((item, index) => {
@@ -19,28 +16,42 @@ export const CartSlice = createSlice({
         item.count++;
       } else {
         state.cartArr.push(Data[action.payload]);
-        console.log(item);
       }
     },
     decrement: (state, action) => {
-     state.cartArr = state.cartArr.filter((item)=>{
-        return item.id !== action.payload
-      })
-     
+      state.cartArr = state.cartArr.filter((item) => {
+        return item.id !== action.payload;
+      });
     },
     getTotalAmount: (state) => {
-      let { totalAmount, totalCount } = state.cart.ca;
+      let amount = 0;
+      state.cartArr.forEach((item) => {
+        amount += item.price;
+      });
+      state.totalAmount = amount;
     },
-    // increase: (state, action) => {
-    //   state.items = state.cartArr.map((item) => {
-    //     if (item.id === action.payload) {
-    //       return { ...item, amount: item.amount + 1 };
-    //     }
-    //   });
-    // },
+    plus: (state, action) => {
+      const index = state.cartArr.findIndex((item) => {
+        return item.id === Data[action.payload].id;
+      });
+      state.cartArr[index].count++;
+    },
+    minus: (state, action) => {
+      const index = state.cartArr.findIndex((item) => {
+        return item.id === Data[action.payload].id;
+      });
+     
+      if (state.cartArr[index].count === 0) {
+        state.cartArr = state.cartArr.filter((item) => {
+          return item.id !== action.payload;
+        });
+      } else {
+        state.cartArr[index].count--;
+      }
+    },
   },
 });
 
-export const { increment, decrement, increase } = CartSlice.actions;
+export const { increment, decrement, plus, minus } = CartSlice.actions;
 
 export default CartSlice.reducer;

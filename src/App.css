@@ -1,5 +1,6 @@
 .App {
  font-family: 'Karla', sans-serif;
+ font-family: "proxima sans";
 /* font-family: 'Raleway', sans-serif; */
 }
 
@@ -24,9 +25,7 @@ button {
 button:active{
   transform: scale(1.1);
 }
-body {
-  font-size: 90%;
-}
+
 
 ul {
   list-style-type: none;

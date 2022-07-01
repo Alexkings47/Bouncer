@@ -1,21 +1,23 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import ProductCard from "../ProductCard";
 import { Data } from "../Data";
 import Button from "../Button";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 const ProductDisplay = () => {
-  // const dispatch = useDispatch();
 
-  const NewProducts = Data.map((item, index) => {
+  const [showMore, setShowMore] = useState(false);
+
+ 
+
+  const NewProducts = Data.map((item) => {
     return (
-      <Link to="/details" key={index}>
+      <Link to="/details" key={item.id}>
         <ProductCard
           title={item.title}
-          key={index}
-          id={index}
+          key={item.id}
+          id={item.id}
           price={item.price}
           imgUrl={item.imgUrl}
         />
@@ -47,8 +49,9 @@ const ProductDisplay = () => {
           </ul>
         </div>
         {NewProducts}
+        {showMore? NewProducts: ""}
       </div>
-      <Button value={"LOAD MORE"} classChosen={"displayBtn"} />
+      <Button value={"LOAD MORE"} classChosen={"displayBtn"} handleClick={()=> setShowMore(!showMore)} />
     </StyledSection>
   );
 };

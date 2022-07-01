@@ -1,5 +1,12 @@
 export const Data = [
   {
+    title: "Apple Macbook Pro",
+    price: 499,
+    count: 1,
+    id: 0,
+    imgUrl: "laptop.png",
+  },
+  {
     title: "Philips Hue 7W BR30 Connected Downlight Lamp ",
     price: 499,
     count: 1,
@@ -35,14 +42,6 @@ export const Data = [
     imgUrl: "headset.png",
   },
   { title: "Rexon Drone", price: 799, count: 1, id: 7, imgUrl: "drone.jpg" },
-
-  {
-    title: "Apple Macbook Pro",
-    price: 499,
-    count: 1,
-    id: 8,
-    imgUrl: "laptop.png",
-  },
 ];
 
 export const CarouselImage = [

@@ -16,7 +16,6 @@ const DemoCarousel = () => {
         autoPlay={true}
         showStatus={false}
         renderArrowPrev={(previous, hasPrev, prev) => {
-        
           return (
             <button className="iconPrev" onClick={previous}>
               <IoIosArrowBack />
@@ -24,7 +23,6 @@ const DemoCarousel = () => {
           );
         }}
         renderArrowNext={(nextFunc, hasNext, next) => {
-         
           return (
             <button className="iconNext" onClick={nextFunc}>
               <IoIosArrowForward />
@@ -57,6 +55,7 @@ const DemoCarousel = () => {
           <img
             src={require(`../images/${CarouselImage[1].imgUrl}`)}
             alt="carousel"
+            className="carousel-image2"
           />
         </div>
         <div className="carouselContent">
@@ -70,6 +69,7 @@ const DemoCarousel = () => {
           <img
             src={require(`../images/${CarouselImage[1].imgUrl}`)}
             alt="carousel"
+            className="carousel-image2"
           />
         </div>
       </Carousel>
@@ -121,15 +121,17 @@ const StyledDiv = styled.div`
     max-height: 28rem;
     margin-top: 3.5rem;
   }
+  .carousel-image2 {
+    max-width:16rem;
+  }
   .iconNext,
   .iconPrev {
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 400;
     width: 5rem;
     height: 5rem;
     background: none;
     border: none;
-    color: white;
     z-index: 999999999;
     text-align: center;
   }
