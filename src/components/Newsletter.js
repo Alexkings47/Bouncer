@@ -45,7 +45,7 @@ const StyledDiv = styled.div`
   position: absolute;
   top: 10rem;
   left: 50%;
-  transform: translateX(-70%);
+  transform: translateX(-50%);
 
   .news-image {
     width: 45%;

@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import styled from "styled-components";
 import { TiShoppingCart } from "react-icons/ti";
@@ -93,6 +93,7 @@ const StyledDiv = styled.div`
     width: 2rem;
     transition: 0.1s;
     text-align: right;
+    width: 35px;
   }
   select:focus {
     outline: none;

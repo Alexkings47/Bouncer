@@ -77,14 +77,11 @@ const StyledNav = styled.nav`
   width: 500px;
   max-height: 17rem;
   text-transform: uppercase;
-  margin: 0 auto;
-  font-weight: 400;
-  font-size: 12px;
   padding: 1rem 0;
   grid-column: 2/5;
   grid-row: 2/3;
   position: relative;
-
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -141,11 +138,14 @@ const StyledNav = styled.nav`
     display: grid;
   }
   a {
-    color:black;
+    color: black;
     text-decoration: none;
   }
-  li, a {
-    font-size: 13px;
+  li,
+  a {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16.8px;
     font-family: "proxima sans";
 
     &:hover,

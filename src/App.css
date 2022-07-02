@@ -12,6 +12,9 @@
 .partial-width {
   grid-column: 2/5;
 }
+p{
+  font-size: 14px;
+}
 
 * {
   margin: 0;

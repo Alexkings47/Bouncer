@@ -63,7 +63,7 @@ const StyledSecion = styled.section`
     }
   }
   .bestsellerCard2 {
-    background-color: #ffffff;
+    background-color: #f6f7f8;
     display: flex;
     flex-direction: column;
     justify-content: center;

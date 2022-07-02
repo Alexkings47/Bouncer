@@ -8,7 +8,7 @@ import Button from "../Button";
 
 const Cart = () => {
   const {cartArr} = useSelector((state) => state.cart);
-    const {totalAmount} = useSelector((state) => state.cart);
+    const t = useSelector((state) => state.cart);
 
   
   const [total] = useState({
@@ -17,7 +17,7 @@ const Cart = () => {
     coupon: false,
   });
 
-    console.log(totalAmount);
+    console.log(t);
 
 
   const CartCards = cartArr.map((cartItem) => {

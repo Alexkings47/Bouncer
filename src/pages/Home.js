@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Sections/Navbar";
 import Userinfo from "../components/Sections/Userinfo";
 import DemoCarousel from "../components/DemoCarousel";
@@ -15,13 +15,12 @@ import Copyright from "../components/Sections/Copyright";
 import Newsletter from "../components/Newsletter";
 
 const Home = () => {
-  const [popup, setPopup] = React.useState(false);
+  const [popup, setPopup] = useState(false);
 
   React.useEffect(() => {
-    const timer = setTimeout(function () {
+    setTimeout(function () {
       setPopup(true);
     }, 5000);
-    return clearTimeout(timer);
   }, []);
 
   // const timer = setTimeout(function () {
@@ -30,7 +29,11 @@ const Home = () => {
 
   function close() {
     setPopup(false);
-    // clearTimeout(timer)
+    clearTimeout(
+      setTimeout(function () {
+        setPopup(true);
+      }, 5000)
+    );
   }
 
   return (

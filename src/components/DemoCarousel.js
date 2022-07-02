@@ -5,6 +5,8 @@ import { CarouselImage } from "./Data";
 import Button from "./Button";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import Container from "./Container";
+
 
 const DemoCarousel = () => {
   return (
@@ -30,6 +32,7 @@ const DemoCarousel = () => {
           );
         }}
       >
+        <Container >
         <div className="carouselContent">
           <div className="content">
             <div className="info">
@@ -44,6 +47,8 @@ const DemoCarousel = () => {
             alt="carousel"
           />
         </div>
+        </Container>
+        <Container >
         <div className="carouselContent">
           <div className="content">
             <div className="info">
@@ -58,6 +63,8 @@ const DemoCarousel = () => {
             className="carousel-image2"
           />
         </div>
+        </Container>
+        <Container>
         <div className="carouselContent">
           <div className="content">
             <div className="info">
@@ -72,6 +79,7 @@ const DemoCarousel = () => {
             className="carousel-image2"
           />
         </div>
+        </Container>
       </Carousel>
     </StyledDiv>
   );
@@ -92,13 +100,10 @@ const StyledDiv = styled.div`
     width: 100%;
     padding: 0 18rem;
   }
-  @media (max-width: 1300px) {
-    .carouselContent {
-      width: 90%;
-      padding: 2rem 5rem;
-    }
+  h2{
+    font-size: 36px;
+    font-weight: bo;
   }
-
   .carouselButton {
     font-size: 13px;
   }
@@ -122,7 +127,7 @@ const StyledDiv = styled.div`
     margin-top: 3.5rem;
   }
   .carousel-image2 {
-    max-width:16rem;
+    max-width: 16rem;
   }
   .iconNext,
   .iconPrev {
@@ -149,14 +154,10 @@ const StyledDiv = styled.div`
     transform: translate(-50%);
   }
 
-  @keyframes transit {
-    from {
-      /* display: none; */
-      background-color: green;
-    }
-    to {
-      /* display: flex; */
-      background-color: white;
+  @media (max-width: 1300px) {
+    .carouselContent {
+      width: 90%;
+      padding: 2rem 5rem;
     }
   }
 `;

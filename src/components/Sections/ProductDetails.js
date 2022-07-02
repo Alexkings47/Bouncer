@@ -31,7 +31,7 @@ const ProductDetails = () => {
     ThumbArr.push(thumb);
   }
 
-  const [values, setValues] = useState({
+  const [values] = useState({
     isTrue: true,
     shipping: false,
   });

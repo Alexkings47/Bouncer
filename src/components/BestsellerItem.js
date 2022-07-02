@@ -6,7 +6,7 @@ const BestsellerItem = ({ chosenClass, title, imgUrl, description, price }) => {
     <StyledDiv className={chosenClass}>
       <img src={require(`../images/${imgUrl}`)} alt={title} />
       <div className="info">
-        <h3>{title}</h3>
+        <p className="title">{title}</p>
         <p>{description}</p>
         <p>{price}</p>
       </div>
@@ -18,6 +18,7 @@ export default BestsellerItem;
 const StyledDiv = styled.div`
   padding: 10px;
   position: relative;
+  margin-top: -2.8rem;
 
   .info {
     display: flex;
@@ -26,7 +27,13 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     width: 55%;
   }
-
+.title{
+  font-size: 24px;
+  font-weight: bold;
+}
+.desc{
+  font-size: 12px;
+}
   img {
     width: 8rem;
     height: 80%;
