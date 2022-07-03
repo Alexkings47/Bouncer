@@ -7,8 +7,8 @@ const BestsellerItem = ({ chosenClass, title, imgUrl, description, price }) => {
       <img src={require(`../images/${imgUrl}`)} alt={title} />
       <div className="info">
         <p className="title">{title}</p>
-        <p>{description}</p>
-        <p>{price}</p>
+        <p className="desc">{description}</p>
+        <p className="price">{price}</p>
       </div>
     </StyledDiv>
   );
@@ -18,7 +18,7 @@ export default BestsellerItem;
 const StyledDiv = styled.div`
   padding: 10px;
   position: relative;
-  margin-top: -2.8rem;
+  overflow: hidden;
 
   .info {
     display: flex;
@@ -27,21 +27,24 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     width: 55%;
   }
-.title{
-  font-size: 24px;
-  font-weight: bold;
-}
-.desc{
-  font-size: 12px;
-}
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .price {
+    font-size: 24px;
+  }
+  .desc {
+    font-size: 12px;
+  }
   img {
-    width: 8rem;
+    width: 13rem;
+
     height: 80%;
     float: right;
   }
 
   @media (max-width: 500px) {
-        width: 15rem;
-        }
-  
+    width: 15rem;
+  }
 `;

@@ -13,10 +13,12 @@ const Advertisment = () => {
         autoPlay={true}
         showStatus={false}
       >
-        <div className="item1">
+        <div className="item1 container">
           <div className="info">
-            <p>Iphone 6 Plus</p>
-            <small>performance and design. Taken right to the edge</small>
+            <p className="title">Iphone 6 Plus</p>
+            <p className="desc">
+              performance and design. Taken right to the edge
+            </p>
             <Button value={"More"} />
           </div>
           <div className="imgDiv">
@@ -26,10 +28,12 @@ const Advertisment = () => {
             />
           </div>
         </div>
-        <div className="item1">
+        <div className="item1 container">
           <div className="info">
-            <p>Iphone 6 Plus</p>
-            <small>performance and design. Taken right to the edge</small>
+            <p className="title">Iphone 6 Plus</p>
+            <p className="desc">
+              performance and design. Taken right to the edge
+            </p>
             <Button value={"More"} />
           </div>
           <div className="imgDiv">
@@ -46,18 +50,19 @@ const Advertisment = () => {
 
 export default Advertisment;
 const StyledDiv = styled.div`
+
+
   .item1 {
     height: 300px;
     padding: 2rem 4rem 0 4rem;
-    background-color: #8f65ff;
     display: flex;
     position: relative;
     justify-content: space-around;
-    background-color: #2e90e5;
-    overflow: hidden;
-    min-height: 45vh;
-    font-family: "Proxima Nova Extra Condensed Light";
-
+    align-items: center;
+    background: var(--light-blue);
+    overflow: visible;
+    min-height: 60vh;
+    z-index: 5;
     @media (max-width: 900px) {
       justify-content: center;
     }
@@ -69,19 +74,24 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     color: white;
-    height: 10rem;
+    height: 15rem;
+    width: 30rem;
+    text-align: left;
     padding: 2rem;
   }
-  p {
-    font-size: 26px;
-    font-weight: 100;
+  .title {
+    font-size: 66px;
+    font-weight: 300;
   }
   .imgDiv {
   }
+
   img {
     height: 140%;
+    margin-top: -4rem;
     width: 125%;
     left: initial;
+    z-index: 10;
     /* align-self: flex-end; */
   }
 `;

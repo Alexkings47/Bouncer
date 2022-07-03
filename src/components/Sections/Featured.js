@@ -5,21 +5,21 @@ import FeaturedCard from "../FeaturedCard";
 const LatestNews = () => {
   return (
     <StyledDiv className="partial-width">
-      <h2>FEATURED PRODUCTS</h2>
-      <div className="featured">
+      <p className="section-title">FEATURED PRODUCTS</p>
+      <div className="mobile-items">
         <FeaturedCard
           price={499}
-          title={"Typesetting industry"}
+          title={"Beats Solo 2 On EarHeadphones -Black"}
           imgUrl={"guage.png"}
         />
         <FeaturedCard
           price={499}
-          title={"Typesetting industry"}
-          imgUrl={"tv.png"}
+          title={"H-Squared tvTray"}
+          imgUrl={"guage.png"}
         />
         <FeaturedCard
           price={499}
-          title={"Typesetting industry"}
+          title={"Netatmo Rain Gauge"}
           imgUrl={"headset.png"}
         />
       </div>
@@ -29,19 +29,7 @@ const LatestNews = () => {
 
 export default LatestNews;
 const StyledDiv = styled.div`
-  margin:2rem 0 4rem;
+  margin: 2rem 0 4rem;
+
   
-
-  .featured {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
-    justify-items: center;
-  }
-
-  h2 {
-    font-size: large;
-    margin: 0 auto 2rem;
-    text-align: center;
-  }
 `;

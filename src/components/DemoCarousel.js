@@ -90,7 +90,6 @@ const StyledDiv = styled.div`
   height: 450px;
   background: linear-gradient(to right, #ff4858, #8f65ff);
   overflow: hidden;
-  padding-block: 2rem;
 
   .carouselContent {
     overflow: hidden;

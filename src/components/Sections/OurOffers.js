@@ -4,7 +4,7 @@ import OffersItem from "../OffersItem";
 
 const OurOffers = () => {
   return (
-    <StyledDiv className="partial-width">
+    <StyledDiv className="partial-width mobile-items">
       <OffersItem imgUrl={"shipping.png"} title={"FREE SHIPPING"} />
       <OffersItem imgUrl={"refund.png"} title={"100% REFUND"} />
       <OffersItem imgUrl={"support.png"} title={"SUPPORT"} />
@@ -14,9 +14,6 @@ const OurOffers = () => {
 
 export default OurOffers;
 const StyledDiv = styled.div`
-  padding-block: 4rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-  justify-items: center;
+  margin: 4rem 0;
+ 
 `;

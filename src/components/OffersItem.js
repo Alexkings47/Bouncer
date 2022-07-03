@@ -5,8 +5,8 @@ const OffersItem = ({title, imgUrl}) => {
   return (
     <StyledDiv>
       <img src={require(`../images/${imgUrl}`)} alt={title} />
-      <h3>{title}</h3>
-      <p>
+      <p className="title">{title}</p>
+      <p className="small-text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut deserunt
         architecto asperiores iste, minus consectetur?
       </p>
@@ -16,8 +16,7 @@ const OffersItem = ({title, imgUrl}) => {
 
 export default OffersItem;
 const StyledDiv = styled.div`
-min-width: 8rem;
-min-height: 7rem;
+min-height: 9rem;
 display:flex;
 flex-direction: column;
 justify-content: space-between;
@@ -25,7 +24,7 @@ align-items: center;
 text-align: center;
 
 img{
-    width:2rem;
+    width:2.5rem;
 }
 
 `;

@@ -38,7 +38,7 @@ const Newsletter = ({ close}) => {
 export default Newsletter;
 
 const StyledDiv = styled.div`
-  height: 15rem;
+  height: 17rem;
   background: white;
   display: flex;
   align-items: stretch;
@@ -62,13 +62,13 @@ const StyledDiv = styled.div`
   }
 
   .suscribe {
-    width: 17rem;
+    width: 18rem;
   }
   .icon {
     position: absolute;
     top: 0;
-    right: -8rem;
-    transform: translateY(-50%) translateX(50%);
+    left: 100%;
+    transform: translateY(-50%) translateX(-50%);
     font-size: 10px;
     border-radius: 50%;
     background: black;
@@ -77,5 +77,21 @@ const StyledDiv = styled.div`
     width: 1.2rem;
     padding: 5px;
     text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    height: 25rem;
+    
+    top: 50%;
+    transform: translate(-50%, -50%);
+    .news-image {
+      width: 100%;
+      height: 50%;
+    }
+
+    .news-text{
+      height: 50%;
+    }
   }
 `;

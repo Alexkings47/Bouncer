@@ -40,16 +40,21 @@ export default Bestseller;
 
 const StyledSecion = styled.section`
   padding-block: 1rem;
+  margin-top: -2.8rem;
 
+  
   .content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     margin-bottom: 1.5rem;
+    max-height: 13rem;
   }
 
   h2 {
     text-align: center;
+    font-size: 30px;
+    font-weight: 400;
   }
   .bestsellerCard1 {
     background-color: #ff6875;
@@ -67,7 +72,9 @@ const StyledSecion = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
+  
     .info {
       flex-direction: row;
       justify-content: space-between;

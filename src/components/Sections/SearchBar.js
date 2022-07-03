@@ -15,5 +15,6 @@ export default SearchBar;
 const StyledSection = styled.section`
   height: 5rem;
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--whitish-grey);
 `;

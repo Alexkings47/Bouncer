@@ -18,6 +18,7 @@ const StyledSection = styled.section`
   border-top: 2px solid #fafafb;
   height: 3.5rem;
   padding: 1.5rem 0 3rem;
+  font-size: 14px;
 
  
 @media(max-width: 700px) {

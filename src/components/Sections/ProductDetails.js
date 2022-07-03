@@ -43,6 +43,7 @@ const ProductDetails = () => {
           <img
             src={require(`../../images/${Data[id].imgUrl}`)}
             alt={Data[id].title}
+            className="main-image"
           />
           <div className="thumbnails">
             {Data[id].thumb != null
@@ -159,6 +160,10 @@ const StyledDiv = styled.div`
 
   .product-image {
   }
+  .main-image {
+    max-width: 14rem;
+    height:13rem ;
+  }
   .product-text {
     flex-direction: column;
     align-items: center;
@@ -216,10 +221,7 @@ const StyledDiv = styled.div`
       height: 1.1rem;
     }
 
-    /* .color-picker:hover,
-    .color-picker:active,
-    .color-picker:hover {
-    } */
+  
     .blue:active,
     .blue:visited,
     .blue:hover {
@@ -248,6 +250,9 @@ const StyledDiv = styled.div`
     .amount {
       justify-content: space-between;
     }
+  }
+  .bestseller{
+    height: 90vh;
   }
   .cart-div {
     display: flex;

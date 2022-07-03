@@ -87,6 +87,10 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
 
+  .nav-parent > li{
+    font-size: 14px;
+    font-weight: 500;
+  }
   .nav-menu {
     display: ${(props) => (props.isComponentVisible ? "grid" : "none")};
     grid-template-columns: minmax(min-content, 2fr) minmax(min-content, 2fr) minmax(
@@ -110,10 +114,13 @@ const StyledNav = styled.nav`
       align-content: space-between;
     }
     h3 {
-      color: #c1c8ce;
+      color: var(--grey);
+      font-weight: 500;
+      font-size: 18px;
     }
     li {
       padding-top: 20px;
+      font-size: 12px;
     }
   }
   @media (max-width: 900px) {

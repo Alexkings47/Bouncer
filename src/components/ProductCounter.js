@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
   border-radius: 3px;
   font-size: 12px;
   /* border: 1px solid black; */
-  background-color: rgba(230, 230, 230, 0.7);
+  background-color: rgba(230, 230, 230, 0.511);
   /* filter: blur(2px); */
   padding: 6px 5px;
   * {

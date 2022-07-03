@@ -7,17 +7,14 @@ import Button from "../Button";
 
 
 const Cart = () => {
-  const {cartArr} = useSelector((state) => state.cart);
-    const t = useSelector((state) => state.cart);
+  const {cartArr, totalAmount} = useSelector((state) => state.cart);
 
-  
+  console.log(totalAmount)
   const [total] = useState({
-    subtotal: "",
-    shipping: "$20",
+        shipping: "$20",
     coupon: false,
   });
 
-    console.log(t);
 
 
   const CartCards = cartArr.map((cartItem) => {
@@ -51,7 +48,7 @@ const Cart = () => {
         <div className="right">
           <p>
             <span> Subtotal </span>
-            <span>{total.subtotal}</span>
+            <span>{totalAmount}</span>
           </p>
           <p>
             <span> Shipping fee</span> <span>{total.shipping}</span>

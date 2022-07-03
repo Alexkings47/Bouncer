@@ -8,14 +8,15 @@ const Footer = () => {
       <div className="top-footer">
         <div>
           <h2 className="title">BOUNCER</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
+          <p className="small-footer-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever.Since the 1500s, when an unknown printer.
           </p>
         </div>
         <div>
-          <h3>Follow Us</h3>
-          <p>
+          <h3 className="heading3">Follow Us</h3>
+          <p className="small-footer-text">
             Since the 1500s, when an unknown printer took a gallery of type and
             scrambled
           </p>
@@ -26,8 +27,8 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h3>Contact Us</h3>
-          <p>
+          <h3 className="heading3">Contact Us</h3>
+          <p className="small-footer-text">
             My Company , 4578 Marmora Road, Glasgow D04 89GR Call us now:
             0123-456-789 Email: support@whatever.com
           </p>
@@ -36,7 +37,7 @@ const Footer = () => {
       <div className="bottom-footer">
         <div>
           <ul className="footerItems">
-            <h3>Information</h3>
+            <h3 className="heading3">Information</h3>
             <li>About Us</li>
             <li>Information</li>
             <li>Privacy Policy</li>
@@ -46,7 +47,7 @@ const Footer = () => {
         <div>
           {" "}
           <ul className="footerItems">
-            <h3>Services</h3>
+            <h3 className="heading3">Services</h3>
             <li>About Us</li>
             <li>Information</li>
             <li>Privacy Policy</li>
@@ -56,7 +57,7 @@ const Footer = () => {
         <div>
           {" "}
           <ul className="footerItems">
-            <h3>Extras</h3>
+            <h3 className="heading3">Extras</h3>
             <li>About Us</li>
             <li>Information</li>
             <li>Privacy Policy</li>
@@ -66,7 +67,7 @@ const Footer = () => {
         <div>
           {" "}
           <ul className="footerItems">
-            <h3>My Account</h3>
+            <h3 className="heading3">My Account</h3>
             <li>About Us</li>
             <li>Information</li>
             <li>Privacy Policy</li>
@@ -76,7 +77,7 @@ const Footer = () => {
         <div>
           {" "}
           <ul className="footerItems">
-            <h3>Useful Links</h3>
+            <h3 className="heading3">Useful Links</h3>
             <li>About Us</li>
             <li>Information</li>
             <li>Privacy Policy</li>
@@ -97,36 +98,22 @@ const StyledSection = styled.section`
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    padding: 20px 0;
+    padding: 2rem 0 1.5rem;
     margin: 0 auto;
-    height: 9.5rem;
-    font-size: 12px;
-    font-family: "proxima sans";
+    height: 14rem;
   }
   .top-footer {
     border-bottom: 0.5px solid #ebf3f7;
-    height: 7.5rem;
   }
 
-  h3 {
-    font-size: 18px;
+  .small-footer-text {
+    font-size: 12px;
   }
+
   .top-footer > div {
     padding: 0 5rem 0 0;
-    min-height:8rem;
+    min-height: 8rem;
   }
-  @media (max-width: 1100px) {
-    .top-footer,
-    .bottom-footer {
-      height: 11rem;
-    }
-  }
-  @media (max-width: 900px) {
-    .top-footer > div {
-      padding: 0 2rem 0 0;
-    }
-  }
-
   .bottom-footer > div {
     height: 100%;
   }
@@ -141,22 +128,31 @@ const StyledSection = styled.section`
   }
   .icons-1 {
     margin-right: 1rem;
-    color: darkblue;
+    color: #385c8e;
   }
   .icons-2 {
     margin-right: 2rem;
-    color: lightblue;
+    color: var(--light-blue);
   }
   ul {
     list-style-type: none;
-    font-weight: 300;
     font-size: 14px;
   }
-  p {
-    font-weight: 300;
-    font-size: 14px;
-  }
+
   .title {
-    color: grey;
+    color: var(--grey);
+    font-weight: 600;
+    /* font-size: 18px; */
+  }
+  @media (max-width: 1100px) {
+    .top-footer,
+    .bottom-footer {
+      height: 11rem;
+    }
+  }
+  @media (max-width: 900px) {
+    .top-footer > div {
+      padding: 0 2rem 0 0;
+    }
   }
 `;

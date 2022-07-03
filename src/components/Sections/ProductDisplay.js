@@ -61,8 +61,8 @@ export default ProductDisplay;
 const StyledSection = styled.section`
   .grid-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 220px);
-    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, 210px);
+    grid-gap: 1rem;
     justify-content: center;
     /* border: 1px solid red; */
   }
@@ -72,8 +72,7 @@ const StyledSection = styled.section`
   }
   .displayBtn {
     margin: 2.5rem auto 5rem;
-    color: #33a0ff;
-    font-size: 11px;
+    color: --light-blue;
   }
   .product-types {
     grid-row: 1/2;
@@ -96,12 +95,14 @@ const StyledSection = styled.section`
     & > li {
       margin-right: 1.5rem;
       font-size: 14px;
-      font-family: "proxima sans";
+      padding-bottom: 1rem;
+      border-bottom: 2px solid transparent;
 
       &:hover,
       &:active {
-        color: #33a0ff;
+        color: --light-blue;
         cursor: pointer;
+        border-bottom: 2px solid;
       }
     }
   }

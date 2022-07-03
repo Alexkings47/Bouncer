@@ -53,13 +53,12 @@ const StyledDiv = styled.div`
   width: 100%;
   justify-content: space-around;
   height: 2rem;
-  border-bottom: 1px solid rgba(50,168,168, 0.5);
+  border-bottom: 1px solid #70707049;
   text-transform: capitalize;
   font-size: 13.5px;
-  font-weight: 500;
+  font-weight: 400;
   grid-column: 1/ -1;
   font-size: 12px;
-  font-weight: 200;
 
   & > div {
     display: flex;
@@ -69,8 +68,6 @@ const StyledDiv = styled.div`
   a {
     color: black;
     text-decoration: none;
-    font-size: 12px;
-    font-weight: 200;
   }
   .userData {
     display: flex;
