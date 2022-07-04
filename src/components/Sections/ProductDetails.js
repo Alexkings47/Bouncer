@@ -38,6 +38,7 @@ const ProductDetails = () => {
 
   return (
     <StyledDiv>
+      <div className="category">Home/ Accessories/</div>
       <div className="grid-container">
         <div className="product-image">
           <img
@@ -147,8 +148,15 @@ export default ProductDetails;
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-left: 4rem;
+  margin: 0 8rem 0 3rem;
+  flex-wrap: wrap;
 
+  .category {
+    background-color: #f6f7f8;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+  }
   .grid-container {
     display: grid;
     flex: 0.8;
@@ -162,7 +170,7 @@ const StyledDiv = styled.div`
   }
   .main-image {
     max-width: 14rem;
-    height:13rem ;
+    height: 13rem;
   }
   .product-text {
     flex-direction: column;
@@ -221,7 +229,6 @@ const StyledDiv = styled.div`
       height: 1.1rem;
     }
 
-  
     .blue:active,
     .blue:visited,
     .blue:hover {
@@ -251,9 +258,7 @@ const StyledDiv = styled.div`
       justify-content: space-between;
     }
   }
-  .bestseller{
-    height: 90vh;
-  }
+
   .cart-div {
     display: flex;
     align-items: center;
@@ -291,11 +296,14 @@ const StyledDiv = styled.div`
   .product-items {
     max-width: 15rem;
   }
-
+  /* best seller and product card at far right */
+  .bestseller {
+    width: 12rem;
+  }
   .bestsellerCard3 {
     background-color: #c1c8ce;
-    height: 10rem;
-
+    height: 270px;
+    margin-top: 2rem;
     .info {
       height: 60%;
     }
@@ -310,6 +318,6 @@ const StyledDiv = styled.div`
   }
 
   @media (max-width: 900px) {
-    margin-left: 0;
+    margin: 0;
   }
 `;

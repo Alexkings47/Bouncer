@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const BestsellerItem = ({ chosenClass, title, imgUrl, description, price }) => {
   return (
@@ -14,11 +15,17 @@ const BestsellerItem = ({ chosenClass, title, imgUrl, description, price }) => {
   );
 };
 
+BestsellerItem.propTypes = {
+  chosenClass: PropTypes.string,
+  title: PropTypes.string,
+  imgUrl:PropTypes.string
+};
 export default BestsellerItem;
 const StyledDiv = styled.div`
   padding: 10px;
   position: relative;
   overflow: hidden;
+  min-width: 213px;
 
   .info {
     display: flex;

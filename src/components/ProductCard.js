@@ -64,15 +64,14 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--whitish-grey);
+  /* background-color: var(--whitish-grey); */
   background-color: #f6f7f8;
   padding: 0 1.2rem;
   cursor: pointer;
   border-radius: 3px;
   border: 2px solid rgb(246, 247, 248);
-
   position: relative;
-  height: 280px;
+  height: 300px;
   text-align: center;
 
   .popup-parent {

@@ -50,22 +50,19 @@ const Advertisment = () => {
 
 export default Advertisment;
 const StyledDiv = styled.div`
-
+  background: var(--light-blue);
+  overflow: hidden;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .item1 {
-    height: 300px;
     padding: 2rem 4rem 0 4rem;
     display: flex;
-    position: relative;
     justify-content: space-around;
     align-items: center;
-    background: var(--light-blue);
-    overflow: visible;
-    min-height: 60vh;
     z-index: 5;
-    @media (max-width: 900px) {
-      justify-content: center;
-    }
   }
 
   .info {
@@ -74,8 +71,8 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     color: white;
-    height: 15rem;
-    width: 30rem;
+    min-height: 17rem;
+    max-width: 30rem;
     text-align: left;
     padding: 2rem;
   }
@@ -87,11 +84,20 @@ const StyledDiv = styled.div`
   }
 
   img {
-    height: 140%;
+    max-height: 140%;
     margin-top: -4rem;
-    width: 125%;
+    max-width: 125%;
     left: initial;
     z-index: 10;
-    /* align-self: flex-end; */
+  }
+  @media (max-width: 900px) {
+    .item1 {
+      justify-content: center;
+      padding: 2rem 0 0;
+    }
+
+    .title{
+      font-size: 50px;
+    }
   }
 `;

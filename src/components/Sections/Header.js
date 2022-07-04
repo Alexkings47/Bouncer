@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import DemoCarousel from "../DemoCarousel";
+import DemoCarousel from "./DemoCarousel";
 import Bestseller from "./Bestseller";
 import Navbar from "./Navbar";
 import Userinfo from "./Userinfo";

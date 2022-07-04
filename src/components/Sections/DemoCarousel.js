@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import { CarouselImage } from "./Data";
-import Button from "./Button";
+import { CarouselImage } from "../Data";
+import Button from "../Button";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import Container from "./Container";
+import Container from "../Container";
 
 
 const DemoCarousel = () => {
@@ -43,7 +43,7 @@ const DemoCarousel = () => {
           </div>
 
           <img
-            src={require(`../images/${CarouselImage[0].imgUrl}`)}
+            src={require(`../../images/${CarouselImage[0].imgUrl}`)}
             alt="carousel"
           />
         </div>
@@ -58,7 +58,7 @@ const DemoCarousel = () => {
             </div>
           </div>
           <img
-            src={require(`../images/${CarouselImage[1].imgUrl}`)}
+            src={require(`../../images/${CarouselImage[1].imgUrl}`)}
             alt="carousel"
             className="carousel-image2"
           />
@@ -74,7 +74,7 @@ const DemoCarousel = () => {
             </div>
           </div>
           <img
-            src={require(`../images/${CarouselImage[1].imgUrl}`)}
+            src={require(`../../images/${CarouselImage[1].imgUrl}`)}
             alt="carousel"
             className="carousel-image2"
           />
@@ -98,6 +98,7 @@ const StyledDiv = styled.div`
     align-items: center;
     width: 100%;
     padding: 0 18rem;
+    max-width: 1800px;
   }
   h2{
     font-size: 36px;

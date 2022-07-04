@@ -15,7 +15,7 @@ const LatestNews = () => {
         <FeaturedCard
           price={499}
           title={"H-Squared tvTray"}
-          imgUrl={"guage.png"}
+          imgUrl={"tv.png"}
         />
         <FeaturedCard
           price={499}

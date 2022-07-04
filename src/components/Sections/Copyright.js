@@ -5,6 +5,7 @@ const Copyright = () => {
   return (
     <StyledSection className="partial-width">
       <small>&copy; 2018 Ecommerce theme by www.bisenbaev.com</small>
+      <small>&copy; Developed by Axel inc! </small>
       <img src={require("../../images/Brands.png")} alt="payment brands" />
     </StyledSection>
   );

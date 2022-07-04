@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Sections/Navbar";
 import Userinfo from "../components/Sections/Userinfo";
-import DemoCarousel from "../components/DemoCarousel";
+import DemoCarousel from "../components/Sections/DemoCarousel";
 import Bestseller from "../components/Sections/Bestseller";
 import styled from "styled-components";
 import ProductDisplay from "../components/Sections/ProductDisplay";

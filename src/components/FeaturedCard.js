@@ -9,9 +9,8 @@ const FeaturedCard = ({ imgUrl, title, price }) => {
 
   return (
     <StyledDiv>
-      <div className="image-div">
-        <img src={require(`../images/${imgUrl}`)} alt={title} />
-      </div>
+      <img src={require(`../images/${imgUrl}`)} alt={title} />
+
       <div className="info">
         <p className="title">{title}</p>
         <div>
@@ -34,15 +33,13 @@ export default FeaturedCard;
 const StyledDiv = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
+  width: 100%;
 
-  .image-div {
-    width: 45%;
-  }
   img {
-    width: 7rem;
-    object-fit: cover;
-    margin-right: 1.5rem;
+    max-width: 50%;
+
+    /* margin-right: 1.5rem; */
   }
   .price {
     font-size: 16px;
@@ -61,14 +58,14 @@ const StyledDiv = styled.div`
   }
   .price {
     color: #ff4858;
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
   s {
     color: grey;
     font-size: 16px;
   }
-  button {
+  /* button {
     border: none;
     background: none;
-  }
+  } */
 `;

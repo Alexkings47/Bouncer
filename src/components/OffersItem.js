@@ -16,13 +16,13 @@ const OffersItem = ({title, imgUrl}) => {
 
 export default OffersItem;
 const StyledDiv = styled.div`
-min-height: 9rem;
+min-height: 11rem;
 display:flex;
 flex-direction: column;
 justify-content: space-between;
 align-items: center;
 text-align: center;
-
+max-width: 25rem;
 img{
     width:2.5rem;
 }

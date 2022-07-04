@@ -72,7 +72,7 @@ const StyledSection = styled.section`
   }
   .displayBtn {
     margin: 2.5rem auto 5rem;
-    color: --light-blue;
+    color: var(--light-blue);
   }
   .product-types {
     grid-row: 1/2;

@@ -41,8 +41,8 @@ export default Bestseller;
 const StyledSecion = styled.section`
   padding-block: 1rem;
   margin-top: -2.8rem;
+  /* min-width: 699px; */
 
-  
   .content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -74,13 +74,12 @@ const StyledSecion = styled.section`
     justify-content: center;
     align-items: center;
 
-  
     .info {
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
-      margin: 0 auto;
-      width: 80%;
+
+      width: 100%;
     }
   }
   .bestsellerCard3 {
@@ -98,7 +97,10 @@ const StyledSecion = styled.section`
       height: 60%;
     }
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
+    width: 100%;
+    padding: 0;
+    /* border: 1px solid red; */
     .content {
       overflow-x: scroll;
     }
