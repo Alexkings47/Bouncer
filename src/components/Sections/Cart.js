@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SearchInput from "../Search";
 import CartCard from "../CartCard";
 import { useSelector } from "react-redux";
 import Button from "../Button";
-
+import { getTotalAmount } from "../../features/CartSlice";
+import { useDispatch } from "react-redux";
 
 const Cart = () => {
-  const {cartArr, totalAmount} = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
-  console.log(totalAmount)
+  useEffect(() => {
+    dispatch(getTotalAmount());
+  }, [dispatch]);
+  const { cartArr, totalAmount } = useSelector((state) => state.cart);
+
+  console.log(totalAmount, "rice");
   const [total] = useState({
-        shipping: "$20",
+    shipping: "$20",
     coupon: false,
   });
-
-
 
   const CartCards = cartArr.map((cartItem) => {
     return (
@@ -105,7 +109,6 @@ const StyledSection = styled.section`
     justify-content: space-between;
     width: 30%;
     min-height: 8rem;
-   
   }
   .right > p {
     font-size: 12px;

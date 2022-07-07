@@ -1,7 +1,6 @@
 import React from "react";
 import Userinfo from "../components/Sections/Userinfo";
 import Navbar from "../components/Sections/Navbar";
-import Container from "../components/Container";
 import styled from "styled-components";
 import ProductDetails from "../components/Sections/ProductDetails";
 import Footer from "../components/Sections/Footer";

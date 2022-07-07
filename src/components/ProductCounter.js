@@ -4,18 +4,22 @@ import { plus, minus } from "../features/CartSlice";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
+const ProductCounter = ({ count, id }) => {
+  const dispatch = useDispatch();
 
-const ProductCounter = ({count, id}) => {
-
-    const dispatch = useDispatch();
-
+  
   return (
     <StyledDiv>
       <button className="control__btn" onClick={() => dispatch(minus(id))}>
         <AiOutlineMinus />
       </button>
       <p>{count}</p>
-      <button className="control__btn" onClick={() => dispatch(plus(id))}>
+      <button
+        className="control__btn"
+        onClick={() => {
+          dispatch(plus(id));
+        }}
+      >
         <AiOutlinePlus />
       </button>
     </StyledDiv>

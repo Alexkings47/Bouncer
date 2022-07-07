@@ -24,13 +24,13 @@ const CartSlice = createSlice({
       });
     },
     getTotalAmount: (state) => {
-     state.cartArr.forEach((item)=>{
-      const {count, price} = item;
-      const ItemTotal = count * price;
-     let total = 0;
-       total +=ItemTotal
-     return {...state, totalAmount:total }
-     })
+      state.totalAmount = state.cartArr.reduce((acc, item) => {
+          let {count, price} = item;
+         let itemPrice = count * price;
+         console.log("itemPrice")
+         return acc += itemPrice
+         
+        }, 0);
     },
     plus: (state, action) => {
       const index = state.cartArr.findIndex((item) => {
@@ -42,7 +42,7 @@ const CartSlice = createSlice({
       const index = state.cartArr.findIndex((item) => {
         return item.id === Data[action.payload].id;
       });
-     
+
       if (state.cartArr[index].count === 0) {
         state.cartArr = state.cartArr.filter((item) => {
           return item.id !== action.payload;
@@ -54,6 +54,7 @@ const CartSlice = createSlice({
   },
 });
 
-export const { increment, decrement, plus, minus, getTotalAmount } = CartSlice.actions;
+export const { increment, decrement, plus, minus, getTotalAmount } =
+  CartSlice.actions;
 
 export default CartSlice.reducer;

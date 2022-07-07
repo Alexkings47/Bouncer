@@ -74,7 +74,7 @@ const StyledDiv = styled.div`
     backdrop-filter: blur(1px);
     background-color: rgba(0, 0, 0, 0.3);
   }
-  @media (max-width: 1100px) {
+  /* @media (max-width: 1100px) {
     /* justify-content: center;/ */
-  }
+  } */
 `;

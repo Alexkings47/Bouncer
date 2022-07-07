@@ -25,7 +25,7 @@ const CartCard = ({ imgUrl, title, price, id, count }) => {
         <p className="title">{title}</p>
       </div>
       <p>{price * count}</p>
-    <ProductCounter count={count} id={id} />
+      <ProductCounter count={count} id={id} />
       <p>{price}</p>
     </StyledDiv>
   );

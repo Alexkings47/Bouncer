@@ -13,6 +13,8 @@ import ColorPicker from "../ColorPicker";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
+    const cartArr = useSelector((state) => state.cart.cartArr);
+
 
   const starArr = [];
   for (let i = 0; i < 4; i++) {
@@ -33,6 +35,8 @@ const ProductDetails = () => {
     ThumbArr.push(thumb);
   }
 
+  let color = ["red", "blue", "yellow", "black"];
+
   const [values, setValues] = useState({
     isTrue: true,
     shipping: false,
@@ -46,7 +50,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <StyledDiv  className={"full-width"}>
+    <StyledDiv className={"full-width"}>
       <div className="category">Home/ Accessories/</div>
       <div className="grid-container">
         <div className="product-image">
@@ -101,10 +105,9 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="color-div">
-            <ColorPicker color={"blue"} />
-            <ColorPicker color={"red"} />
-            <ColorPicker color={"black"} />
-            <ColorPicker color={"yellow"} />
+            {color.map((colorItem) => {
+              return <ColorPicker color={colorItem} />;
+            })}
           </div>
           <div className="size">
             Size
@@ -115,7 +118,7 @@ const ProductDetails = () => {
             </select>
           </div>
           <div className="amount">
-            <ProductCounter count={Data[id].count} id={Data[id].id} />
+            <ProductCounter count={cartArr[id].count} id={Data[id].id} />
             <div className="right-div-amount">
               <button className="cart-div">
                 <p>Add to Cart</p>
@@ -438,15 +441,15 @@ const StyledDiv = styled.div`
       padding: 2rem 0;
     }
   }
-  @media(max-width: 800px){
-.grid-container{
-  grid-template-columns: 90%;
-  justify-content: center;
-  row-gap: 2rem;
-  /* justify-items: center; */
-}
-.button-div{
-  grid-column: 1/-1;
-}
+  @media (max-width: 800px) {
+    .grid-container {
+      grid-template-columns: 90%;
+      justify-content: center;
+      row-gap: 2rem;
+      /* justify-items: center; */
+    }
+    .button-div {
+      grid-column: 1/-1;
+    }
   }
 `;

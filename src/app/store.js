@@ -15,7 +15,7 @@ import { combineReducers } from "redux";
 
 const persistConfig = {
   key: "root",
-  version: 2,
+  version: 1,
   storage,
 };
 
