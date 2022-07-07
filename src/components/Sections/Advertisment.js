@@ -100,4 +100,9 @@ const StyledDiv = styled.div`
       font-size: 50px;
     }
   }
+  @media (max-width: 550px) {
+    .title{
+      font-size: 30px;
+    }
+  }
 `;

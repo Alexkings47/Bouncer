@@ -8,4 +8,7 @@ const Color = () => {
 }
 
 export default Color
-const StyledDiv =styled.div
+const StyledDiv =styled.div`
+
+
+`

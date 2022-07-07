@@ -19,11 +19,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.5rem;
-  /* border: 1px solid red; */
   justify-items: center;
 }
 
-
+.grey-text{
+  font-size: 18px;
+  color: var(--grey);
+  font-weight: 500;
+}
 
 .section-title {
   font-size: 30px;
@@ -61,7 +64,7 @@ ul {
     padding: 0 5rem;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .partial-width {
     grid-column: 1/ -1;
     padding: 0 2rem;

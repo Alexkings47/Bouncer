@@ -46,6 +46,7 @@ const StyledDiv = styled.div`
   top: 10rem;
   left: 50%;
   transform: translateX(-50%);
+  border-radius: 3px;
 
   .news-image {
     width: 45%;
@@ -87,11 +88,11 @@ const StyledDiv = styled.div`
     transform: translate(-50%, -50%);
     .news-image {
       width: 100%;
-      height: 50%;
+      height: 40%;
     }
 
     .news-text{
-      height: 50%;
+      height: 60%;
     }
   }
 `;

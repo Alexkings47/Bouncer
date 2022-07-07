@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ value, classChosen, color,handleClick }) => {
+const Button = ({ value, classChosen, children, color,handleClick }) => {
   return <StyledButton className={classChosen} style={{
     backgroundColor: color
-  }} onClick={handleClick}>{value}</StyledButton>;
+  }} onClick={handleClick}>{children} {value}</StyledButton>;
 };
 
 export default Button;
@@ -21,6 +21,7 @@ const StyledButton = styled.button`
   &:active {
     transform: scale(1.1);
   }
+  
 
   
 `;

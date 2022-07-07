@@ -127,7 +127,7 @@ const StyledSection = styled.section`
     font-size: 14px;
   }
   .footerItems > li{
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     cursor: pointer;
   }
   .icons-1 {
@@ -166,6 +166,10 @@ const StyledSection = styled.section`
     }
     ul > li {
       font-size: 16px;
+    }
+    .heading3{
+      font-size: 18px;
+      font-weight: bold;
     }
   }
 `;

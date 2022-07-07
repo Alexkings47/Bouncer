@@ -1,17 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
- 
+
 const initialState = [];
 
 export const DetailsSlice = createSlice({
   name: "value",
   initialState,
   reducers: {
-  
     update: (state, action) => {
-      state = action.payload;
-      return state
-  }
-}});
+      if (action.payload[0] === undefined) {
+        return state;
+      } else {
+        state = action.payload;
+        return state;
+      }
+
+      // console.log(action.payload)
+    },
+  },
+});
 
 export const { update } = DetailsSlice.actions;
 
