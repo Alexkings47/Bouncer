@@ -44,10 +44,10 @@ const Home = () => {
           <Newsletter close={close} />
         </div>
       )}
-      <Userinfo classname={"partial-width"} />
-      <Navbar classname={"partial-width"} />
+      <Userinfo  />
+      <Navbar  />
       <DemoCarousel />
-      <Bestseller classname={"partial-width"} />
+      <Bestseller  />
       <ProductDisplay />
       <Advertisment />
       <OurOffers />

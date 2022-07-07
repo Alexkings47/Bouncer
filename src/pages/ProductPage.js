@@ -4,19 +4,25 @@ import Navbar from "../components/Sections/Navbar";
 import Container from "../components/Container";
 import styled from "styled-components";
 import ProductDetails from "../components/Sections/ProductDetails";
+import Footer from "../components/Sections/Footer";
+import RelatedProducts from "../components/RelatedProducts";
 
 const ProductPage = () => {
   return (
-    <StyledSection>
-      <Container>
-        {" "}
-        <Userinfo classname={"partial-width"} />
-        <Navbar classname={"partial-width"} />
-        <ProductDetails />
-      </Container>
-    </StyledSection>
+    <StyledDiv>
+      <Userinfo />
+      <Navbar />
+      <ProductDetails />
+      <RelatedProducts />
+      <Footer />
+    </StyledDiv>
   );
 };
 
 export default ProductPage;
-const StyledSection = styled.section``;
+const StyledDiv = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(auto-fill, max-content);
+`;

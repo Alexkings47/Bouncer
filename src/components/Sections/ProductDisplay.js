@@ -66,10 +66,7 @@ const StyledSection = styled.section`
     justify-content: center;
     /* border: 1px solid red; */
   }
-  a {
-    text-decoration: none;
-    color: black;
-  }
+ 
   .displayBtn {
     margin: 2.5rem auto 5rem;
     color: var(--light-blue);

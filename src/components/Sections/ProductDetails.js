@@ -9,6 +9,7 @@ import BestsellerItem from "../BestsellerItem";
 import ProductCounter from "../ProductCounter";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { ImFacebook, ImTwitter } from "react-icons/im";
+import ColorPicker from "../ColorPicker";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
@@ -35,17 +36,17 @@ const ProductDetails = () => {
   const [values, setValues] = useState({
     isTrue: true,
     shipping: false,
-    color: "",
+    border: false,
   });
 
-  function setColor(color) {
-    setValues((prevItem) => {
-      return { ...prevItem, [values.color]: color };
+  function toggleBorder() {
+    setValues((prevValue) => {
+      return { ...prevValue, border: !values.border };
     });
   }
 
   return (
-    <StyledDiv color={values.color}>
+    <StyledDiv  className={"full-width"}>
       <div className="category">Home/ Accessories/</div>
       <div className="grid-container">
         <div className="product-image">
@@ -100,14 +101,10 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="color-div">
-            <Button
-              color={"blue"}
-              classChosen={"color-picker"}
-              handleClick={(color) => setColor(color)}
-            />
-            <Button color={"red"} classChosen={"color-picker"} />
-            <Button color={"black"} classChosen={"color-picker"} />
-            <Button color={"yellow"} classChosen={"color-picker"} />
+            <ColorPicker color={"blue"} />
+            <ColorPicker color={"red"} />
+            <ColorPicker color={"black"} />
+            <ColorPicker color={"yellow"} />
           </div>
           <div className="size">
             Size
@@ -119,14 +116,15 @@ const ProductDetails = () => {
           </div>
           <div className="amount">
             <ProductCounter count={Data[id].count} id={Data[id].id} />
-            <button className="cart-div">
-              <div className="cart"></div>
-              <p>Add to Cart</p>
-              <AiOutlineShoppingCart />
-            </button>
-            <button className="like-btn">
-              <AiOutlineHeart />
-            </button>
+            <div className="right-div-amount">
+              <button className="cart-div">
+                <p>Add to Cart</p>
+                <AiOutlineShoppingCart />
+              </button>
+              <button className="like-btn">
+                <AiOutlineHeart />
+              </button>
+            </div>
           </div>
         </div>
         <div className="button-div">
@@ -142,18 +140,24 @@ const ProductDetails = () => {
         </div>
         <div className="text-switcher">
           <ul>
-            <li>Product Information</li>
-            <li>
+            <li onClick={toggleBorder} style={{ borderBottom: "red" }}>
+              Product Information
+            </li>
+            <li onClick={toggleBorder}>
               <span>Reviews</span> <span className="">0</span>
             </li>
-            <li>Another tab</li>
+            <li onClick={toggleBorder}>Another tab</li>
           </ul>
           <p className="text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
             officia blanditiis nihil vero voluptas delectus, laborum ipsa est
             consectetur quisquam sint, ad reiciendis voluptate, quia amet
-            consequatur error iusto corrupti.
+            consequatur error iusto corrupti. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Nisi, ipsa. Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Fugit officia blanditiis nihil
+            vero voluptas delectus, laborum ipsa est consectetur quisquam sint,
+            ad reiciendis voluptate, quia amet consequatur error iusto corrupti.
           </p>
           {/* <p className="desc"></p> */}
           {/* <p className="desc"></p> */}
@@ -204,7 +208,7 @@ const StyledDiv = styled.div`
     grid-template-rows: repeat(3, max-content);
     gap: 1rem;
     margin-left: 3rem;
-    padding: 2rem 0 2rem 3rem;
+    padding: 2rem 1rem;
     justify-content: space-between;
   }
 
@@ -220,7 +224,6 @@ const StyledDiv = styled.div`
 
     .thumb {
       width: 23%;
-      height: 3.9rem;
       padding: 5px 2px;
       border: 1px solid #70707071;
     }
@@ -230,7 +233,6 @@ const StyledDiv = styled.div`
     .main-image {
       width: 100%;
       object-fit: cover;
-      /* height: 8rem; */
     }
   }
 
@@ -241,14 +243,12 @@ const StyledDiv = styled.div`
 
     & > div {
       border-bottom: 1px solid #f6f7f8;
-      padding: .5rem 0;
+      padding: 0.5rem 0;
       display: flex;
       align-items: center;
       justify-content: flex-start;
     }
-    & > div > * {
-      margin-right: 1rem;
-    }
+
     .stock {
       flex-direction: column;
       align-items: flex-start;
@@ -269,6 +269,7 @@ const StyledDiv = styled.div`
     .color-div {
       border-bottom: none;
     }
+
     .blue-text {
       color: #33a0ff;
       cursor: pointer;
@@ -278,6 +279,7 @@ const StyledDiv = styled.div`
       font-weight: 500;
     }
     .price-details {
+      border-bottom: none;
       * {
         font-size: 20px;
       }
@@ -286,13 +288,17 @@ const StyledDiv = styled.div`
         color: #ff4858;
       }
     }
-    .review {
+
+    .review > *,
+    .price-details * {
+      margin-right: 1rem;
     }
 
     .amount {
       justify-content: space-between;
     }
   }
+  /* socila media buttons */
   .button-div {
     grid-column: 2/3;
     display: flex;
@@ -304,9 +310,9 @@ const StyledDiv = styled.div`
     .twitter-btn {
       background-color: #385c8e;
       width: 11rem;
-      padding: 0.5rem;
-      font-size: 14px;
-      font-weight: 500;
+      padding: 0.5rem 1rem;
+      font-size: 13px;
+      font-weight: 600;
       text-transform: capitalize;
       display: flex;
       align-items: center;
@@ -316,10 +322,34 @@ const StyledDiv = styled.div`
       background-color: #33a0ff;
     }
   }
+  .right-div-amount {
+    display: flex;
+    align-items: center;
+    justify-items: flex-end;
+  }
+  .cart-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 3px;
+    width: 8rem;
+    margin-right: 1rem;
+    padding: 0.5rem 1.2rem;
+    color: #33a0ff;
+    background-color: rgba(51, 160, 255, 0.3);
+    position: relative;
+  }
+
+  .like-btn {
+    width: 2rem;
+    background-color: rgba(51, 160, 255, 0.3);
+    color: #33a0ff;
+    height: 2rem;
+  }
 
   .text-switcher {
     grid-column: 1/-1;
-    grid-row: 3/4;
+    min-height: 10rem;
     background-color: #fafafb;
 
     ul {
@@ -328,44 +358,16 @@ const StyledDiv = styled.div`
       align-items: flex-end;
 
       li {
-        margin-right: 2rem;
-        height: 2rem;
-      }
-      li:visited {
-        border-bottom: 2px solid var(--light-blue);
+        margin-left: 2rem;
+        padding-block: 1.5rem;
       }
     }
     .text {
-      font-size: 14;
+      font-size: 14px;
+      padding: 1.5rem;
     }
   }
-  .cart-div {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 3px;
-    width: 8rem;
-    padding: 0.5rem 1.2rem;
-    color: #33a0ff;
-    position: relative;
-  }
-  .cart {
-    width: 100%;
-    position: absolute;
-    height: 100%;
-    border-radius: 2px;
-    background-color: rgba(51, 160, 255, 0.3);
-    filter: blur(1px);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .like-btn {
-    width: 2rem;
-    background-color: rgba(51, 160, 255, 0.3);
-    color: #33a0ff;
-    height: 2rem;
-  }
+
   /* select size */
   select {
     width: 5rem;
@@ -383,9 +385,7 @@ const StyledDiv = styled.div`
     border: 1px solid #dfdfdf;
     border-radius: 2px;
   }
-  .product-items {
-    max-width: 15rem;
-  }
+
   /* best seller and product card at far right */
   .bestseller {
     width: 210px;
@@ -393,7 +393,8 @@ const StyledDiv = styled.div`
   }
   .bestsellerCard3 {
     background-color: #c1c8ce;
-    height: 270px;
+    height: 300px;
+    width: 210px;
     margin-top: 1rem;
     .info {
       height: 70%;
@@ -408,12 +409,44 @@ const StyledDiv = styled.div`
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
     .bestseller {
-      margin-right: 0;
+      margin-right: 1rem;
     }
     .grid-container {
       margin-left: 0;
     }
+  }
+  @media (max-width: 1000px) {
+    justify-content: center;
+
+    .grid-container,
+    .bestseller {
+      width: 90%;
+    }
+    .bestseller {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-items {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      padding: 2rem 0;
+    }
+  }
+  @media(max-width: 800px){
+.grid-container{
+  grid-template-columns: 90%;
+  justify-content: center;
+  row-gap: 2rem;
+  /* justify-items: center; */
+}
+.button-div{
+  grid-column: 1/-1;
+}
   }
 `;
