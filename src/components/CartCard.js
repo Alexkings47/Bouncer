@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
-import { decrement} from "../features/CartSlice";
+import { decrement } from "../features/CartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import ProductCounter from "./ProductCounter";
 
+import { update } from "../features/Details";
 const CartCard = ({ imgUrl, title, price, id, count }) => {
   const dispatch = useDispatch();
 
@@ -20,7 +21,11 @@ const CartCard = ({ imgUrl, title, price, id, count }) => {
           <AiOutlineClose />
         </button>
         <Link to="/details">
-          <img src={require(`../images/${imgUrl}`)} alt={title} />
+          <img
+            src={require(`../images/${imgUrl}`)}
+            alt={title}
+            onClick={() => dispatch(update([id]))}
+          />
         </Link>
         <p className="title">{title}</p>
       </div>
@@ -49,6 +54,7 @@ const StyledDiv = styled.div`
   }
   img {
     width: 10rem;
+    padding: 0 .5rem;
   }
   p {
     font-size: 14px;
@@ -56,5 +62,4 @@ const StyledDiv = styled.div`
   .title {
     font-size: 14px;
   }
-  
 `;

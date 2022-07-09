@@ -15,7 +15,6 @@ const Cart = () => {
   }, [dispatch]);
   const { cartArr, totalAmount } = useSelector((state) => state.cart);
 
-  console.log(totalAmount, "rice");
   const [total] = useState({
     shipping: "$20",
     coupon: false,

@@ -10,12 +10,19 @@ import ProductCounter from "../ProductCounter";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { ImFacebook, ImTwitter } from "react-icons/im";
 import ColorPicker from "../ColorPicker";
+import { increment } from "../../features/CartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
-    const cartArr = useSelector((state) => state.cart.cartArr);
+  const cartArr = useSelector((state) => state.cart.cartArr);
+  const dispatch = useDispatch();
 
 
+  const cartArrCount = cartArr.find((elem) => elem.id === id);
+  const [countVal] =  useState(cartArrCount === undefined ? Data[id].count : cartArrCount.count);
+  {cartArrCount && console.log(cartArrCount.count)}
+  
   const starArr = [];
   for (let i = 0; i < 4; i++) {
     let star = <Star key={i} />;
@@ -35,7 +42,7 @@ const ProductDetails = () => {
     ThumbArr.push(thumb);
   }
 
-  let color = ["red", "blue", "yellow", "black"];
+  const color = ["red", "blue", "yellow", "black"];
 
   const [values, setValues] = useState({
     isTrue: true,
@@ -105,8 +112,8 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="color-div">
-            {color.map((colorItem) => {
-              return <ColorPicker color={colorItem} />;
+            {color.map((colorItem, index) => {
+              return <ColorPicker color={colorItem} key={index} />;
             })}
           </div>
           <div className="size">
@@ -118,9 +125,16 @@ const ProductDetails = () => {
             </select>
           </div>
           <div className="amount">
-            <ProductCounter count={cartArr[id].count} id={Data[id].id} />
+            <ProductCounter
+              count={countVal}
+              id={Data[id].id}
+              stateArr={cartArrCount}
+            />
             <div className="right-div-amount">
-              <button className="cart-div">
+              <button
+                className="cart-div"
+                onClick={() => dispatch(increment(id))}
+              >
                 <p>Add to Cart</p>
                 <AiOutlineShoppingCart />
               </button>

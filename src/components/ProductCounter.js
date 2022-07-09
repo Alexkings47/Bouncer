@@ -1,27 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { plus, minus } from "../features/CartSlice";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
-const ProductCounter = ({ count, id }) => {
+const ProductCounter = ({ count, id, stateArr }) => {
   const dispatch = useDispatch();
+  const [DataCount, setDataCount] = useState(count);
 
-  
   return (
     <StyledDiv>
-      <button className="control__btn" onClick={() => dispatch(minus(id))}>
-        <AiOutlineMinus />
-      </button>
-      <p>{count}</p>
-      <button
-        className="control__btn"
-        onClick={() => {
-          dispatch(plus(id));
-        }}
-      >
-        <AiOutlinePlus />
-      </button>
+      {stateArr !== undefined ? (
+        <>
+          <button className="control__btn" onClick={() => dispatch(minus(id))}>
+            <AiOutlineMinus />
+          </button>
+          <p>{count}</p>
+          <button
+            className="control__btn"
+            onClick={() => {
+              dispatch(plus(id));
+            }}
+          >
+            <AiOutlinePlus />
+          </button>
+        </>
+      ) : (
+        <>
+          <button
+            className="control__btn"
+            onClick={() => setDataCount(DataCount - 1)}
+          >
+            <AiOutlineMinus />
+          </button>
+          <p>{DataCount}</p>
+          <button
+            className="control__btn"
+            onClick={() => setDataCount(DataCount + 1)}
+          >
+            <AiOutlinePlus />
+          </button>
+        </>
+      )}
     </StyledDiv>
   );
 };
@@ -48,5 +68,8 @@ const StyledDiv = styled.div`
     align-items: center;
     justify-content: space-between;
     color: #33a0ff;
+  }
+  button:focus{
+    border: none;
   }
 `;
