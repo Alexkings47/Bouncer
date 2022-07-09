@@ -12,6 +12,7 @@ import { ImFacebook, ImTwitter } from "react-icons/im";
 import ColorPicker from "../ColorPicker";
 import { increment } from "../../features/CartSlice";
 import { useDispatch } from "react-redux";
+import CategoryBar from "../CategoryBar";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
@@ -21,8 +22,8 @@ const ProductDetails = () => {
 
   const cartArrCount = cartArr.find((elem) => elem.id === id);
   const [countVal] =  useState(cartArrCount === undefined ? Data[id].count : cartArrCount.count);
-  {cartArrCount && console.log(cartArrCount.count)}
-  
+  // {cartArrCount && console.log(cartArrCount.count)}
+
   const starArr = [];
   for (let i = 0; i < 4; i++) {
     let star = <Star key={i} />;
@@ -58,7 +59,7 @@ const ProductDetails = () => {
 
   return (
     <StyledDiv className={"full-width"}>
-      <div className="category">Home/ Accessories/</div>
+      <CategoryBar />
       <div className="grid-container">
         <div className="product-image">
           <img
@@ -212,12 +213,7 @@ const StyledDiv = styled.div`
   font-size: 14px;
   flex-wrap: wrap;
 
-  .category {
-    background-color: #f6f7f8;
-    width: 100%;
-    text-align: center;
-    padding: 5px;
-  }
+  
   .grid-container {
     display: grid;
     min-width: 55%;

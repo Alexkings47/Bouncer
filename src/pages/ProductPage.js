@@ -5,12 +5,14 @@ import styled from "styled-components";
 import ProductDetails from "../components/Sections/ProductDetails";
 import Footer from "../components/Sections/Footer";
 import RelatedProducts from "../components/RelatedProducts";
+import CategoryBar from "../components/CategoryBar";
 
 const ProductPage = () => {
   return (
     <StyledDiv>
       <Userinfo />
       <Navbar />
+      <CategoryBar />
       <ProductDetails />
       <RelatedProducts />
       <Footer />

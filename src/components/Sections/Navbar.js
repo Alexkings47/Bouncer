@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import useOutsideAlerter from "../OutsideAlerter";
 import { Link } from "react-router-dom";
+import ListDiv from "../ListDiv";
 
 const Navbar = () => {
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -12,7 +13,7 @@ const Navbar = () => {
     { name: "IpHONE", path: "" },
     { name: "IPAD", path: "" },
     { name: "MACBOOK", path: "" },
-    { name: "ACCESORIES", path: "" },
+    { name: "ACCESORIES", path: "/allproducts" },
   ];
 
   const NewLinks = Links.map((link, index) => {
@@ -29,23 +30,24 @@ const Navbar = () => {
     );
   });
   return (
-    <StyledNav isComponentVisible={isComponentVisible}>
+    <StyledNav isComponentVisible={isComponentVisible} className={"partial-width"}>
       <h2>Bouncer</h2>
       <ul className="nav-parent">{NewLinks}</ul>
       <div className="nav-menu">
-        <div>
-          <h3>Category</h3>
-          <ul>
-            <li>Airpoint & Wireless</li>
-            <li>AppleCare</li>
-            <li>Business & Secuirity</li>
-            <li>Bags, Shells & Sleeves</li>
-            <li>Cables & Docks</li>
-            <li>Cameras & Video</li>
-            <li>Car & Travel</li>
-            <li>Cases & Films</li>
-          </ul>
-        </div>
+        <ListDiv
+          title={"ACCESSORIES"}
+          values={[
+            "Airpoint & Wireless",
+            "Apple Car",
+            " Business & Secuirity",
+            "Bags, Shells & Sleeves",
+            "Cables & Docks",
+            "charging devices",
+            "Car & Travel",
+            "Cases & Films",
+          ]}
+          classChosen={"accessories"}
+        />
         <div>
           <h3>Category</h3>
           <ul>
