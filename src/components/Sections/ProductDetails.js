@@ -59,7 +59,7 @@ const ProductDetails = () => {
 
   return (
     <StyledDiv className={"full-width"}>
-      <CategoryBar />
+      {/* <CategoryBar /> */}
       <div className="grid-container">
         <div className="product-image">
           <img

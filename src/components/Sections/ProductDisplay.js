@@ -5,7 +5,7 @@ import { Data } from "../Data";
 import Button from "../Button";
 import { Link } from "react-router-dom";
 
-const ProductDisplay = () => {
+const ProductDisplay = ({classChosen, bar}) => {
 
   const [showMore, setShowMore] = useState(false);
 
@@ -26,8 +26,8 @@ const ProductDisplay = () => {
   });
 
   return (
-    <StyledSection className="partial-width">
-      <div className="product-types-mobile">
+    <StyledSection  className={classChosen? classChosen: "partial-width"}>
+      {bar && <div className="product-types-mobile">
         <ul>
           <li>All</li>
           <li>Mac</li>
@@ -36,9 +36,9 @@ const ProductDisplay = () => {
           <li>iPod</li>
           <li>Accessories</li>
         </ul>
-      </div>
+      </div>}
       <div className="grid-items">
-        <div className="product-types">
+        {bar && <div className="product-types">
           <ul>
             <li>All</li>
             <li>Mac</li>
@@ -47,7 +47,7 @@ const ProductDisplay = () => {
             <li>iPod</li>
             <li>Accessories</li>
           </ul>
-        </div>
+        </div>}
         {NewProducts}
         {showMore? NewProducts: ""}
       </div>
@@ -61,12 +61,13 @@ export default ProductDisplay;
 const StyledSection = styled.section`
   .grid-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 210px);
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
     grid-gap: 1rem;
     justify-content: center;
+    /* width: 100%; */
     /* border: 1px solid red; */
   }
- 
+
   .displayBtn {
     margin: 2.5rem auto 5rem;
     color: var(--light-blue);

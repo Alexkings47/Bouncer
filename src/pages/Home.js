@@ -76,5 +76,5 @@ const StyledDiv = styled.div`
   }
   /* @media (max-width: 1100px) {
     /* justify-content: center;/ */
-  } */
+  /* } */ 
 `;

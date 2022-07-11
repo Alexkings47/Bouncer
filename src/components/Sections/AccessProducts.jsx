@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import CategoryBar from "../CategoryBar";
 import ColorPicker from "../ColorPicker";
 import ListDiv from "../ListDiv";
+import Advertisment from "./Advertisment";
+import ProductDisplay from "./ProductDisplay";
 
 const AccessProducts = () => {
   const color = ["red", "blue", "yellow", "black", "pink", "#EFDFDF"];
@@ -27,7 +30,7 @@ const AccessProducts = () => {
         <div className="price-range">
           <p className="heading">PRICES</p>
           <p className="ranger">
-            <span>Ranger</span> <span className="prices">$13.99 - $25.99</span>
+            <span>Range</span> <span className="prices">$13.99 - $25.99</span>
           </p>
           <input type="range" min="2" max="30" id="ranger" className="ranger" />
         </div>
@@ -36,36 +39,32 @@ const AccessProducts = () => {
             return <ColorPicker color={colorItem} key={index} />;
           })}
         </div>
-        <div className="brand">
-          <ul>
-            <h3 className="heading">ACCESSORIES</h3>
-            <li>
-              Apple <span>1</span>
-            </li>
-            <li>
-              LG <span>1</span>
-            </li>
-            <li>
-              Samsung <span>1</span>
-            </li>
-            <li>
-              Siemens <span>1</span>
-            </li>
-          </ul>
-        </div>
-
+        <ListDiv
+          title={"BRAND"}
+          values={["Apple", "LG", "Samsung", "Siemens"]}
+          classChosen={"brand"}
+          number={1}
+        />
         <div className="more">More</div>
       </div>
-      <div className="prod-images"></div>
+      <div className="prod-images">
+          <Advertisment slide={false} classChosen={"position"} />
+          <CategoryBar />
+          <ProductDisplay classChosen={"position"} bar={false} />
+      </div>
     </StyledDiv>
   );
 };
 
 export default AccessProducts;
 const StyledDiv = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content:center;
+
   .categories {
     width: 230px;
-    margin-left: 5rem;
 
     div {
       background-color: #e5e5e580;
@@ -73,6 +72,9 @@ const StyledDiv = styled.div`
       padding: 1rem 0.8rem;
       margin-bottom: 1rem;
     }
+    /* .partial-width{
+        grid-column: 2/4;
+    } */
     li {
       margin-top: 1rem;
       font-size: 14px;
@@ -107,6 +109,18 @@ const StyledDiv = styled.div`
       justify-content: space-between;
       align-items: flex-start;
     }
+
+    input:focus {
+      outline: none;
+    }
+  }
+  .prod-images {
+    width: 60%;
+    padding-left: 1rem;
+  }
+
+  .position {
+    width: 100%;
   }
 
   /* .accessories,

@@ -1,5 +1,6 @@
 .full-width {
   grid-column: 1/ -1;
+  max-width: 100%;
   /* grid-row: ; */
 }
 
@@ -22,16 +23,16 @@
   justify-items: center;
 }
 
-.grey-text{
+.grey-text {
   font-size: 18px;
   color: var(--grey);
   font-weight: 500;
 }
 
- a {
-    text-decoration: none;
-    color: black;
-  }
+a {
+  text-decoration: none;
+  color: black;
+}
 .section-title {
   font-size: 30px;
   font-weight: 500;
@@ -79,6 +80,7 @@ ul {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
     row-gap: 3rem;
+    border: 1px solid red;
   }
 }
 @media (max-width: 500px) {

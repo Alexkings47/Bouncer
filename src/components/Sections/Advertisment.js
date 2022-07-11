@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../Button";
-import { Carousel } from "react-responsive-carousel";
+import { Carousel,  } from "react-responsive-carousel";
 
-const Advertisment = () => {
+const Advertisment = ({classChosen}) => {
   return (
-    <StyledDiv className="full-width">
+    <StyledDiv className={classChosen? classChosen: "full-width"}>
+    {/* <StyledDiv className={"partial-width"}> */}
       <Carousel
         showArrows={false}
         showThumbs={false}
@@ -52,10 +53,11 @@ export default Advertisment;
 const StyledDiv = styled.div`
   background: var(--light-blue);
   overflow: hidden;
-  height: 65vh;
+  max-height: 65vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
 
   .item1 {
     padding: 2rem 4rem 0 4rem;
@@ -64,7 +66,6 @@ const StyledDiv = styled.div`
     align-items: center;
     z-index: 5;
   }
-
   .info {
     display: flex;
     flex-direction: column;
@@ -82,7 +83,6 @@ const StyledDiv = styled.div`
   }
   .imgDiv {
   }
-
   img {
     max-height: 140%;
     margin-top: -4rem;
@@ -95,13 +95,14 @@ const StyledDiv = styled.div`
       justify-content: center;
       padding: 2rem 0 0;
     }
-
-    .title{
+    .title {
       font-size: 50px;
     }
   }
   @media (max-width: 550px) {
-    .title{
+    height: 50vh;
+
+    .title {
       font-size: 30px;
     }
   }
