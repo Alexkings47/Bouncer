@@ -13,10 +13,10 @@ export const Data = [
     id: 1,
     imgUrl: "headset-min.png",
     thumb: [
-      "thumb1-min.png",
-      "thumb2-min.png",
-      "thumb3-min.png",
-      "thumb1-min.png",
+    {  thumbUrl: "thumb1-min.png",name:"first"},
+     { thumbUrl: "thumb2-min.png",name:"second"},
+      {thumbUrl: "thumb3-min.png",name:"third"},
+      {thumbUrl: "thumb1-min.png",name:"fourth"}
     ],
   },
   { title: "guage", price: 499, count: 1, id: 2, imgUrl: "guage-min.png" },
@@ -62,7 +62,33 @@ export const CarouselImage = [
   },
 ];
 
-export const text = ` Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
+export const values = [
+  [
+    "Airpoint & Wireless",
+    "Apple Car",
+    " Business & Secuirity",
+    "Bags, Shells & Sleeves",
+    "Cables & Docks",
+    "charging devices",
+    "Car & Travel",
+    "Cases & Films",
+  ],
+  ["Apple", "LG", "Samsung", "Siemens"],
+];
+
+ export const Color = ["red", "blue", "yellow", "black", "pink", "#EFDFDF"];
+  export const Color_small = ["red", "blue", "yellow", "black"];
+
+
+ export const CategoryBox = [
+   { name: "first", elem: "1" },
+   { name: "second", elem: "2" },
+   { name: "third", elem: "3" },
+   { name: "fourth", elem: "4" },
+ ];
+
+
+export const Text = ` Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
 officia blanditiis nihil vero voluptas delectus, laborum ipsa est
 consectetur quisquam sint, ad reiciendis voluptate, quia amet
 consequatur error iusto corrupti. Lorem ipsum dolor sit amet

@@ -4,7 +4,7 @@ import Navbar from "../components/Sections/Navbar";
 import Footer from "../components/Sections/Footer";
 import Copyright from "../components/Sections/Copyright";
 import styled from "styled-components";
-import AccessProducts from "../components/Sections/AccessProducts";
+import AccessoriesBar from "../components/Sections/AccessoriesBar";
 import CategoryBar from "../components/CategoryBar";
 
 const Allproducts = () => {
@@ -13,7 +13,7 @@ const Allproducts = () => {
       <Userinfo />
       <Navbar />
       <CategoryBar />
-      <AccessProducts />
+      <AccessoriesBar />
       <Footer />
       <Copyright />
     </StyledSection>

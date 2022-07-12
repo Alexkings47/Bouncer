@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Star from "../Star";
-import Button from "../Button";
 import { useSelector } from "react-redux";
-import { Data, text } from "../Data";
-import ProductCard from "../ProductCard";
-import BestsellerItem from "../BestsellerItem";
+import { Data, Color_small } from "../Data";
 import ProductCounter from "../ProductCounter";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
-import { ImFacebook, ImTwitter } from "react-icons/im";
 import ColorPicker from "../ColorPicker";
 import { increment } from "../../features/CartSlice";
 import { useDispatch } from "react-redux";
 import Thumb from "../Thumb";
+import TextSwitcher from "../TextSwitcher";
+import SelectBar from "../SelectBar";
+import SideProducts from "../SideProducts";
+import DetailsButtonDiv from "../DetailsButtonDiv";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
@@ -30,23 +30,11 @@ const ProductDetails = () => {
     starArr.push(star);
   }
 
-  const color = ["red", "blue", "yellow", "black"];
 
   const [values] = useState({
     isTrue: true,
     shipping: false,
   });
-
-  function toggleBorder(evt) {
-    var element = document.getElementsByClassName("list_border");
-
-    if (evt.target.classList.contains("list_border")) {
-      evt.target.classList.remove("list_border");
-    } else {
-      evt.target.classList.add("list_border");
-      element[0].classList.remove("list_border");
-    }
-  }
 
   return (
     <StyledDiv className={"full-width"} thumbBorder={values.border}>
@@ -91,17 +79,13 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="color-div">
-            {color.map((colorItem, index) => {
+            {Color_small.map((colorItem, index) => {
               return <ColorPicker color={colorItem} key={index} />;
             })}
           </div>
           <div className="size">
             Size
-            <select>
-              <option>XS</option>
-              <option>L</option>
-              <option>M</option>
-            </select>
+            <SelectBar options={["XS", "L", "M"]} />
           </div>
           <div className="amount">
             <ProductCounter
@@ -123,47 +107,11 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-        <div className="button-div">
-          <Button classChosen={"facebook-btn"}>
-            <ImFacebook className="icons-2" />
-            <span> share on facebook</span>
-          </Button>
-
-          <Button classChosen={"twitter-btn"}>
-            <ImTwitter className="icons-2" />
-            <span> share on twitter</span>
-          </Button>
-        </div>
-        <div className="text-switcher">
-          <ul>
-            <li onClick={toggleBorder}>Product Information</li>
-            <li onClick={toggleBorder}>Reviews</li>
-            <li onClick={toggleBorder}>Another tab</li>
-          </ul>
-          <p className="text">{text}</p>
-        </div>
+        <DetailsButtonDiv chosenClass={"button-div"} />
+        <TextSwitcher />
       </div>
       {/* right end articles */}
-      <aside className="bestseller">
-        <h3 className="grey-text">BEST SELLER</h3>
-        <div className="product-items">
-          <ProductCard
-            title={Data[2].title}
-            price={Data[2].price}
-            imgUrl={Data[2].imgUrl}
-            id={2}
-          />
-          <BestsellerItem
-            imgUrl={"camcorder-min.png"}
-            title={"GoPro Hero 6"}
-            description={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit"
-            }
-            price={"$299"}
-            chosenClass={"bestsellerCard3"}
-          />
-        </div>
-      </aside>
+      <SideProducts chosenClass={"bestseller"} />
     </StyledDiv>
   );
 };
@@ -258,29 +206,7 @@ const StyledDiv = styled.div`
     }
   }
   /* socila media buttons */
-  .button-div {
-    grid-column: 2/3;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 1rem;
 
-    .facebook-btn,
-    .twitter-btn {
-      background-color: #385c8e;
-      width: 11rem;
-      padding: 0.5rem 1rem;
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: capitalize;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
-    .twitter-btn {
-      background-color: #33a0ff;
-    }
-  }
   .right-div-amount {
     display: flex;
     align-items: center;
@@ -306,72 +232,19 @@ const StyledDiv = styled.div`
     height: 2rem;
   }
 
-  .text-switcher {
-    grid-column: 1/-1;
-    min-height: 10rem;
-    background-color: #fafafb;
-
-    ul {
-      display: flex;
-      border-bottom: 2px solid #e5e8ea;
-      align-items: flex-end;
-
-      li {
-        margin-left: 2rem;
-        padding-block: 1.5rem;
-        border-bottom: 2px solid transparent;
-      }
-    }
-    .text {
-      font-size: 14px;
-      padding: 1.5rem;
-    }
-
-    .list_border {
-      border-bottom: 1.5px solid var(--light-blue);
-    }
-  }
-
   /* select size */
   select {
-    width: 5rem;
     height: 2rem;
     margin-left: 2rem;
     text-indent: 0.4rem;
     font-size: 12px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     background: transparent;
     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-position-y: 50%;
-    border: 1px solid #dfdfdf;
-    border-radius: 2px;
   }
 
-  /* best seller and product card at far right */
-  .bestseller {
-    width: 210px;
-    margin-right: 8rem;
-  }
-  .bestsellerCard3 {
-    background-color: #c1c8ce;
-    height: 300px;
-    width: 210px;
-    margin-top: 1rem;
-    .info {
-      height: 70%;
-    }
-
-    img {
-      position: absolute;
-      bottom: 10px;
-      right: -10px;
-      width: 10rem;
-      height: 10rem;
-    }
-  }
 
   @media (max-width: 1200px) {
     .bestseller {

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const CategoryBar = ({ children }) => {
-  return <StyledDiv className="full-width">{children}</StyledDiv>;
+const CategoryBar = ({ children, classChosen }) => {
+  return <StyledDiv className={`full-width ${classChosen}`}>{children}</StyledDiv>;
 };
 
 export default CategoryBar;
@@ -17,6 +17,6 @@ const StyledDiv = styled.div`
   margin: 1rem 0;
 
   & > * {
-    margin: 0 5px;
+    margin: 0 8px;
   }
 `;

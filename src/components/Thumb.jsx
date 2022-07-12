@@ -1,48 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-import useOutsideAlerter from "./OutsideAlerter";
 
 import { Data } from "./Data";
 
 const Thumb = ({ id }) => {
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useOutsideAlerter(false);
+  
+const [activeName, setActiveName] = useState();
 
-  const ThumbArr = [];
-  for (let j = 0; j < 4; j++) {
-    let thumb = (
-      <img
-        src={require(`../images/${Data[id].imgUrl}`)}
-        alt={Data[id].title}
-        className="thumb"
-        key={j}
-        ref={ref}
-        onClick={() => setIsComponentVisible(!isComponentVisible)}
-      />
-    );
-
-    ThumbArr.push(thumb);
-  }
-
+  
+const ThumbArr = ["first","second","third","fourth"];
+ 
  
 
   return (
-    <StyledDiv isComponentVisible={isComponentVisible}>
+    <StyledDiv >
       {" "}
       {Data[id].thumb != null
         ? Data[id].thumb.map((item, index) => {
             return (
               <img
-                src={require(`../images/${item}`)}
+                src={require(`../images/${item.thumbUrl}`)}
                 alt={Data[id].title}
-                className="thumb"
+              
+                onClick={()=> setActiveName(item.name)}
+                className= {item.name === activeName? "thumb_border": "thumb"}
                 key={index}
-                ref={ref}
-                onClick={() => setIsComponentVisible(!isComponentVisible)}
               />
             );
           })
-        : ThumbArr}
+        : ThumbArr.map((elem, index)=>{
+            return (
+              <img
+                src={require(`../images/${Data[id].imgUrl}`)}
+                alt={Data[id].title}
+                onClick={() => setActiveName(elem)}
+                className={elem === activeName ? "thumb_border" : "thumb"}
+                key={index}
+              />
+            );
+        })}
     </StyledDiv>
   );
 };
@@ -50,6 +46,7 @@ const Thumb = ({ id }) => {
 export default Thumb;
 const StyledDiv = styled.div`
   width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,6 +57,9 @@ const StyledDiv = styled.div`
     border: 1px solid #70707071;
   }
   .thumb_border {
-    outline: 2px solid ${(props) => props.isComponentVisible? "red": "var(--light-blue)"};
+    outline: 2px solid var(--light-blue);
+    width: 23%;
+    padding: 5px 2px;
+    border: 1px solid #70707071;
   }
 `;

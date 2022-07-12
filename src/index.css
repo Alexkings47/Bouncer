@@ -23,11 +23,9 @@ select {
     border: 1px solid var(--grey);
     font-weight: 200;
     letter-spacing: -1px;
-
     transition: 0.1s;
     text-align: left;
     width:5rem;
-
     background-color: transparent;
     color: inherit; /* 1 */
     font: inherit; /* 2 */

@@ -1,40 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CategoryBar from "../CategoryBar";
 import ColorPicker from "../ColorPicker";
-import { Data } from "../Data";
+import { Data, values, Color, CategoryBox } from "../Data";
 import ListDiv from "../ListDiv";
 import Advertisment from "./Advertisment";
 import ProductDisplay from "./ProductDisplay";
+import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const AccessProducts = () => {
-  const color = ["red", "blue", "yellow", "black", "pink", "#EFDFDF"];
-
-  function toggleBackGround(evt) {
-    // var element = document.getElementsByClassName("div_number");
-    if (evt.target.classList.contains("div_number")) {
-      evt.target.classList.remove("div_number");
-    } else {
-      // element[0].parentNode.classList.remove("div_number");
-      evt.target.classList.add("div_number");
-    }
-  }
+  const [activeName, setActiveName] = useState();
+  
 
   return (
     <StyledDiv className="full-width">
       <div className="categories">
         <ListDiv
           title={"ACCESSORIES"}
-          values={[
-            "Airpoint & Wireless",
-            "Apple Car",
-            " Business & Secuirity",
-            "Bags, Shells & Sleeves",
-            "Cables & Docks",
-            "charging devices",
-            "Car & Travel",
-            "Cases & Films",
-          ]}
+          values={values[0]}
           classChosen={"accessories"}
           number={2}
         />
@@ -46,13 +30,13 @@ const AccessProducts = () => {
           <input type="range" min="2" max="30" id="ranger" className="ranger" />
         </div>
         <div className="color-div">
-          {color.map((colorItem, index) => {
+          {Color.map((colorItem, index) => {
             return <ColorPicker color={colorItem} key={index} />;
           })}
         </div>
         <ListDiv
           title={"BRAND"}
-          values={["Apple", "LG", "Samsung", "Siemens"]}
+          values={values[1]}
           classChosen={"brand"}
           number={1}
         />
@@ -60,33 +44,38 @@ const AccessProducts = () => {
       </div>
       <div className="prod-images">
         <Advertisment slide={false} classChosen={"position"} />
-        <CategoryBar>
-          <span>{Data.length * 2}</span>
-          <p>Sort By</p>
-          <select>
-            <option>Name</option>
-            <option>Size</option>
-          </select>
-          <p>show</p>
-          <select>
-            <option>12</option>
-            <option>11</option>
-          </select>
+        <CategoryBar classChosen={"spaced-bar"}>
+          <div className="category-bar-div">
+            <span>{Data.length * 2}</span>
+            <p>Sort By</p>
+            <select>
+              <option>Name</option>
+              <option>Size</option>
+            </select>
+            <p>show</p>
+            <select>
+              <option>12</option>
+              <option>11</option>
+            </select>
+          </div>
+          <div className="category-bar-div">
+            <BsFillGrid3X3GapFill className="blue-icon" />
+            <AiOutlineMenu />
+          </div>
         </CategoryBar>
         <ProductDisplay classChosen={"position"} bar={false} />
         <CategoryBar>
-          <div className="page-num" onClick={toggleBackGround}>
-            1
-          </div>
-          <div className="page-num" onClick={toggleBackGround}>
-            2
-          </div>
-          <div className="page-num" onClick={toggleBackGround}>
-            3
-          </div>
-          <div className="page-num" onClick={toggleBackGround}>
-            4
-          </div>
+          {CategoryBox.map((item, index) => {
+            return (
+              <div
+                onClick={() => setActiveName(item.name)}
+                className={activeName === item.name ? "div_number" : "page-num"}
+                key={index}
+              >
+                {item.elem}
+              </div>
+            );
+          })}
         </CategoryBar>
       </div>
     </StyledDiv>
@@ -109,9 +98,7 @@ const StyledDiv = styled.div`
       padding: 1rem 0.8rem;
       margin-bottom: 1rem;
     }
-    /* .partial-width{
-        grid-column: 2/4;
-    } */
+
     li {
       margin-top: 1rem;
       font-size: 14px;
@@ -159,7 +146,21 @@ const StyledDiv = styled.div`
     align-items: center;
     justify-content: space-between;
   }
+  .spaced-bar {
+    justify-content: space-between;
+  }
+  .category-bar-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
+    & > * {
+      margin: 0 8px;
+    }
+  }
+  .blue-icon {
+    color: var(--light-blue);
+  }
   .position {
     width: 100%;
 
@@ -174,25 +175,20 @@ const StyledDiv = styled.div`
   .div_number {
     background-color: black;
     color: white;
-  }
-  .page-num {
     padding: 0 15px;
-    
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* .accessories,
-  .price-range,
-  .color-div,
-  .brand {
-    padding: 1rem 0.8rem;
-    margin-bottom: 1rem;
+  .page-num {
+    padding: 0 15px;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-  } */
+    justify-content: center;
+  }
+
+  
 `;
