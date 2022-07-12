@@ -16,7 +16,7 @@ const Advertisment = ({ classChosen }) => {
       >
         <div className="item1 container">
           <div className="info">
-            <p className="title">Iphone 6 Plus</p>
+            <p className="advertisment-title">Iphone 6 Plus</p>
             <p className="desc">
               performance and design. Taken right to the edge
             </p>
@@ -31,7 +31,7 @@ const Advertisment = ({ classChosen }) => {
         </div>
         <div className="item1 container">
           <div className="info">
-            <p className="title">Iphone 6 Plus</p>
+            <p className="advertisment-title">Iphone 6 Plus</p>
             <p className="desc">
               performance and design. Taken right to the edge
             </p>
@@ -76,7 +76,7 @@ const StyledDiv = styled.div`
     text-align: left;
     padding: 2rem;
   }
-  .title {
+  .advertisment-title {
     font-size: 66px;
     font-weight: 300;
   }
@@ -94,14 +94,14 @@ const StyledDiv = styled.div`
       justify-content: center;
       padding: 2rem 0 0;
     }
-    .title {
+    .advertisment-title {
       font-size: 50px;
     }
   }
   @media (max-width: 550px) {
     height: 50vh;
 
-    .title {
+    .advertisment-title {
       font-size: 30px;
     }
   }

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import CategoryBar from "../CategoryBar";
 import ColorPicker from "../ColorPicker";
+import { Data } from "../Data";
 import ListDiv from "../ListDiv";
 import Advertisment from "./Advertisment";
 import ProductDisplay from "./ProductDisplay";
@@ -59,7 +60,19 @@ const AccessProducts = () => {
       </div>
       <div className="prod-images">
         <Advertisment slide={false} classChosen={"position"} />
-        <CategoryBar>{"Home/ Accessories/"}</CategoryBar>
+        <CategoryBar>
+          <span>{Data.length * 2}</span>
+          <p>Sort By</p>
+          <select>
+            <option>Name</option>
+            <option>Size</option>
+          </select>
+          <p>show</p>
+          <select>
+            <option>12</option>
+            <option>11</option>
+          </select>
+        </CategoryBar>
         <ProductDisplay classChosen={"position"} bar={false} />
         <CategoryBar>
           <div className="page-num" onClick={toggleBackGround}>
@@ -149,6 +162,14 @@ const StyledDiv = styled.div`
 
   .position {
     width: 100%;
+
+    .advertisment-title {
+      font-size: 45px;
+      font-weight: 300;
+    }
+    .desc {
+      font-size: 18px;
+    }
   }
   .div_number {
     background-color: black;
@@ -156,7 +177,7 @@ const StyledDiv = styled.div`
   }
   .page-num {
     padding: 0 15px;
-    margin: 0 3px;
+    
     height: 100%;
     display: flex;
     align-items: center;

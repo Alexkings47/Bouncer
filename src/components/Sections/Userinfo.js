@@ -86,19 +86,19 @@ const StyledDiv = styled.div`
     border: none;
     font-weight: 200;
     letter-spacing: -1px;
-   
+
     transition: 0.1s;
     text-align: right;
     width: 40px;
     background-image: none;
- 
+
     background-color: transparent;
     color: inherit; /* 1 */
     font: inherit; /* 2 */
     letter-spacing: inherit; /* 2 */
     padding: 0.25em 0.375em;
   }
-  option{
+  option {
     font-size: 16px;
   }
   select:focus {

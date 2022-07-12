@@ -16,5 +16,7 @@ const StyledDiv = styled.div`
   height: 2rem;
   margin: 1rem 0;
 
-  
+  & > * {
+    margin: 0 5px;
+  }
 `;
