@@ -90,6 +90,7 @@ const StyledDiv = styled.div`
   height: 450px;
   background: linear-gradient(to right, #ff4858, #8f65ff);
   overflow: hidden;
+  position: relative;
 
   .carouselContent {
     overflow: hidden;
@@ -97,12 +98,11 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 18rem;
-    max-width: 1800px;
+    padding: 0 10rem;
   }
   h2{
     font-size: 36px;
-    font-weight: bo;
+    /* font-weight: bo; */
   }
   .carouselButton {
     font-size: 13px;
@@ -110,6 +110,8 @@ const StyledDiv = styled.div`
   .content {
     display: flex;
     align-items: center;
+        border: 1px solid green;
+
   }
   .info {
     display: flex;
@@ -137,12 +139,12 @@ const StyledDiv = styled.div`
     height: 5rem;
     background: none;
     border: none;
-    /* z-index: 2; */
+    z-index: 5;
     text-align: center;
   }
   .iconNext {
     position: absolute;
-    right: 4rem;
+    right: 0;
     top: 40%;
     transform: translate(-50%);
   }
@@ -154,10 +156,10 @@ const StyledDiv = styled.div`
     transform: translate(-50%);
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 800px) {
     .carouselContent {
-      width: 90%;
-      padding: 2rem 5rem;
+      width: 100%;
+      padding: 0 5rem;
     }
   }
 `;

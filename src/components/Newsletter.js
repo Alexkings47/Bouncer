@@ -44,7 +44,6 @@ const StyledDiv = styled.div`
   left: 50%;
   transform: translateX(-50%);
   border-radius: 3px;
-  border: 2px solid green;
   max-width: 45rem;
 
   .news-image {
