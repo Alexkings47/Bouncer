@@ -9,6 +9,16 @@ import ProductDisplay from "./ProductDisplay";
 const AccessProducts = () => {
   const color = ["red", "blue", "yellow", "black", "pink", "#EFDFDF"];
 
+  function toggleBackGround(evt) {
+    // var element = document.getElementsByClassName("div_number");
+    if (evt.target.classList.contains("div_number")) {
+      evt.target.classList.remove("div_number");
+    } else {
+      // element[0].parentNode.classList.remove("div_number");
+      evt.target.classList.add("div_number");
+    }
+  }
+
   return (
     <StyledDiv className="full-width">
       <div className="categories">
@@ -48,9 +58,23 @@ const AccessProducts = () => {
         <div className="more">More</div>
       </div>
       <div className="prod-images">
-          <Advertisment slide={false} classChosen={"position"} />
-          <CategoryBar />
-          <ProductDisplay classChosen={"position"} bar={false} />
+        <Advertisment slide={false} classChosen={"position"} />
+        <CategoryBar>{"Home/ Accessories/"}</CategoryBar>
+        <ProductDisplay classChosen={"position"} bar={false} />
+        <CategoryBar>
+          <div className="page-num" onClick={toggleBackGround}>
+            1
+          </div>
+          <div className="page-num" onClick={toggleBackGround}>
+            2
+          </div>
+          <div className="page-num" onClick={toggleBackGround}>
+            3
+          </div>
+          <div className="page-num" onClick={toggleBackGround}>
+            4
+          </div>
+        </CategoryBar>
       </div>
     </StyledDiv>
   );
@@ -58,10 +82,10 @@ const AccessProducts = () => {
 
 export default AccessProducts;
 const StyledDiv = styled.div`
-  margin-top: 2rem;
+  margin: 2rem 0 5rem;
   display: flex;
   align-items: flex-start;
-  justify-content:center;
+  justify-content: center;
 
   .categories {
     width: 230px;
@@ -115,12 +139,28 @@ const StyledDiv = styled.div`
     }
   }
   .prod-images {
-    width: 60%;
+    width: 50%;
     padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .position {
     width: 100%;
+  }
+  .div_number {
+    background-color: black;
+    color: white;
+  }
+  .page-num {
+    padding: 0 15px;
+    margin: 0 3px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* .accessories,

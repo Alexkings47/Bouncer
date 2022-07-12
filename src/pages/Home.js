@@ -48,7 +48,7 @@ const Home = () => {
       <Navbar  />
       <DemoCarousel />
       <Bestseller  />
-      <ProductDisplay />
+      <ProductDisplay bar={true} />
       <Advertisment />
       <OurOffers />
       <LatestNews />

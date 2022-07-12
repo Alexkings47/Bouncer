@@ -61,3 +61,13 @@ export const CarouselImage = [
     imgUrl: "iPhone6plus-min.png",
   },
 ];
+
+export const text = ` Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
+officia blanditiis nihil vero voluptas delectus, laborum ipsa est
+consectetur quisquam sint, ad reiciendis voluptate, quia amet
+consequatur error iusto corrupti. Lorem ipsum dolor sit amet
+consectetur adipisicing elit. Nisi, ipsa. Lorem ipsum dolor sit
+amet, consectetur adipisicing elit. Fugit officia blanditiis nihil
+vero voluptas delectus, laborum ipsa est consectetur quisquam sint,
+ad reiciendis voluptate, quia amet consequatur error iusto corrupti.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit`;

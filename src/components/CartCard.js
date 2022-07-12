@@ -5,8 +5,8 @@ import { decrement } from "../features/CartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import ProductCounter from "./ProductCounter";
-
 import { update } from "../features/Details";
+
 const CartCard = ({ imgUrl, title, price, id, count }) => {
   const dispatch = useDispatch();
 
@@ -54,7 +54,7 @@ const StyledDiv = styled.div`
   }
   img {
     width: 10rem;
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
   }
   p {
     font-size: 14px;

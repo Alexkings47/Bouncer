@@ -37,9 +37,8 @@ const StyledDiv = styled.div`
   width: 100%;
 
   img {
-    max-width: 50%;
-
-    /* margin-right: 1.5rem; */
+    width: 45%;
+    
   }
   .price {
     font-size: 16px;
@@ -64,8 +63,11 @@ const StyledDiv = styled.div`
     color: grey;
     font-size: 16px;
   }
-  /* button {
-    border: none;
-    background: none;
-  } */
+  
+  @media (max-width:550px) {
+    img{
+      margin-left: -1rem;
+      width: 40%;
+    }
+  }
 `;

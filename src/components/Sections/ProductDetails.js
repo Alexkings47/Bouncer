@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Star from "../Star";
 import Button from "../Button";
 import { useSelector } from "react-redux";
-import { Data } from "../Data";
+import { Data, text } from "../Data";
 import ProductCard from "../ProductCard";
 import BestsellerItem from "../BestsellerItem";
 import ProductCounter from "../ProductCounter";
@@ -12,6 +12,7 @@ import { ImFacebook, ImTwitter } from "react-icons/im";
 import ColorPicker from "../ColorPicker";
 import { increment } from "../../features/CartSlice";
 import { useDispatch } from "react-redux";
+import Thumb from "../Thumb";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
@@ -22,43 +23,33 @@ const ProductDetails = () => {
   const [countVal] = useState(
     cartArrCount === undefined ? Data[id].count : cartArrCount.count
   );
-  // {cartArrCount && console.log(cartArrCount.count)}
 
   const starArr = [];
   for (let i = 0; i < 4; i++) {
     let star = <Star key={i} />;
     starArr.push(star);
   }
-  const ThumbArr = [];
-  for (let j = 0; j < 4; j++) {
-    let thumb = (
-      <img
-        src={require(`../../images/${Data[id].imgUrl}`)}
-        alt={Data[id].title}
-        className="thumb"
-        key={j}
-      />
-    );
-
-    ThumbArr.push(thumb);
-  }
 
   const color = ["red", "blue", "yellow", "black"];
 
-  const [values, setValues] = useState({
+  const [values] = useState({
     isTrue: true,
     shipping: false,
-    border: false,
   });
 
-  function toggleBorder() {
-    setValues((prevValue) => {
-      return { ...prevValue, border: !values.border };
-    });
+  function toggleBorder(evt) {
+    var element = document.getElementsByClassName("list_border");
+
+    if (evt.target.classList.contains("list_border")) {
+      evt.target.classList.remove("list_border");
+    } else {
+      evt.target.classList.add("list_border");
+      element[0].classList.remove("list_border");
+    }
   }
 
   return (
-    <StyledDiv className={"full-width"}>
+    <StyledDiv className={"full-width"} thumbBorder={values.border}>
       {/* <CategoryBar /> */}
       <div className="grid-container">
         <div className="product-image">
@@ -67,20 +58,7 @@ const ProductDetails = () => {
             alt={Data[id].title}
             className="main-image"
           />
-          <div className="thumbnails">
-            {Data[id].thumb != null
-              ? Data[id].thumb.map((item, index) => {
-                  return (
-                    <img
-                      src={require(`../../images/${item}`)}
-                      alt={Data[id].title}
-                      className="thumb"
-                      key={index}
-                    />
-                  );
-                })
-              : ThumbArr}
-          </div>
+          <Thumb id={id} />
         </div>
         {/*product description */}
         <div className="details-product-text">
@@ -158,27 +136,11 @@ const ProductDetails = () => {
         </div>
         <div className="text-switcher">
           <ul>
-            <li onClick={toggleBorder} style={{ borderBottom: "red" }}>
-              Product Information
-            </li>
-            <li onClick={toggleBorder}>
-              <span>Reviews</span> <span className="">0</span>
-            </li>
+            <li onClick={toggleBorder}>Product Information</li>
+            <li onClick={toggleBorder}>Reviews</li>
             <li onClick={toggleBorder}>Another tab</li>
           </ul>
-          <p className="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
-            officia blanditiis nihil vero voluptas delectus, laborum ipsa est
-            consectetur quisquam sint, ad reiciendis voluptate, quia amet
-            consequatur error iusto corrupti. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Nisi, ipsa. Lorem ipsum dolor sit
-            amet, consectetur adipisicing elit. Fugit officia blanditiis nihil
-            vero voluptas delectus, laborum ipsa est consectetur quisquam sint,
-            ad reiciendis voluptate, quia amet consequatur error iusto corrupti.
-          </p>
-          {/* <p className="desc"></p> */}
-          {/* <p className="desc"></p> */}
+          <p className="text">{text}</p>
         </div>
       </div>
       {/* right end articles */}
@@ -227,21 +189,6 @@ const StyledDiv = styled.div`
   .product-image {
     width: 100%;
 
-    .thumbnails {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .thumb {
-      width: 23%;
-      padding: 5px 2px;
-      border: 1px solid #70707071;
-    }
-    .thumb:focus {
-      border: 1px solid red;
-    }
     .main-image {
       width: 100%;
       object-fit: cover;
@@ -372,11 +319,16 @@ const StyledDiv = styled.div`
       li {
         margin-left: 2rem;
         padding-block: 1.5rem;
+        border-bottom: 2px solid transparent;
       }
     }
     .text {
       font-size: 14px;
       padding: 1.5rem;
+    }
+
+    .list_border {
+      border-bottom: 1.5px solid var(--light-blue);
     }
   }
 

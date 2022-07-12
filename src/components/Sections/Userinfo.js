@@ -3,19 +3,18 @@ import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import styled from "styled-components";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoMdArrowDropdown } from "react-icons/io";
-import {useSelector} from "react-redux"
-import {Link} from "react-router-dom"
-
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Userinfo = () => {
-const cartArr = useSelector((state) => state.cart.cartArr);
+  const cartArr = useSelector((state) => state.cart.cartArr);
 
   return (
     <StyledDiv>
       <div>
         <div className="select-area">
           <select>
-            <option>EN</option>
+            <option className="option">EN</option>
             <option>FR</option>
             <option>CH</option>
             <option>IG</option>
@@ -36,7 +35,8 @@ const cartArr = useSelector((state) => state.cart.cartArr);
           <AiOutlineUser className="icon white" /> <span>My Profile</span>
         </Link>
         <Link className="userData" to="/checkout">
-          <TiShoppingCart className="icon" /> <span>{cartArr.length} items</span>
+          <TiShoppingCart className="icon" />{" "}
+          <span>{cartArr.length} items</span>
         </Link>
         <Link to="#searchBar" className="userData search">
           <AiOutlineSearch className="icon" />
@@ -86,11 +86,20 @@ const StyledDiv = styled.div`
     border: none;
     font-weight: 200;
     letter-spacing: -1px;
-    appearance: none;
-    width: 2rem;
+   
     transition: 0.1s;
     text-align: right;
-    width: 35px;
+    width: 40px;
+    background-image: none;
+ 
+    background-color: transparent;
+    color: inherit; /* 1 */
+    font: inherit; /* 2 */
+    letter-spacing: inherit; /* 2 */
+    padding: 0.25em 0.375em;
+  }
+  option{
+    font-size: 16px;
   }
   select:focus {
     outline: none;
@@ -101,6 +110,7 @@ const StyledDiv = styled.div`
     align-items: center;
     margin-right: 15px;
   }
+
   .arrow {
     font-size: 16px;
   }

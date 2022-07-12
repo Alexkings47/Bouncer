@@ -49,9 +49,9 @@ const ProductDisplay = ({classChosen, bar}) => {
           </ul>
         </div>}
         {NewProducts}
-        {showMore? NewProducts: ""}
+        {!bar? NewProducts: showMore? NewProducts: ""}
       </div>
-      <Button value={"LOAD MORE"} classChosen={"displayBtn"} handleClick={()=> setShowMore(!showMore)} />
+      {bar && <Button value={"LOAD MORE"} classChosen={"displayBtn"} handleClick={()=> setShowMore(!showMore)} />}
     </StyledSection>
   );
 };

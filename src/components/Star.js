@@ -8,6 +8,7 @@ const Star = () => {
   function fill() {
     setIsClicked(!isClicked);
   }
+  
   return (
     <StyledButton onClick={fill} isClicked={isClicked}>
       <AiFillStar className="icon" />

@@ -90,7 +90,6 @@ const StyledDiv = styled.div`
   height: 450px;
   background: linear-gradient(to right, #ff4858, #8f65ff);
   overflow: hidden;
-  position: relative;
 
   .carouselContent {
     overflow: hidden;
@@ -99,10 +98,10 @@ const StyledDiv = styled.div`
     align-items: center;
     width: 100%;
     padding: 0 10rem;
+    position: relative;
   }
-  h2{
+  h2 {
     font-size: 36px;
-    /* font-weight: bo; */
   }
   .carouselButton {
     font-size: 13px;
@@ -110,8 +109,6 @@ const StyledDiv = styled.div`
   .content {
     display: flex;
     align-items: center;
-        border: 1px solid green;
-
   }
   .info {
     display: flex;
@@ -144,14 +141,14 @@ const StyledDiv = styled.div`
   }
   .iconNext {
     position: absolute;
-    right: 0;
+    right: -2rem;
     top: 40%;
     transform: translate(-50%);
   }
 
   .iconPrev {
     position: absolute;
-    left: 4rem;
+    left: 2rem;
     top: 40%;
     transform: translate(-50%);
   }
