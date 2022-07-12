@@ -80,7 +80,6 @@ ul {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
     row-gap: 3rem;
-    border: 1px solid red;
   }
 }
 @media (max-width: 500px) {

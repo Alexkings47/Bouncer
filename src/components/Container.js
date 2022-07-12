@@ -11,5 +11,5 @@ const Container = ({children}) => {
 
 export default Container
 const StyledDiv = styled.div`
-max-width: 1800px;
+max-width: 1800px                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
 `

@@ -4,34 +4,39 @@ export const Data = [
     price: 499,
     count: 1,
     id: 0,
-    imgUrl: "laptop.png",
+    imgUrl: "laptop-min.png",
   },
   {
     title: "Philips Hue 7W BR30 Connected Downlight Lamp ",
     price: 499,
     count: 1,
     id: 1,
-    imgUrl: "headset.png",
-    thumb: ["thumb1.png", "thumb2.png", "thumb3.png", "thumb1.png"],
+    imgUrl: "headset-min.png",
+    thumb: [
+      "thumb1-min.png",
+      "thumb2-min.png",
+      "thumb3-min.png",
+      "thumb1-min.png",
+    ],
   },
-  { title: "guage", price: 499, count: 1, id: 2, imgUrl: "guage.png" },
+  { title: "guage", price: 499, count: 1, id: 2, imgUrl: "guage-min.png" },
 
   {
     title: "Apple Macbook Pro",
     price: 499,
     count: 1,
     id: 3,
-    imgUrl: "laptop.png",
+    imgUrl: "laptop-min.png",
   },
 
-  { title: "guage", price: 499, count: 1, id: 4, imgUrl: "guage.png" },
+  { title: "guage", price: 499, count: 1, id: 4, imgUrl: "guage-min.png" },
 
   {
     title: "Apple Macbook Pro",
     price: 499,
     count: 1,
     id: 5,
-    imgUrl: "laptop.png",
+    imgUrl: "laptop-min.png",
   },
 
   {
@@ -39,7 +44,7 @@ export const Data = [
     price: 499,
     count: 1,
     id: 6,
-    imgUrl: "headset.png",
+    imgUrl: "headset-min.png",
   },
   { title: "Rexon Drone", price: 799, count: 1, id: 7, imgUrl: "drone.jpg" },
 ];
@@ -48,12 +53,11 @@ export const CarouselImage = [
   {
     name: "iPhone X",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa",
-    imgUrl: "iphone1.png",
-    
+    imgUrl: "iphone1-min.png",
   },
   {
     name: "iPhone 6s",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ipsa",
-    imgUrl: "iPhone6plus.png",
+    imgUrl: "iPhone6plus-min.png",
   },
 ];

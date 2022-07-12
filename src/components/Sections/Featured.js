@@ -10,17 +10,17 @@ const LatestNews = () => {
         <FeaturedCard
           price={499}
           title={"Beats Solo 2 On EarHeadphones -Black"}
-          imgUrl={"guage.png"}
+          imgUrl={"guage-min.png"}
         />
         <FeaturedCard
           price={499}
           title={"H-Squared tvTray"}
-          imgUrl={"tv.png"}
+          imgUrl={"tv-min.png"}
         />
         <FeaturedCard
           price={499}
           title={"Netatmo Rain Gauge"}
-          imgUrl={"headset.png"}
+          imgUrl={"headset-min.png"}
         />
       </div>
     </StyledDiv>
@@ -30,6 +30,4 @@ const LatestNews = () => {
 export default LatestNews;
 const StyledDiv = styled.div`
   margin: 2rem 0 4rem;
-
-  
 `;

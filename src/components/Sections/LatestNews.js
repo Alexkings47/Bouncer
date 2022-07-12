@@ -10,17 +10,17 @@ const LatestNews = () => {
         <LatestCard
           date={"01 jan, 2022"}
           title={"Typesetting industry"}
-          imgUrl={"latestphone1.png"}
+          imgUrl={"latestphone1-min.png"}
         />
         <LatestCard
           date={"01 jan, 2022"}
           title={"Typesetting industry"}
-          imgUrl={"latestlaptop.png"}
+          imgUrl={"latestlaptop-min.png"}
         />
         <LatestCard
           date={"01 jan, 2022"}
           title={"Typesetting industry"}
-          imgUrl={"latestphone2.png"}
+          imgUrl={"latestphone2-min.png"}
         />
       </div>
     </StyledDiv>
@@ -30,6 +30,4 @@ const LatestNews = () => {
 export default LatestNews;
 const StyledDiv = styled.div`
   margin: 1rem 0 4rem;
-
- 
 `;

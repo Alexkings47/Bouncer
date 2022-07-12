@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../Button";
-import { Carousel,  } from "react-responsive-carousel";
+import { Carousel } from "react-responsive-carousel";
 
-const Advertisment = ({classChosen}) => {
+const Advertisment = ({ classChosen }) => {
   return (
-    <StyledDiv className={classChosen? classChosen: "full-width"}>
-    {/* <StyledDiv className={"partial-width"}> */}
+    <StyledDiv className={classChosen ? classChosen : "full-width"}>
+      {/* <StyledDiv className={"partial-width"}> */}
       <Carousel
         showArrows={false}
         showThumbs={false}
@@ -24,7 +24,7 @@ const Advertisment = ({classChosen}) => {
           </div>
           <div className="imgDiv">
             <img
-              src={require("../../images/iPhone6plus.png")}
+              src={require("../../images/iPhone6plus-min.png")}
               alt="Advertisment"
             />
           </div>
@@ -39,7 +39,7 @@ const Advertisment = ({classChosen}) => {
           </div>
           <div className="imgDiv">
             <img
-              src={require("../../images/iPhone6plus.png")}
+              src={require("../../images/iPhone6plus-min.png")}
               alt="Advertisment"
             />
           </div>
@@ -57,7 +57,6 @@ const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
 
   .item1 {
     padding: 2rem 4rem 0 4rem;

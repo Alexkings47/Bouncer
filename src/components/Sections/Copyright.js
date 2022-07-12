@@ -6,7 +6,7 @@ const Copyright = () => {
     <StyledSection className="partial-width">
       <small>&copy; 2018 Ecommerce theme by www.bisenbaev.com</small>
       <small>&copy; Developed by Axel inc! </small>
-      <img src={require("../../images/Brands.png")} alt="payment brands" />
+      <img src={require("../../images/Brands-min.png")} alt="payment brands" />
     </StyledSection>
   );
 };
@@ -21,10 +21,9 @@ const StyledSection = styled.section`
   padding: 1.5rem 0 3rem;
   font-size: 14px;
 
- 
-@media(max-width: 700px) {
-    padding: 1.5rem 3rem 3rem ;
-}
+  @media (max-width: 700px) {
+    padding: 1.5rem 3rem 3rem;
+  }
   img {
     height: 1.2rem;
   }

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SearchInput from "./Search";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Newsletter = ({ close}) => {
+const Newsletter = ({ close }) => {
   return (
     <StyledDiv>
       <div className="news-text">
@@ -21,14 +21,11 @@ const Newsletter = ({ close}) => {
       </div>
 
       <img
-        src={require("../images/img.png")}
+        src={require("../images/img-min.png")}
         className="news-image"
         alt="gift"
       />
-      <button
-        className="icon"
-        onClick={close}
-      >
+      <button className="icon" onClick={close}>
         <AiOutlineClose />
       </button>
     </StyledDiv>
@@ -83,7 +80,7 @@ const StyledDiv = styled.div`
   @media (max-width: 600px) {
     flex-direction: column;
     height: 25rem;
-    
+
     top: 50%;
     transform: translate(-50%, -50%);
     .news-image {
@@ -91,7 +88,7 @@ const StyledDiv = styled.div`
       height: 40%;
     }
 
-    .news-text{
+    .news-text {
       height: 60%;
     }
   }

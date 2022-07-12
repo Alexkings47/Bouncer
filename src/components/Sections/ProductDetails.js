@@ -19,9 +19,10 @@ const ProductDetails = () => {
   const cartArr = useSelector((state) => state.cart.cartArr);
   const dispatch = useDispatch();
 
-
   const cartArrCount = cartArr.find((elem) => elem.id === id);
-  const [countVal] =  useState(cartArrCount === undefined ? Data[id].count : cartArrCount.count);
+  const [countVal] = useState(
+    cartArrCount === undefined ? Data[id].count : cartArrCount.count
+  );
   // {cartArrCount && console.log(cartArrCount.count)}
 
   const starArr = [];
@@ -192,7 +193,7 @@ const ProductDetails = () => {
             id={2}
           />
           <BestsellerItem
-            imgUrl={"camcorder.png"}
+            imgUrl={"camcorder-min.png"}
             title={"GoPro Hero 6"}
             description={
               "Lorem ipsum dolor sit amet consectetur adipisicing elit"
@@ -213,7 +214,6 @@ const StyledDiv = styled.div`
   font-size: 14px;
   flex-wrap: wrap;
 
-  
   .grid-container {
     display: grid;
     min-width: 55%;

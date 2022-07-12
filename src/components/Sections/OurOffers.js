@@ -5,9 +5,9 @@ import OffersItem from "../OffersItem";
 const OurOffers = () => {
   return (
     <StyledDiv className="mobile-items partial-width">
-      <OffersItem imgUrl={"shipping.png"} title={"FREE SHIPPING"} />
-      <OffersItem imgUrl={"refund.png"} title={"100% REFUND"} />
-      <OffersItem imgUrl={"support.png"} title={"SUPPORT"} />
+      <OffersItem imgUrl={"shipping-min.png"} title={"FREE SHIPPING"} />
+      <OffersItem imgUrl={"refund-min.png"} title={"100% REFUND"} />
+      <OffersItem imgUrl={"support-min.png"} title={"SUPPORT"} />
     </StyledDiv>
   );
 };
@@ -15,5 +15,4 @@ const OurOffers = () => {
 export default OurOffers;
 const StyledDiv = styled.div`
   margin: 4rem 0;
- 
 `;

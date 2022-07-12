@@ -8,21 +8,21 @@ const Bestseller = () => {
     <StyledSecion className="partial-width">
       <div className="content">
         <BestsellerItem
-          imgUrl={"iphone6.png"}
+          imgUrl={"iPhone6plus-min.png"}
           title={"Iphone 6"}
           description={"Lorem ipsum dolor sit amet consectetur "}
           price={"$399"}
           chosenClass={"bestsellerCard1"}
         />
         <BestsellerItem
-          imgUrl={"oculus.png"}
+          imgUrl={"oculus-min.png"}
           title={"Oculus Rift"}
           description={""}
           price={"$349"}
           chosenClass={"bestsellerCard2"}
         />
         <BestsellerItem
-          imgUrl={"camcorder.png"}
+          imgUrl={"camcorder-min.png"}
           title={"GoPro Hero 6"}
           description={
             "Lorem ipsum dolor sit amet consectetur adipisicing elit"
