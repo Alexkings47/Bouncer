@@ -105,4 +105,7 @@ const StyledSecion = styled.section`
       overflow-x: scroll;
     }
   }
+  @media (max-width: 550px) {
+    margin-top: 0;
+  }
 `;
