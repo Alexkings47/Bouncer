@@ -137,7 +137,7 @@ const StyledDiv = styled.div`
     height: 5rem;
     background: none;
     border: none;
-    z-index: 999999999;
+    /* z-index: 2; */
     text-align: center;
   }
   .iconNext {

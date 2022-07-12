@@ -44,9 +44,10 @@ const StyledDiv = styled.div`
   left: 50%;
   transform: translateX(-50%);
   border-radius: 3px;
+  border: 2px solid green;
+  max-width: 45rem;
 
   .news-image {
-    width: 45%;
     height: 100%;
   }
 
@@ -80,16 +81,18 @@ const StyledDiv = styled.div`
   @media (max-width: 600px) {
     flex-direction: column;
     height: 25rem;
-
     top: 50%;
     transform: translate(-50%, -50%);
+    
     .news-image {
       width: 100%;
       height: 40%;
+      object-fit: center ;
     }
 
     .news-text {
       height: 60%;
+      flex: 1;
     }
   }
 `;

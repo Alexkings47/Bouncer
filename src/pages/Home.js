@@ -70,7 +70,11 @@ const StyledDiv = styled.div`
     height: 100vh;
     width: 100%;
     position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 20;
+    top: 0;
     backdrop-filter: blur(1px);
     background-color: rgba(0, 0, 0, 0.3);
   }
