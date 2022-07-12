@@ -5,14 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-
-body{
   --light-blue:#33A0FF;
   --whitish-grey:#f4f7f170;
   --grey:#c1c8ce;
 }
+
 
 .border{
   border: 1px solid red;
@@ -21,8 +18,5 @@ body{
   max-width: 1400px;
   margin: 0 auto;
 }
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+
 

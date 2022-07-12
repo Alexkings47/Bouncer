@@ -106,6 +106,6 @@ const StyledSecion = styled.section`
     }
   }
   @media (max-width: 550px) {
-    margin-top: 0;
+    margin-top: 1rem;
   }
 `;
