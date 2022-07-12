@@ -12,7 +12,6 @@ import { ImFacebook, ImTwitter } from "react-icons/im";
 import ColorPicker from "../ColorPicker";
 import { increment } from "../../features/CartSlice";
 import { useDispatch } from "react-redux";
-import CategoryBar from "../CategoryBar";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
