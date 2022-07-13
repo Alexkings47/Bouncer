@@ -8,7 +8,7 @@ const Bestseller = () => {
     <StyledSecion className="partial-width">
       <div className="content">
         <BestsellerItem
-          imgUrl={"iPhone6plus-min.png"}
+          imgUrl={"pic.png"}
           title={"Iphone 6"}
           description={"Lorem ipsum dolor sit amet consectetur "}
           price={"$399"}

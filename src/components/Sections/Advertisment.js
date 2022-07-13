@@ -89,7 +89,7 @@ const StyledDiv = styled.div`
     left: initial;
     z-index: 10;
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .item1 {
       justify-content: center;
       padding: 2rem 0 0;
@@ -99,7 +99,7 @@ const StyledDiv = styled.div`
     }
   }
   @media (max-width: 550px) {
-    height: 50vh;
+    height:40vh;
 
     .advertisment-title {
       font-size: 30px;

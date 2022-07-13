@@ -81,8 +81,6 @@ const StyledDiv = styled.div`
     color: white;
     background-color: red;
     border-radius: 3px;
-    font-weight: 500;
-    font-size: 18px;
     position: absolute;
     top: 0;
     padding: 12px;

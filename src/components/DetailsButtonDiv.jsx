@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Button from "./Button";
 import { ImFacebook, ImTwitter } from "react-icons/im";
 
-const DetailsButtonDiv = () => {
+const DetailsButtonDiv = ({ chosenClass }) => {
   return (
-    <StyledDiv>
+    <StyledDiv className={chosenClass}>
       <Button classChosen={"facebook-btn"}>
         <ImFacebook className="icons-2" />
         <span> share on facebook</span>

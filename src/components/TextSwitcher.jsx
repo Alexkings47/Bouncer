@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Text } from "./Data";
 
-const TextSwitcher = () => {
+const TextSwitcher = ({chosenClass}) => {
   const [activeName, setActiveName] = useState();
 
   return (
-    <StyledDiv>
+    <StyledDiv className={chosenClass}>
       <ul>
         <li
           onClick={() => setActiveName(1)}

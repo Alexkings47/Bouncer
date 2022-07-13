@@ -8,6 +8,7 @@ import Advertisment from "./Advertisment";
 import ProductDisplay from "./ProductDisplay";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
+import SelectBar from "../SelectBar";
 
 const AccessProducts = () => {
   const [activeName, setActiveName] = useState();
@@ -16,7 +17,7 @@ const AccessProducts = () => {
 
   return (
     <StyledDiv className="full-width">
-      <div className="categories">
+      <div className="filter">
         <ListDiv
           title={"ACCESSORIES"}
           values={values[0]}
@@ -43,21 +44,15 @@ const AccessProducts = () => {
         />
         <div className="more">More</div>
       </div>
-      <div className="prod-images">
+      <div className="right-product-display">
         <Advertisment slide={false} classChosen={"position"} />
         <CategoryBar classChosen={"spaced-bar"}>
           <div className="category-bar-div">
             <span>{Data.length * 2}</span>
             <p>Sort By</p>
-            <select>
-              <option>Name</option>
-              <option>Size</option>
-            </select>
+            <SelectBar options={["Name", "Size"]} />
             <p>show</p>
-            <select>
-              <option>12</option>
-              <option>11</option>
-            </select>
+            <SelectBar options={["12", "11"]} />
           </div>
           <div className="category-bar-div">
             <BsFillGrid3X3GapFill
@@ -65,7 +60,7 @@ const AccessProducts = () => {
               className={view ? "" : "blue-icon"}
             />
             <AiOutlineMenu
-              className={view ? "blue-icon": ""}
+              className={view ? "blue-icon" : ""}
               onClick={() => setView(true)}
             />
           </div>
@@ -100,9 +95,10 @@ const StyledDiv = styled.div`
   align-items: flex-start;
   justify-content: center;
 
-  .categories {
+  .filter {
     width: 230px;
-
+    flex-shrink: 0;
+    padding-left: 2rem;
     div {
       background-color: #e5e5e553;
       border-radius: 3px;
@@ -117,9 +113,6 @@ const StyledDiv = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    li:focus {
-      color: var(--light-blue);
     }
     .heading {
       font-size: 18px;
@@ -149,9 +142,9 @@ const StyledDiv = styled.div`
       outline: none;
     }
   }
-  .prod-images {
-    width: 50%;
-    padding-left: 1rem;
+  .right-product-display {
+    max-width: 45rem;
+    padding: 0 2rem 0 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,5 +195,21 @@ const StyledDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  @media (max-width: 800px) {
+    .filter {
+      padding-left: 1rem;
+    }
+    .right-product-display {
+      padding: 0 1rem 0 1rem;
+    }
+  }
+  @media (max-width: 700px) {
+    .filter {
+      display: none;
+    }
+    .right-product-display {
+      padding: 0 3rem;
+    }
   }
 `;

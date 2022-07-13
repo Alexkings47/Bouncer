@@ -93,7 +93,7 @@ const ProductDetails = () => {
           </div>
         </div>
         <DetailsButtonDiv chosenClass={"button-div"} />
-        <TextSwitcher />
+        <TextSwitcher chosenClass={"text-switcher"} />
       </div>
       {/* right end articles */}
       <SideProducts chosenClass={"bestseller"} />
@@ -190,9 +190,7 @@ const StyledDiv = styled.div`
       justify-content: space-between;
     }
   }
-  /* socila media buttons */
 
-  
   /* select size */
   select {
     height: 2rem;
@@ -237,10 +235,9 @@ const StyledDiv = styled.div`
   }
   @media (max-width: 800px) {
     .grid-container {
-      grid-template-columns: 90%;
-      justify-content: center;
+      grid-template-columns: 1fr;
       row-gap: 2rem;
-      /* justify-items: center; */
+      justify-content: center;
     }
     .button-div {
       grid-column: 1/-1;

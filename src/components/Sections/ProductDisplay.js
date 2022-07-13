@@ -5,6 +5,7 @@ import { Data } from "../Data";
 import Button from "../Button";
 import { Link } from "react-router-dom";
 import ProductCardDetail from "../ProductCardDetail";
+import ListDiv from "../ListDiv";
 
 const ProductDisplay = ({ classChosen, bar, view }) => {
   const [showMore, setShowMore] = useState(false);
@@ -52,16 +53,10 @@ const ProductDisplay = ({ classChosen, bar, view }) => {
       )}
       <div className={view ? "detail-grid" : "grid-items"}>
         {bar && (
-          <div className="product-types">
-            <ul>
-              <li>All</li>
-              <li>Mac</li>
-              <li>iPhone</li>
-              <li>iPad</li>
-              <li>iPod</li>
-              <li>Accessories</li>
-            </ul>
-          </div>
+          <ListDiv
+            classChosen={"product-types"}
+            values={["All", "Mac", "iPhone", "iPad", "iPod", "Accessories"]}
+          />
         )}
         {view ? NewProdDetails : NewProducts}
         {view
@@ -135,6 +130,9 @@ const StyledSection = styled.section`
     }
   }
   @media (max-width: 550px) {
+    .grid-items {
+      grid-template-columns: 270px;
+    }
     .product-types {
       display: none;
     }
