@@ -63,8 +63,7 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* background-color: var(--whitish-grey); */
-  background-color: #f6f7f8;
+  background-color: var(--background-grey);
   padding: 0 1.2rem;
   cursor: pointer;
   border-radius: 3px;

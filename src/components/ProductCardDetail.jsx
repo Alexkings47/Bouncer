@@ -57,8 +57,8 @@ const StyledDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f4f0f064;
-  padding: 1.2rem 10px 1.5rem 1.5rem;
+  background-color: var(--background-grey);
+  padding: 1rem 10px 1rem 1.5rem;
   cursor: pointer;
   border-radius: 3px;
   border-bottom: 2px solid #7070702f;
@@ -99,11 +99,11 @@ const StyledDiv = styled.div`
     width: 65%;
 
     .star {
-      padding: 1.3rem 0 1rem 0;
+      padding: 12px 0 10px;
     }
   }
   .title {
-    font-size: 24px;
+    font-size: 20px;
   }
   .product-text {
     display: flex;

@@ -104,7 +104,7 @@ const StyledDiv = styled.div`
     width: 230px;
 
     div {
-      background-color: #e5e5e580;
+      background-color: #e5e5e553;
       border-radius: 3px;
       padding: 1rem 0.8rem;
       margin-bottom: 1rem;
