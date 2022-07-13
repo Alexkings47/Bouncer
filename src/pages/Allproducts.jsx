@@ -12,7 +12,7 @@ const Allproducts = () => {
     <StyledSection>
       <Userinfo />
       <Navbar />
-      <CategoryBar />
+      <CategoryBar>Home/ Accesories/ Beat Solo2 on Ear Headphones - Black</CategoryBar>
       <AccessoriesBar />
       <Footer />
       <Copyright />
@@ -26,6 +26,4 @@ const StyledSection = styled.section`
   column-gap: 0;
   grid-template-columns: repeat(5, 1fr);
   /* grid-template-rows: repeat(auto-fill, max-content); */
-
- 
 `;

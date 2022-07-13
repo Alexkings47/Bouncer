@@ -13,13 +13,12 @@ const ProductCard = ({ imgUrl, price, title, id }) => {
 
   const dispatch = useDispatch();
 
-  function flip() {}
+  
 
   function like() {}
 
   return (
     <StyledDiv
-      onMouseEnter={flip}
       onClick={() => dispatch(update([id, oldPrice]))}
     >
       <img src={require(`../images/${imgUrl}`)} alt="productcard" />
@@ -115,7 +114,7 @@ const StyledDiv = styled.div`
   }
 
   .title {
-    font-size: 14px;
+    font-size: 16px;
   }
   .product-text {
     display: flex;

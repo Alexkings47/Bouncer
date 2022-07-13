@@ -1,15 +1,26 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ProductCard from "../ProductCard";
 import { Data } from "../Data";
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import ProductCardDetail from "../ProductCardDetail";
 
-const ProductDisplay = ({classChosen, bar}) => {
-
+const ProductDisplay = ({ classChosen, bar, view }) => {
   const [showMore, setShowMore] = useState(false);
-
- 
+  const NewProdDetails = Data.map((item) => {
+    return (
+      <Link to="/details" key={item.id}>
+        <ProductCardDetail
+          title={item.title}
+          key={item.id}
+          id={item.id}
+          price={item.price}
+          imgUrl={item.imgUrl}
+        />
+      </Link>
+    );
+  });
 
   const NewProducts = Data.map((item) => {
     return (
@@ -26,19 +37,9 @@ const ProductDisplay = ({classChosen, bar}) => {
   });
 
   return (
-    <StyledSection  className={classChosen? classChosen: "partial-width"}>
-      {bar && <div className="product-types-mobile">
-        <ul>
-          <li>All</li>
-          <li>Mac</li>
-          <li>iPhone</li>
-          <li>iPad</li>
-          <li>iPod</li>
-          <li>Accessories</li>
-        </ul>
-      </div>}
-      <div className="grid-items">
-        {bar && <div className="product-types">
+    <StyledSection className={classChosen ? classChosen : "partial-width"}>
+      {bar && (
+        <div className="product-types-mobile">
           <ul>
             <li>All</li>
             <li>Mac</li>
@@ -47,11 +48,37 @@ const ProductDisplay = ({classChosen, bar}) => {
             <li>iPod</li>
             <li>Accessories</li>
           </ul>
-        </div>}
-        {NewProducts}
-        {!bar? NewProducts: showMore? NewProducts: ""}
+        </div>
+      )}
+      <div className={view ? "detail-grid" : "grid-items"}>
+        {bar && (
+          <div className="product-types">
+            <ul>
+              <li>All</li>
+              <li>Mac</li>
+              <li>iPhone</li>
+              <li>iPad</li>
+              <li>iPod</li>
+              <li>Accessories</li>
+            </ul>
+          </div>
+        )}
+        {view ? NewProdDetails : NewProducts}
+        {view
+          ? NewProdDetails
+          : !bar
+          ? NewProducts
+          : showMore
+          ? NewProducts
+          : ""}
       </div>
-      {bar && <Button value={"LOAD MORE"} classChosen={"displayBtn"} handleClick={()=> setShowMore(!showMore)} />}
+      {bar && (
+        <Button
+          value={"LOAD MORE"}
+          classChosen={"displayBtn"}
+          handleClick={() => setShowMore(!showMore)}
+        />
+      )}
     </StyledSection>
   );
 };
@@ -64,10 +91,13 @@ const StyledSection = styled.section`
     grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
     grid-gap: 1rem;
     justify-content: center;
-    /* width: 100%; */
-    /* border: 1px solid red; */
   }
 
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
   .displayBtn {
     margin: 2.5rem auto 5rem;
     color: var(--light-blue);

@@ -4,20 +4,17 @@ import Star from "../Star";
 import { useSelector } from "react-redux";
 import { Data, Color_small } from "../Data";
 import ProductCounter from "../ProductCounter";
-import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import ColorPicker from "../ColorPicker";
-import { increment } from "../../features/CartSlice";
-import { useDispatch } from "react-redux";
 import Thumb from "../Thumb";
 import TextSwitcher from "../TextSwitcher";
 import SelectBar from "../SelectBar";
 import SideProducts from "../SideProducts";
 import DetailsButtonDiv from "../DetailsButtonDiv";
+import CartButton from "../CartButton";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
   const cartArr = useSelector((state) => state.cart.cartArr);
-  const dispatch = useDispatch();
 
   const cartArrCount = cartArr.find((elem) => elem.id === id);
   const [countVal] = useState(
@@ -29,7 +26,6 @@ const ProductDetails = () => {
     let star = <Star key={i} />;
     starArr.push(star);
   }
-
 
   const [values] = useState({
     isTrue: true,
@@ -93,18 +89,7 @@ const ProductDetails = () => {
               id={Data[id].id}
               stateArr={cartArrCount}
             />
-            <div className="right-div-amount">
-              <button
-                className="cart-div"
-                onClick={() => dispatch(increment(id))}
-              >
-                <p>Add to Cart</p>
-                <AiOutlineShoppingCart />
-              </button>
-              <button className="like-btn">
-                <AiOutlineHeart />
-              </button>
-            </div>
+            <CartButton chosenClass={"right-div-amount"} dataId = {id} />
           </div>
         </div>
         <DetailsButtonDiv chosenClass={"button-div"} />
@@ -207,31 +192,7 @@ const StyledDiv = styled.div`
   }
   /* socila media buttons */
 
-  .right-div-amount {
-    display: flex;
-    align-items: center;
-    justify-items: flex-end;
-  }
-  .cart-div {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 3px;
-    width: 8rem;
-    margin-right: 1rem;
-    padding: 0.5rem 1.2rem;
-    color: #33a0ff;
-    background-color: rgba(51, 160, 255, 0.3);
-    position: relative;
-  }
-
-  .like-btn {
-    width: 2rem;
-    background-color: rgba(51, 160, 255, 0.3);
-    color: #33a0ff;
-    height: 2rem;
-  }
-
+  
   /* select size */
   select {
     height: 2rem;
@@ -244,7 +205,6 @@ const StyledDiv = styled.div`
     background-position-x: 100%;
     background-position-y: 50%;
   }
-
 
   @media (max-width: 1200px) {
     .bestseller {

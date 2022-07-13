@@ -11,7 +11,8 @@ import { AiOutlineMenu } from "react-icons/ai";
 
 const AccessProducts = () => {
   const [activeName, setActiveName] = useState();
-  
+  // const [menu, setMenu] = useState()
+  const [view, setView] = useState(false);
 
   return (
     <StyledDiv className="full-width">
@@ -59,11 +60,21 @@ const AccessProducts = () => {
             </select>
           </div>
           <div className="category-bar-div">
-            <BsFillGrid3X3GapFill className="blue-icon" />
-            <AiOutlineMenu />
+            <BsFillGrid3X3GapFill
+              onClick={() => setView(false)}
+              className={view ? "" : "blue-icon"}
+            />
+            <AiOutlineMenu
+              className={view ? "blue-icon": ""}
+              onClick={() => setView(true)}
+            />
           </div>
         </CategoryBar>
-        <ProductDisplay classChosen={"position"} bar={false} />
+        <ProductDisplay
+          classChosen={"display-details"}
+          bar={false}
+          view={view}
+        />
         <CategoryBar>
           {CategoryBox.map((item, index) => {
             return (
@@ -161,6 +172,9 @@ const StyledDiv = styled.div`
   .blue-icon {
     color: var(--light-blue);
   }
+  .display-details {
+    width: 100%;
+  }
   .position {
     width: 100%;
 
@@ -189,6 +203,4 @@ const StyledDiv = styled.div`
     align-items: center;
     justify-content: center;
   }
-
-  
 `;

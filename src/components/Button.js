@@ -22,6 +22,4 @@ const StyledButton = styled.button`
     transform: scale(1.1);
   }
   
-
-  
 `;

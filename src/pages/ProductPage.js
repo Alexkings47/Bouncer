@@ -12,7 +12,9 @@ const ProductPage = () => {
     <StyledDiv>
       <Userinfo />
       <Navbar />
-      <CategoryBar />
+      <CategoryBar>
+        Home/ Accesories/ Beat Solo2 on Ear Headphones - Black
+      </CategoryBar>
       <ProductDetails />
       <RelatedProducts />
       <Footer />
