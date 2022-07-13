@@ -131,7 +131,7 @@ const StyledSection = styled.section`
   }
   @media (max-width: 550px) {
     .grid-items {
-      grid-template-columns: 270px;
+      grid-template-columns: 280px;
     }
     .product-types {
       display: none;

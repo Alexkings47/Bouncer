@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ImFacebook, ImTwitter } from "react-icons/im";
+import ListDiv from "../ListDiv";
+import {FooterList, Footer_map} from "../Data"
 
 const Footer = () => {
   return (
@@ -35,55 +37,18 @@ const Footer = () => {
         </div>
       </div>
       <div className="bottom-footer">
-        <div>
-          <ul className="footerItems">
-            <h3 className="heading3">Information</h3>
-            <li>About Us</li>
-            <li>Information</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-          </ul>
-        </div>
-        <div>
-          {" "}
-          <ul className="footerItems">
-            <h3 className="heading3">Services</h3>
-            <li>About Us</li>
-            <li>Information</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-          </ul>
-        </div>
-        <div>
-          {" "}
-          <ul className="footerItems">
-            <h3 className="heading3">Extras</h3>
-            <li>About Us</li>
-            <li>Information</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-          </ul>
-        </div>
-        <div>
-          {" "}
-          <ul className="footerItems">
-            <h3 className="heading3">My Account</h3>
-            <li>About Us</li>
-            <li>Information</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-          </ul>
-        </div>
-        <div>
-          {" "}
-          <ul className="footerItems">
-            <h3 className="heading3">Useful Links</h3>
-            <li>About Us</li>
-            <li>Information</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-          </ul>
-        </div>
+       {Footer_map.map((item, index)=>{
+        return (
+          <ListDiv
+            values={FooterList}
+            title={"information"}
+            classChosen={"bottom-footer"}
+            key={index}
+          />
+        );
+       })
+        
+        }
       </div>
     </StyledSection>
   );
@@ -101,6 +66,11 @@ const StyledSection = styled.section`
     padding: 2rem 0 1.5rem;
     margin: 0 auto;
     min-height: 14rem;
+
+    .heading {
+      font-size: 18px;
+      font-weight: 500;
+    }
   }
   .top-footer {
     border-bottom: 0.5px solid #ebf3f7;
@@ -115,7 +85,8 @@ const StyledSection = styled.section`
     min-height: 8rem;
   }
   .bottom-footer > div {
-    height: 100%;
+    padding-right: 5px;
+    margin-bottom: 2rem;
   }
   .footerItems,
   .top-footer > div {
@@ -126,7 +97,7 @@ const StyledSection = styled.section`
     list-style-type: none;
     font-size: 14px;
   }
-  .footerItems > li{
+  .footerItems > li {
     margin-top: 1rem;
     cursor: pointer;
   }
@@ -159,7 +130,6 @@ const StyledSection = styled.section`
     .bottom-footer {
       flex-wrap: wrap;
       align-content: space-between;
-      min-height: 15rem;
     }
     .small-footer-text {
       font-size: 15px;
@@ -167,7 +137,7 @@ const StyledSection = styled.section`
     ul > li {
       font-size: 16px;
     }
-    .heading3{
+    .heading3 {
       font-size: 18px;
       font-weight: bold;
     }

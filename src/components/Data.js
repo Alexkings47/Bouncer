@@ -61,6 +61,12 @@ export const CarouselImage = [
     imgUrl: "iPhone6plus-min.png",
   },
 ];
+export const FooterList = [
+  "About Us",
+  "Information",
+  "Privacy Policy",
+  "Terms & Conditions",
+];
 
 export const values = [
   [
@@ -78,6 +84,7 @@ export const values = [
 
  export const Color = ["red", "blue", "yellow", "black", "pink", "#EFDFDF"];
   export const Color_small = ["red", "blue", "yellow", "black"];
+  export const Footer_map = ["red", "blue", "yellow", "black","red"];
 
 
  export const CategoryBox = [

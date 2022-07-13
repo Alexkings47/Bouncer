@@ -21,5 +21,3 @@ const ListDiv = ({ title, values, number, classChosen }) => {
 
 export default ListDiv;
 const StyledDiv = styled.div``;
-
-
