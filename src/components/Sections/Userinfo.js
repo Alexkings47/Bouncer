@@ -2,33 +2,20 @@ import React from "react";
 import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import styled from "styled-components";
 import { TiShoppingCart } from "react-icons/ti";
-import { IoMdArrowDropdown } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import SelectBar from "../SelectBar";
+import { AiFillHeart } from "react-icons/ai";
 
 const Userinfo = () => {
   const cartArr = useSelector((state) => state.cart.cartArr);
+  const likedItems = useSelector((state) => state.cart.likeArr);
 
   return (
     <StyledDiv>
       <div>
-        <div className="select-area">
-          <select>
-            <option className="option">EN</option>
-            <option>FR</option>
-            <option>CH</option>
-            <option>IG</option>
-          </select>
-          <IoMdArrowDropdown className="arrow" />
-        </div>
-        <div className="select-area">
-          <select>
-            <option>USD</option>
-            <option>NGN</option>
-            <option>AUD</option>
-          </select>
-          <IoMdArrowDropdown className="arrow" />
-        </div>
+        <SelectBar options={["FR", "CH", "IG"]} />
+        <SelectBar options={["USD", "NGN", "AUD"]} />
       </div>
       <div className="user-right">
         <Link to="/profile" className="userData">
@@ -36,11 +23,24 @@ const Userinfo = () => {
         </Link>
         <Link className="userData" to="/checkout">
           <TiShoppingCart className="icon" />{" "}
-          <span>{cartArr.length} items</span>
+          <span>{cartArr?.length} items</span>
         </Link>
         <Link to="#searchBar" className="userData search">
           <AiOutlineSearch className="icon" />
         </Link>
+        <div className="userData">
+          <Link to="/likedItems">
+            <button
+              className="like-btn"
+              color={
+                likedItems?.length > 0 ? "var(--light-blue)" : "#70707049;"
+              }
+            >
+              <AiFillHeart />
+            </button>
+          </Link>
+          <p>{likedItems?.length}</p>
+        </div>
       </div>
     </StyledDiv>
   );
@@ -74,7 +74,16 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-
+  .like-btn {
+    background-color: transparent;
+    height: 100%;
+    font-size: 16px;
+    color: var(--light-blue);
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .user-right > * {
     margin-right: 20px;
   }
@@ -84,36 +93,9 @@ const StyledDiv = styled.div`
 
   select {
     border: none;
-    font-weight: 200;
-    letter-spacing: -1px;
-
-    transition: 0.1s;
-    text-align: right;
-    width: 40px;
-    background-image: none;
-
-    background-color: transparent;
-    color: inherit; /* 1 */
-    font: inherit; /* 2 */
-    letter-spacing: inherit; /* 2 */
-    padding: 0.25em 0.375em;
-  }
-  option {
-    font-size: 16px;
-  }
-  select:focus {
-    outline: none;
-  }
-  .select-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
+    text-align: center;
   }
 
-  .arrow {
-    font-size: 16px;
-  }
   .icon {
     font-size: 16px;
     margin-right: 5px;

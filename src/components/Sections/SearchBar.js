@@ -4,8 +4,8 @@ import SearchInput from "../Search";
 
 const SearchBar = () => {
   return (
-    <StyledSection className="full-width">
-      <SearchInput  buttonVal={"search"} inputVal={"Search query ..."}  />
+    <StyledSection className="full-width" id="searchBar">
+      <SearchInput buttonVal={"search"} inputVal={"Search query ..."} />
     </StyledSection>
   );
 };

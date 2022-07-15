@@ -11,6 +11,7 @@ import SelectBar from "../SelectBar";
 import SideProducts from "../SideProducts";
 import DetailsButtonDiv from "../DetailsButtonDiv";
 import CartButton from "../CartButton";
+import LikeBtn from "./LikeBtn";
 
 const ProductDetails = () => {
   const [id, oldPrice] = useSelector((state) => state.value);
@@ -89,7 +90,10 @@ const ProductDetails = () => {
               id={Data[id].id}
               stateArr={cartArrCount}
             />
-            <CartButton chosenClass={"right-div-amount"} dataId = {id} />
+            <div className="right-div-amount">
+              <CartButton dataId={id} />
+              <LikeBtn id={id} />
+            </div>
           </div>
         </div>
         <DetailsButtonDiv chosenClass={"button-div"} />
@@ -117,6 +121,11 @@ const StyledDiv = styled.div`
     margin-left: 3rem;
     padding: 2rem 1rem;
     justify-content: space-between;
+  }
+  .right-div-amount {
+    display: flex;
+    align-items: stretch;
+    justify-items: flex-end;
   }
 
   .product-image {

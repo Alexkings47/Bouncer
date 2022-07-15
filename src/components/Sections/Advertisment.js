@@ -57,10 +57,11 @@ export default Advertisment;
 const StyledDiv = styled.div`
   background: var(--light-blue);
   overflow: hidden;
-  max-height: 65vh;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding:1rem;
 
   .item1 {
     padding: 2rem 4rem 0 4rem;

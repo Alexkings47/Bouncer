@@ -5,6 +5,7 @@ const CartSlice = createSlice({
   name: "cart",
   initialState: {
     cartArr: [],
+    likeArr: [],
     totalAmount: 0,
   },
   reducers: {
@@ -38,6 +39,21 @@ const CartSlice = createSlice({
       });
       state.cartArr[index].count++;
     },
+    like: (state, action) =>{
+     const item = state.likeArr.find((item) => {
+        return item.id === Data[action.payload].id;
+      });
+      if (item) {
+        return;
+      } else {
+        state.likeArr.push(Data[action.payload]);
+      }
+    },
+    unlike: (state, action) => {
+      state.likeArr = state.likeArr.filter((item) => {
+        return item.id !== action.payload;
+      });
+    }, 
     minus: (state, action) => {
       const index = state.cartArr.findIndex((item) => {
         return item.id === Data[action.payload].id;
@@ -51,10 +67,10 @@ const CartSlice = createSlice({
         state.cartArr[index].count--;
       }
     },
-  },
-});
+  
+}});
 
-export const { increment, decrement, plus, minus, getTotalAmount } =
+export const { increment, decrement, plus, minus, getTotalAmount , like, unlike} =
   CartSlice.actions;
 
 export default CartSlice.reducer;
