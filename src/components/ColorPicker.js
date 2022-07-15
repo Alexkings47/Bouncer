@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types"
 
 const ColorPicker = ({ classChosen, color, handleClick }) => {
   return (
@@ -12,10 +13,13 @@ const ColorPicker = ({ classChosen, color, handleClick }) => {
   );
 };
 
+ColorPicker.propTypes = {
+  classChosen:PropTypes.string,
+  color:PropTypes.string,
+  handleClick:PropTypes.string,
+};
 export default ColorPicker;
-
 const StyledButton = styled.button`
-  
     margin-right: 1rem;
     border-radius: 50%;
     width: 0.8rem;

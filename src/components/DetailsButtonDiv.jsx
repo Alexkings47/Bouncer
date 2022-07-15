@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { ImFacebook, ImTwitter } from "react-icons/im";
+import PropTypes from "prop-types";
 
 const DetailsButtonDiv = ({ chosenClass }) => {
   return (
@@ -17,7 +18,9 @@ const DetailsButtonDiv = ({ chosenClass }) => {
     </StyledDiv>
   );
 };
-
+DetailsButtonDiv.propTypes = {
+  chosenClass : PropTypes.string
+}
 export default DetailsButtonDiv;
 const StyledDiv = styled.div`
   grid-column: 2/3;

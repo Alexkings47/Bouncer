@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Star from "./Star";
+import PropTypes from "prop-types";
 
 const FeaturedCard = ({ imgUrl, title, price }) => {
   const [oldPrice, setOldPrice] = React.useState(0);
@@ -28,6 +29,11 @@ const FeaturedCard = ({ imgUrl, title, price }) => {
   );
 };
 
+FeaturedCard.propTypes = {
+  imgUrl: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.number.isRequired,
+};
 export default FeaturedCard;
 
 const StyledDiv = styled.div`

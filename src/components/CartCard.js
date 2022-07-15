@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import ProductCounter from "./ProductCounter";
 import { update } from "../features/Details";
+import PropTypes from "prop-types"
 
 const CartCard = ({ imgUrl, title, price, id, count }) => {
   const dispatch = useDispatch();
@@ -36,6 +37,13 @@ const CartCard = ({ imgUrl, title, price, id, count }) => {
   );
 };
 
+CartCard.propTypes = {
+  imgUrl:PropTypes.string,
+  title:PropTypes.string,
+  price:PropTypes.string,
+  id:PropTypes.number,
+  count:PropTypes.number,
+};
 export default CartCard;
 const StyledDiv = styled.div`
   display: grid;

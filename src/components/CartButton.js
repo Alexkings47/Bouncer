@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { increment } from "../features/CartSlice";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
+
 
 const CartButton = ({ chosenClass, dataId }) => {
   const dispatch = useDispatch();
@@ -19,7 +21,10 @@ const CartButton = ({ chosenClass, dataId }) => {
     </StyledDiv>
   );
 };
-
+CartButton.propTypes = {
+  chosenClass: PropTypes.string,
+  dataId: PropTypes.number,
+}
 export default CartButton;
 const StyledDiv = styled.div`
   display: flex;

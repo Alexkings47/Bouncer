@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
+
 
 const LatestCard = ({date,title,imgUrl}) => {
   return (
@@ -16,6 +19,11 @@ const LatestCard = ({date,title,imgUrl}) => {
   );
 };
 
+LatestCard.propTypes = {
+  imgUrl: PropTypes.string,
+  title: PropTypes.string,
+  date: PropTypes.func,
+};
 export default LatestCard;
 const StyledDiv = styled.div`
   display: flex;

@@ -4,6 +4,7 @@ import { ImFacebook, ImTwitter } from "react-icons/im";
 import ListDiv from "../ListDiv";
 import {FooterList, Footer_map} from "../Data"
 
+
 const Footer = () => {
   return (
     <StyledSection className="partial-width">

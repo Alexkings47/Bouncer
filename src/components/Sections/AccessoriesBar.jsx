@@ -12,7 +12,6 @@ import SelectBar from "../SelectBar";
 
 const AccessProducts = () => {
   const [activeName, setActiveName] = useState();
-  // const [menu, setMenu] = useState()
   const [view, setView] = useState(false);
 
   return (

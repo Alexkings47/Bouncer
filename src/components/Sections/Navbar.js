@@ -165,7 +165,7 @@ const StyledNav = styled.nav`
   }
 
   h2 {
-    color: #ff4252;
+    color: var(--pink);
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 2rem;

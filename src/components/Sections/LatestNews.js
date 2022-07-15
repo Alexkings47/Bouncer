@@ -8,7 +8,7 @@ const LatestNews = () => {
       <p className="section-title">LATEST NEWS</p>
       <div className="mobile-items">
         <LatestCard
-          date={"01 jan, 2022"}
+          date={()=>Date()}
           title={"Typesetting industry"}
           imgUrl={"latestphone1-min.png"}
         />

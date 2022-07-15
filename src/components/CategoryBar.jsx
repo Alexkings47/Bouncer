@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types"
 
 const CategoryBar = ({ children, classChosen }) => {
   return <StyledDiv className={`full-width ${classChosen}`}>{children}</StyledDiv>;
 };
 
+CategoryBar.propTypes = {
+  children: PropTypes.string,
+  classChosen: PropTypes.string,
+};
 export default CategoryBar;
 const StyledDiv = styled.div`
   display: flex;

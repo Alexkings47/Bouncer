@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import PropTypes from "prop-types";
+
 const OffersItem = ({title, imgUrl}) => {
   return (
     <StyledDiv>
@@ -14,6 +16,10 @@ const OffersItem = ({title, imgUrl}) => {
   );
 };
 
+OffersItem.propTypes = {
+  imgUrl: PropTypes.string,
+  title: PropTypes.string,
+};
 export default OffersItem;
 const StyledDiv = styled.div`
 min-height: 11rem;

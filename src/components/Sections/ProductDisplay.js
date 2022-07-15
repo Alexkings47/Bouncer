@@ -6,6 +6,8 @@ import Button from "../Button";
 import { Link } from "react-router-dom";
 import ProductCardDetail from "../ProductCardDetail";
 import ListDiv from "../ListDiv";
+import PropTypes from "prop-types";
+
 
 const ProductDisplay = ({ classChosen, bar, view }) => {
   const [showMore, setShowMore] = useState(false);
@@ -78,6 +80,11 @@ const ProductDisplay = ({ classChosen, bar, view }) => {
   );
 };
 
+ProductDisplay.propTypes = {
+classChosen: PropTypes.string,
+bar: PropTypes.bool,
+view: PropTypes.bool,
+}
 export default ProductDisplay;
 
 const StyledSection = styled.section`

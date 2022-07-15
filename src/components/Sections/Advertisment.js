@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../Button";
 import { Carousel } from "react-responsive-carousel";
+import PropTypes from "prop-types";
 
 const Advertisment = ({ classChosen }) => {
   return (
     <StyledDiv className={classChosen ? classChosen : "full-width"}>
-      {/* <StyledDiv className={"partial-width"}> */}
       <Carousel
         showArrows={false}
         showThumbs={false}
@@ -48,6 +48,10 @@ const Advertisment = ({ classChosen }) => {
     </StyledDiv>
   );
 };
+
+Advertisment.propTypes ={
+  classChosen : PropTypes.string
+}
 
 export default Advertisment;
 const StyledDiv = styled.div`

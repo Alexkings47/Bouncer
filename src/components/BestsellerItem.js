@@ -18,7 +18,9 @@ const BestsellerItem = ({ chosenClass, title, imgUrl, description, price }) => {
 BestsellerItem.propTypes = {
   chosenClass: PropTypes.string,
   title: PropTypes.string,
-  imgUrl:PropTypes.string
+  imgUrl:PropTypes.string,
+  description:PropTypes.string ,
+  price:PropTypes.string
 };
 export default BestsellerItem;
 const StyledDiv = styled.div`
