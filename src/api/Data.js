@@ -8,7 +8,7 @@ export const Data = [
     imgUrl: "laptop-min.png",
   },
   {
-    isLiked: true,
+    isLiked: false,
     title: "Philips Hue 7W BR30 Connected Downlight Lamp ",
     price: 499,
     count: 1,

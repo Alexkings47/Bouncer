@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { increment } from "../features/CartSlice";
+import { addToCart } from "../features/CartSlice";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -9,7 +9,7 @@ const CartButton = ({ dataId }) => {
   const dispatch = useDispatch();
 
   return (
-    <StyledButton onClick={() => dispatch(increment(dataId))}>
+    <StyledButton onClick={() => dispatch(addToCart(dataId))}>
       <p>Add to Cart</p>
       <AiOutlineShoppingCart />
     </StyledButton>

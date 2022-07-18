@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 
-import { Data } from "./Data";
+import { Data } from "../api/Data";
 
 const Thumb = ({ id }) => {
   

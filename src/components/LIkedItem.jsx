@@ -3,24 +3,30 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { update } from "../features/Details";
+import { productActions } from "../features/ProductsReducer";
 import PropTypes from "prop-types";
-import LikeBtn from "./Sections/LikeBtn";
+import LikeBtn from "./LikeBtn";
 
 const LikedItem = ({ imgUrl, title, price, id }) => {
   const dispatch = useDispatch();
+  const { toggleLikeProducts } = productActions;
 
   return (
     <StyledDiv>
       {/* <div className="product"> */}
-        <LikeBtn classChosen={"like-btn"} id={id} />
-        <Link to="/details">
-          <img
-            src={require(`../images/${imgUrl}`)}
-            alt={title}
-            onClick={() => dispatch(update([id]))}
-          />
-        </Link>
-        <p className="title">{title}</p>
+      <LikeBtn
+        classChosen={"like-btn"}
+        id={id}
+        onClick={ ()=> dispatch(toggleLikeProducts({id}))}
+      />
+      <Link to="/details">
+        <img
+          src={require(`../images/${imgUrl}`)}
+          alt={title}
+          onClick={() => dispatch(update([id]))}
+        />
+      </Link>
+      <p className="title">{title}</p>
       {/* </div> */}
       <p>{price}</p>
     </StyledDiv>
@@ -30,7 +36,7 @@ const LikedItem = ({ imgUrl, title, price, id }) => {
 LikedItem.propTypes = {
   imgUrl: PropTypes.string,
   title: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   id: PropTypes.number,
   count: PropTypes.number,
 };
@@ -40,7 +46,7 @@ const StyledDiv = styled.div`
   align-items: center;
   width: 60%;
   justify-content: space-between;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
   justify-items: start;
   border: 1px solid #c6c8c9;
   padding: 10px 0;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
-import { decrement } from "../features/CartSlice";
+import { removeFromCart } from "../features/CartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import ProductCounter from "./ProductCounter";
@@ -16,7 +16,7 @@ const CartCard = ({ imgUrl, title, price, id, count }) => {
       <div className="product">
         <button
           onClick={() => {
-            dispatch(decrement(id));
+            dispatch(removeFromCart(id));
           }}
         >
           <AiOutlineClose />
@@ -31,7 +31,7 @@ const CartCard = ({ imgUrl, title, price, id, count }) => {
         <p className="title">{title}</p>
       </div>
       <p>{price * count}</p>
-      <ProductCounter count={count} id={id} />
+      <ProductCounter count={count} id={id} stateArr={true} />
       <p>{price}</p>
     </StyledDiv>
   );

@@ -8,7 +8,9 @@ import { useSelector } from "react-redux/es/exports";
 import LikedItem from "../components/LIkedItem";
 
 const Wishlist = () => {
-  const likeArr = useSelector((state) => state.cart.likeArr);
+  const {products} = useSelector((state) => state.products);
+const likeArr  = products.filter((item)=> item.isLiked === true)
+
   return (
     <StyledMain>
       <Userinfo />

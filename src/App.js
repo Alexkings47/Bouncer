@@ -12,8 +12,25 @@ import NotFound from "./components/Sections/NotFound";
 import ProductPage from "./pages/ProductPage";
 import Allproducts from "./pages/Allproducts";
 import Wishlist from "./pages/Wishlist";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { productActions } from "./features/ProductsReducer";
 
 function App() {
+  const { products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const { setProducts } = productActions;
+
+  useEffect(() => {
+    (async () => {
+      if (!products.length) {
+        const res = await fetch("/response.json").then((r) => r.json());
+        dispatch(setProducts(res.data));
+      }
+    })();
+  }, [dispatch, setProducts]);
+
   return (
     <Router>
       <div className="App">

@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ImFacebook, ImTwitter } from "react-icons/im";
 import ListDiv from "../ListDiv";
-import {FooterList, Footer_map} from "../Data"
-
+import { FooterList, Footer_map } from "../../api/Data";
 
 const Footer = () => {
   return (
@@ -38,18 +37,16 @@ const Footer = () => {
         </div>
       </div>
       <div className="bottom-footer">
-       {Footer_map.map((item, index)=>{
-        return (
-          <ListDiv
-            values={FooterList}
-            title={"information"}
-            classChosen={"bottom-footer"}
-            key={index}
-          />
-        );
-       })
-        
-        }
+        {Footer_map.map((item, index) => {
+          return (
+            <ListDiv
+              values={FooterList}
+              title={"information"}
+              classChosen={"bottom-footer"}
+              key={index}
+            />
+          );
+        })}
       </div>
     </StyledSection>
   );
@@ -65,9 +62,7 @@ const StyledSection = styled.section`
     align-items: center;
     text-align: left;
     padding: 2rem 0 1.5rem;
-    margin: 0 auto;
     min-height: 14rem;
-
     .heading {
       font-size: 18px;
       font-weight: 500;

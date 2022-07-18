@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import Star from "../Star";
 import { useSelector } from "react-redux";
-import { Data, Color_small } from "../Data";
+import { useDispatch } from "react-redux";
+import { productActions } from "../../features/ProductsReducer";
+import { Color_small } from "../../api/Data";
 import ProductCounter from "../ProductCounter";
 import ColorPicker from "../ColorPicker";
 import Thumb from "../Thumb";
@@ -11,98 +13,106 @@ import SelectBar from "../SelectBar";
 import SideProducts from "../SideProducts";
 import DetailsButtonDiv from "../DetailsButtonDiv";
 import CartButton from "../CartButton";
-import LikeBtn from "./LikeBtn";
+import LikeBtn from "../LikeBtn";
 
 const ProductDetails = () => {
-  const [id, oldPrice] = useSelector((state) => state.value);
-  const cartArr = useSelector((state) => state.cart.cartArr);
+const { products } = useSelector((state) => state.products);
+const dispatch = useDispatch();
+const [id, oldPrice] = useSelector((state) => state.value);
+const cartArr = useSelector((state) => state.cart.cartArr);
+const { toggleLikeProducts } = productActions;
 
-  const cartArrCount = cartArr.find((elem) => elem.id === id);
-  const [countVal] = useState(
-    cartArrCount === undefined ? Data[id].count : cartArrCount.count
-  );
+const cartArrCount = cartArr.find((elem) => elem.id === id);
+const [countVal] = useState(
+  cartArrCount === undefined ? products[id]?.count : cartArrCount?.count
+);
 
-  const starArr = [];
-  for (let i = 0; i < 4; i++) {
-    let star = <Star key={i} />;
-    starArr.push(star);
-  }
+const starArr = [];
+for (let i = 0; i < 4; i++) {
+  let star = <Star key={i} />;
+  starArr.push(star);
+}
 
-  const [values] = useState({
-    isTrue: true,
-    shipping: false,
-  });
+const [values] = useState({
+  isTrue: true,
+  shipping: false,
+});
 
-  return (
-    <StyledDiv className={"full-width"} thumbBorder={values.border}>
-      {/* <CategoryBar /> */}
-      <div className="grid-container">
-        <div className="product-image">
-          <img
-            src={require(`../../images/${Data[id].imgUrl}`)}
-            alt={Data[id].title}
-            className="main-image"
-          />
-          <Thumb id={id} />
-        </div>
-        {/*product description */}
-        <div className="details-product-text">
-          <p className="title">{Data[id].title}</p>
-
-          {/* review stars and co */}
-          <div className="review">
-            <span className="star"> {starArr}</span>
-            <small> 0 reviews</small>
-            <p className="blue-text">Submit a review</p>
-          </div>
-          {/* price details */}
-          <div className="price-details">
-            <span className="price">$ {Data[id].price}</span>
-            <s className="grey-text"> $ {oldPrice}</s>
-          </div>
-          <div className="stock">
-            <div>
-              {" "}
-              <p>Availability:</p>
-              <span>{values.isTrue ? "in stock" : "out of stock"}</span>
-            </div>
-            <div>
-              <p> Category:</p>
-              <span>{"type"}</span>
-            </div>
-            <div>
-              <p>Free Shipping:</p>
-              <span>{values.shipping ? "yes" : "no"}</span>
-            </div>
-          </div>
-          <div className="color-div">
-            {Color_small.map((colorItem, index) => {
-              return <ColorPicker color={colorItem} key={index} />;
-            })}
-          </div>
-          <div className="size">
-            Size
-            <SelectBar options={["XS", "L", "M"]} />
-          </div>
-          <div className="amount">
-            <ProductCounter
-              count={countVal}
-              id={Data[id].id}
-              stateArr={cartArrCount}
-            />
-            <div className="right-div-amount">
-              <CartButton dataId={id} />
-              <LikeBtn id={id} />
-            </div>
-          </div>
-        </div>
-        <DetailsButtonDiv chosenClass={"button-div"} />
-        <TextSwitcher chosenClass={"text-switcher"} />
+return (
+  <StyledDiv className={"full-width"} thumbBorder={values.border}>
+    {/* <CategoryBar /> */}
+    <div className="grid-container">
+      <div className="product-image">
+        <img
+          src={require(`../../images/${products[id]?.imgUrl}`)}
+          alt={products[id]?.title}
+          className="main-image"
+        />
+        <Thumb id={id} />
       </div>
-      {/* right end articles */}
-      <SideProducts chosenClass={"bestseller"} />
-    </StyledDiv>
-  );
+      {/*product description */}
+      <div className="details-product-text">
+        <p className="title">{products[id]?.title}</p>
+
+        {/* review stars and co */}
+        <div className="review">
+          <span className="star"> {starArr}</span>
+          <small> 0 reviews</small>
+          <p className="blue-text">Submit a review</p>
+        </div>
+        {/* price details */}
+        <div className="price-details">
+          <span className="price">$ {products[id]?.price}</span>
+          <s className="grey-text"> $ {oldPrice}</s>
+        </div>
+        <div className="stock">
+          <div>
+            {" "}
+            <p>Availability:</p>
+            <span>{values.isTrue ? "in stock" : "out of stock"}</span>
+          </div>
+          <div>
+            <p> Category:</p>
+            <span>{"type"}</span>
+          </div>
+          <div>
+            <p>Free Shipping:</p>
+            <span>{values.shipping ? "yes" : "no"}</span>
+          </div>
+        </div>
+        <div className="color-div">
+          {Color_small.map((colorItem, index) => {
+            return <ColorPicker color={colorItem} key={index} />;
+          })}
+        </div>
+        <div className="size">
+          Size
+          <SelectBar options={["XS", "L", "M"]} />
+        </div>
+        <div className="amount">
+          <ProductCounter
+            count={countVal}
+            id={products[id].id}
+            stateArr={cartArrCount}
+          />
+          <div className="right-div-amount">
+            <CartButton dataId={id} />
+            <LikeBtn
+              isLiked={products[id].isLiked}
+              onClick={() => {
+                dispatch(toggleLikeProducts( {id} ));
+              }}
+            />
+          </div>
+        </div>
+      </div>
+      <DetailsButtonDiv chosenClass={"button-div"} />
+      <TextSwitcher chosenClass={"text-switcher"} />
+    </div>
+    {/* right end articles */}
+    <SideProducts chosenClass={"bestseller"} />
+  </StyledDiv>
+);
 };
 
 export default ProductDetails;

@@ -1,26 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { AiOutlineHeart } from "react-icons/ai";
 import { TiShoppingCart } from "react-icons/ti";
 import Star from "./Star";
-import { increment } from "../features/CartSlice";
+import { addToCart } from "../features/CartSlice";
 import { useDispatch } from "react-redux";
 import { update } from "../features/Details";
+import LikeBtn from "./LikeBtn";
+import { productActions } from "../features/ProductsReducer";
 
-const ProductCard = ({ imgUrl, price, title, id }) => {
+const ProductCard = ({ imgUrl, price, title, id, isLiked }) => {
   const [oldPrice, setOldPrice] = React.useState(0);
   React.useEffect(() => setOldPrice(parseInt(price) + 100), [price]);
 
   const dispatch = useDispatch();
 
-  
-
-  function like() {}
+  const { toggleLikeProducts } = productActions;
 
   return (
-    <StyledDiv
-      onClick={() => dispatch(update([id, oldPrice]))}
-    >
+    <StyledDiv onClick={() => dispatch(update([id, oldPrice]))}>
       <img src={require(`../images/${imgUrl}`)} alt="productcard" />
       <div className="product-text">
         <p className="title">{title}</p>
@@ -38,19 +35,20 @@ const ProductCard = ({ imgUrl, price, title, id }) => {
         </div>
       </div>
       <div className="popup-parent">
-        <div className="popup">
-          <button className="product-icon" onClick={like}>
-            {" "}
-            <AiOutlineHeart />
-          </button>
-
-          <button
-            className="product-icon"
-            onClick={() => dispatch(increment(id))}
-          >
-            <TiShoppingCart />
-          </button>
-        </div>
+        <LikeBtn
+          isLiked={isLiked}
+          onClick={() => {
+            dispatch(toggleLikeProducts({ id }));
+          }}
+          classChosen={"popup-icon"}
+          id={id}
+        />
+        <button
+          className="popup-icon-left"
+          onClick={() => dispatch(addToCart(id))}
+        >
+          <TiShoppingCart />
+        </button>
       </div>
     </StyledDiv>
   );
@@ -86,23 +84,21 @@ const StyledDiv = styled.div`
     background-color: #f4f7f1d9;
   }
 
-  .popup {
-    display: flex;
-    align-items: center;
-    width: 50%;
-    justify-content: space-between;
-  }
-  .product-icon {
+  .popup-icon,
+  .popup-icon-left {
     color: var(--light-blue);
     width: 2.7rem;
     height: 2.5rem;
     border-radius: 50%;
     border: 2px solid #9acbf5;
   }
-  .product-icon:active {
+  .popup-icon-left {
+    margin-left: 1.5rem;
+  }
+  .popup-icon:active {
     transform: scale(1.1);
   }
-  .product-icon > * {
+  .popup-icon > * {
     font-size: 18px;
     display: block;
     margin: 0 auto;

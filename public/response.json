@@ -1,0 +1,78 @@
+{
+  "data": [
+    {
+      "isLiked": false,
+      "title": "Apple Macbook Pro",
+      "price": 499,
+      "count": 1,
+      "id": 0,
+      "imgUrl": "laptop-min.png"
+    },
+    {
+      "isLiked": false,
+      "title": "Philips Hue 7W BR30 Connected Downlight Lamp ",
+      "price": 499,
+      "count": 1,
+      "id": 1,
+      "imgUrl": "headset-min.png",
+      "thumb": [
+        { "thumbUrl": "thumb1-min.png", "name": "first" },
+        { "thumbUrl": "thumb2-min.png", "name": "second" },
+        { "thumbUrl": "thumb3-min.png", "name": "third" },
+        { "thumbUrl": "thumb1-min.png", "name": "fourth" }
+      ]
+    },
+    {
+      "isLiked": false,
+      "title": "guage",
+      "price": 499,
+      "count": 1,
+      "id": 2,
+      "imgUrl": "guage-min.png"
+    },
+
+    {
+      "isLiked": false,
+      "title": "Apple Macbook Pro",
+      "price": 499,
+      "count": 1,
+      "id": 3,
+      "imgUrl": "laptop-min.png"
+    },
+
+    {
+      "isLiked": false,
+      "title": "guage",
+      "price": 499,
+      "count": 1,
+      "id": 4,
+      "imgUrl": "guage-min.png"
+    },
+
+    {
+      "isLiked": false,
+      "title": "Apple Macbook Pro",
+      "price": 499,
+      "count": 1,
+      "id": 5,
+      "imgUrl": "laptop-min.png"
+    },
+
+    {
+      "isLiked": false,
+      "title": "Philips Hue 7W BR30 Connected Downlight Lamp ",
+      "price": 499,
+      "count": 1,
+      "id": 6,
+      "imgUrl": "headset-min.png"
+    },
+    {
+      "isLiked": false,
+      "title": "Rexon Drone",
+      "price": 799,
+      "count": 1,
+      "id": 7,
+      "imgUrl": "drone.jpg"
+    }
+  ]
+}

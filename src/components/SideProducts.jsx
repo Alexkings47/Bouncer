@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ProductCard from "./ProductCard";
 import BestsellerItem from "./BestsellerItem";
-import { Data } from "./Data";
+import { Data } from "../api/Data";
 
 
 const SideProducts = ({chosenClass}) => {

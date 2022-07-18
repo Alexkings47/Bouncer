@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Text } from "./Data";
+import { Text } from "../api/Data";
 
 const TextSwitcher = ({chosenClass}) => {
   const [activeName, setActiveName] = useState();

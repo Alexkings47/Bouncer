@@ -22,7 +22,7 @@ const LatestCard = ({date,title,imgUrl}) => {
 LatestCard.propTypes = {
   imgUrl: PropTypes.string,
   title: PropTypes.string,
-  date: PropTypes.func,
+  date: PropTypes.string,
 };
 export default LatestCard;
 const StyledDiv = styled.div`
