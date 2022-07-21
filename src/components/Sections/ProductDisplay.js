@@ -1,41 +1,46 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import ProductCard from "../ProductCard";
-import { Data } from "../Data";
 import Button from "../Button";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import ProductCardDetail from "../ProductCardDetail";
 import ListDiv from "../ListDiv";
 import PropTypes from "prop-types";
-
+import { useSelector } from "react-redux";
 
 const ProductDisplay = ({ classChosen, bar, view }) => {
+  const navigate = useNavigate();
+  const { products } = useSelector((state) => state.products);
   const [showMore, setShowMore] = useState(false);
-  const NewProdDetails = Data.map((item) => {
+
+
+  const NewProdDetails = products.map((item) => {
     return (
-      <Link to="/details" key={item.id}>
         <ProductCardDetail
           title={item.title}
           key={item.id}
           id={item.id}
           price={item.price}
           imgUrl={item.imgUrl}
+          onClick={() =>
+            navigate(`/details?itemName=${item.id}`, { state: item })
+          }
         />
-      </Link>
     );
   });
 
-  const NewProducts = Data.map((item) => {
+  const NewProducts = products.map((item) => {
     return (
-      <Link to="/details" key={item.id}>
-        <ProductCard
-          title={item.title}
-          key={item.id}
-          id={item.id}
-          price={item.price}
-          imgUrl={item.imgUrl}
-        />
-      </Link>
+      <ProductCard
+        title={item.title}
+        key={item.id}
+        id={item.id}
+        price={item.price}
+        imgUrl={item.imgUrl}
+        onClick={() =>
+          navigate(`/details?itemName=${item.id}`, { state: item })
+        }
+      />
     );
   });
 
@@ -81,10 +86,10 @@ const ProductDisplay = ({ classChosen, bar, view }) => {
 };
 
 ProductDisplay.propTypes = {
-classChosen: PropTypes.string,
-bar: PropTypes.bool,
-view: PropTypes.bool,
-}
+  classChosen: PropTypes.string,
+  bar: PropTypes.bool,
+  view: PropTypes.bool,
+};
 export default ProductDisplay;
 
 const StyledSection = styled.section`

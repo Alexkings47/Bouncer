@@ -4,11 +4,10 @@ import { TiShoppingCart } from "react-icons/ti";
 import Star from "./Star";
 import { addToCart } from "../features/CartSlice";
 import { useDispatch } from "react-redux";
-import { update } from "../features/Details";
 import LikeBtn from "./LikeBtn";
 import { productActions } from "../features/ProductsReducer";
 
-const ProductCard = ({ imgUrl, price, title, id, isLiked }) => {
+const ProductCard = ({ imgUrl, price, title, id, isLiked, onClick }) => {
   const [oldPrice, setOldPrice] = React.useState(0);
   React.useEffect(() => setOldPrice(parseInt(price) + 100), [price]);
 
@@ -17,7 +16,10 @@ const ProductCard = ({ imgUrl, price, title, id, isLiked }) => {
   const { toggleLikeProducts } = productActions;
 
   return (
-    <StyledDiv onClick={() => dispatch(update([id, oldPrice]))}>
+    <StyledDiv
+      // onClick={() => dispatch(update([id, oldPrice]))}
+      onClick={onClick}
+    >
       <img src={require(`../images/${imgUrl}`)} alt="productcard" />
       <div className="product-text">
         <p className="title">{title}</p>

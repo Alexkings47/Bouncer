@@ -6,10 +6,11 @@ import { useSelector } from "react-redux";
 import Button from "../Button";
 import { getTotalAmount } from "../../features/CartSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getTotalAmount());
   }, [dispatch]);
@@ -19,8 +20,9 @@ const Cart = () => {
     shipping: "$20",
     coupon: false,
   });
-
+// console.log(cartArr.find((item) => item.imgUrl == true));
   const CartCards = cartArr.map((cartItem) => {
+    
     return (
       <CartCard
         imgUrl={cartItem.imgUrl}
@@ -29,6 +31,7 @@ const Cart = () => {
         key={cartItem.id}
         id={cartItem.id}
         count={cartItem.count}
+        onClick={() => navigate(`/details?itemName=${cartItem.id}`, {state: cartItem})}
       />
     );
   });

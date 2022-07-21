@@ -14,13 +14,13 @@ import Allproducts from "./pages/Allproducts";
 import Wishlist from "./pages/Wishlist";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { productActions } from "./features/ProductsReducer";
 
 function App() {
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const { setProducts } = productActions;
+
 
   useEffect(() => {
     (async () => {
@@ -29,7 +29,7 @@ function App() {
         dispatch(setProducts(res.data));
       }
     })();
-  }, [dispatch, setProducts]);
+  }, [dispatch, setProducts, products.length]);
 
   return (
     <Router>

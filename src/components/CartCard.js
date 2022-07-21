@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
-import { removeFromCart } from "../features/CartSlice";
+import { removeFromCart, updateCount } from "../features/CartSlice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import ProductCounter from "./ProductCounter";
-import { update } from "../features/Details";
 import PropTypes from "prop-types"
 
-const CartCard = ({ imgUrl, title, price, id, count }) => {
+const CartCard = ({ imgUrl, title, price, id, count, onClick }) => {
   const dispatch = useDispatch();
 
+  function handleUpdate(newCount) {
+      dispatch(updateCount({ count: newCount, id: id}))
+  }
   return (
     <StyledDiv>
       <div className="product">
@@ -21,17 +22,21 @@ const CartCard = ({ imgUrl, title, price, id, count }) => {
         >
           <AiOutlineClose />
         </button>
-        <Link to="/details">
-          <img
-            src={require(`../images/${imgUrl}`)}
-            alt={title}
-            onClick={() => dispatch(update([id]))}
-          />
-        </Link>
+
+        <img
+          src={require(`../images/${imgUrl}`)}
+          alt={title}
+          onClick={onClick}
+        />
+
         <p className="title">{title}</p>
       </div>
       <p>{price * count}</p>
-      <ProductCounter count={count} id={id} stateArr={true} />
+      <ProductCounter
+        count={count}
+        stateArr={true}
+        handleUpdate={handleUpdate}
+      />
       <p>{price}</p>
     </StyledDiv>
   );
@@ -40,7 +45,7 @@ const CartCard = ({ imgUrl, title, price, id, count }) => {
 CartCard.propTypes = {
   imgUrl:PropTypes.string,
   title:PropTypes.string,
-  price:PropTypes.string,
+  price:PropTypes.number,
   id:PropTypes.number,
   count:PropTypes.number,
 };

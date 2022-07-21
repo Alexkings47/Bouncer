@@ -4,7 +4,6 @@ const entity = "product list";
 
 const initialState = {
   products: [],
- 
 };
 
 const productSlice = createSlice({
@@ -21,25 +20,8 @@ const productSlice = createSlice({
         state.products[pos] = { ...obj, isLiked: !obj.isLiked };
       }
     },
-    addCount: (state, action) => {
-      const index = state.products.findIndex(
-        (item) => item.id === action.payload
-      );
-      if (index > -1) {
-        const obj = state.products[index];
-        state.products[index] = { ...obj, count: obj.count++ };
-        console.log("products")
-      }
-    },
-    reduceCount: (state, action) => {
-      const index = state.products.findIndex(
-        (item) => item.id === action.payload
-      );
-      if (index > -1) {
-        const obj = state.products[index];
-        state.products[index] = { ...obj, count: obj.count-- };
-      }
-    },
+   
+   
   },
 });
 

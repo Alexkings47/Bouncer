@@ -1,43 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { plus, minus } from "../features/CartSlice";
 import {} from "../features/CartSlice";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { useDispatch } from "react-redux";
-import { productActions } from "../features/ProductsReducer";
 
-const ProductCounter = ({ count, id, stateArr }) => {
-  const dispatch = useDispatch();
-  const { addCount, reduceCount } = productActions;
-
+const ProductCounter = ({ count = 1, handleUpdate }) => {
   return (
     <StyledDiv>
-      
-      {/* {stateArr ? (
-        <> */}
-          <button className="control__btn" onClick={() => dispatch(minus(id))}>
-            <AiOutlineMinus />
-          </button>
-          <p>{count}</p>
-          <button className="control__btn" onClick={() => dispatch(plus(id))}>
-            <AiOutlinePlus />
-          </button>
-        {/* </>
-      ) : (
-        <>
-        {console.log("UNCARTED")}
-          <button
-            className="control__btn"
-            onClick={() => dispatch(reduceCount(id))}
-          >
-            <AiOutlineMinus />
-          </button>
-          <p>{count}</p>
-          <button className="control__btn" onClick={() => dispatch(addCount(id))}>
-            <AiOutlinePlus />
-          </button>
-        </>
-      )} */}
+      <button
+        className="control__btn"
+        onClick={() => handleUpdate(count -= 1)}
+      >
+        <AiOutlineMinus />
+      </button>
+      <p>{count}</p>
+      <button
+        className="control__btn"
+        onClick={() => handleUpdate(count += 1)}
+      >
+        <AiOutlinePlus />
+      </button>
     </StyledDiv>
   );
 };

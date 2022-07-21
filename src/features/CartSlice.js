@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Data } from "../api/Data";
 
 const CartSlice = createSlice({
   name: "cart",
@@ -10,12 +9,12 @@ const CartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const item = state.cartArr.find((item) => {
-        return item.id === Data[action.payload].id;
+        return item.id === action.payload.id;
       });
       if (item) {
-        item.count++;
+        return;
       } else {
-        state.cartArr.push(Data[action.payload]);
+        state.cartArr.push(action.payload);
       }
     },
     removeFromCart: (state, action) => {
@@ -27,40 +26,23 @@ const CartSlice = createSlice({
       state.totalAmount = state.cartArr.reduce((acc, item) => {
         let { count, price } = item;
         let itemPrice = count * price;
-        console.log("itemPrice");
         return (acc += itemPrice);
       }, 0);
-    }, 
-    plus: (state, action) => {
-      const index = state.cartArr.findIndex((item) => {
-        return item.id === Data[action.payload].id;
-      });
-      state.cartArr[index].count++;
     },
-
-    minus: (state, action) => {
-      const index = state.cartArr.findIndex((item) => {
-        return item.id === Data[action.payload].id;
-      });
-
-      if (state.cartArr[index].count === 0) {
-        state.cartArr = state.cartArr.filter((item) => {
-          // console.log("recTED");
-          return item.id !== action.payload;
-        });
-      } else {
-        console.log("RED");
-        state.cartArr[index].count--;
-      }
+    updateCount: (state, action) => {
+      const index = state.cartArr.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      state.cartArr[index].count = action.payload.count;
     },
   },
 });
 
 export const {
   addToCart,
+  setCartProducts,
+  updateCount,
   removeFromCart,
-  plus,
-  minus,
   getTotalAmount,
   like,
   unlike,
