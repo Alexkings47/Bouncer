@@ -9,12 +9,12 @@ import { AiFillHeart } from "react-icons/ai";
 
 const Userinfo = () => {
   const cartArr = useSelector((state) => state.cart.cartArr);
- const { products } = useSelector((state) => state.products);
- const likeArr = products.filter((item) => item.isLiked === true);
+  const { products } = useSelector((state) => state.products);
+  const likeArr = products.filter((item) => item.isLiked === true);
 
   return (
     <StyledDiv>
-      <div>
+      <div className="user-left">
         <SelectBar options={["FR", "CH", "IG"]} />
         <SelectBar options={["USD", "NGN", "AUD"]} />
       </div>
@@ -33,8 +33,7 @@ const Userinfo = () => {
           <Link to="/likedItems">
             <button
               className="like-btn"
-              color={likeArr.length > 0 ? "var(--light-blue)" : "#70707049;"
-              }
+              color={likeArr.length > 0 ? "var(--light-blue)" : "#70707049;"}
             >
               <AiFillHeart />
             </button>
@@ -62,9 +61,9 @@ const StyledDiv = styled.div`
 
   & > div {
     display: flex;
-    width: 100%;
-    justify-content: center;
+    justify-content: space-between;
   }
+  
   a {
     color: black;
     text-decoration: none;
