@@ -56,7 +56,6 @@ const ProductDetails = () => {
   }, [location, navigate, products]);
 
   const cartArrElem = cartArr.find((elem) => elem.id === product?.id);
-  console.log(cartArrElem);
 
   const cartCount = cartArrElem?.count;
 
@@ -132,7 +131,7 @@ const ProductDetails = () => {
                   <LikeBtn
                     isLiked={product.isLiked}
                     onClick={() => {
-                      // dispatch(toggleLikeProducts({ id }));
+                      dispatch(toggleLikeProducts({ id }));
                     }}
                   />
                 </div>
