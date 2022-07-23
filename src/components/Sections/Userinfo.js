@@ -19,9 +19,35 @@ const Userinfo = () => {
         <SelectBar options={["USD", "NGN", "AUD"]} />
       </div>
       <div className="user-right">
-        <Link to="/profile" className="userData">
-          <AiOutlineUser className="icon white" /> <span>My Profile</span>
-        </Link>
+        <select>
+          <option>
+            <Link to="/profile" className="userData">
+              <AiOutlineUser className="icon white" /> <span>My Profile</span>
+            </Link>
+          </option>
+          <option>
+            <AiOutlineUser className="icon white" /> liked Items
+          </option>
+          <option>
+            <AiOutlineUser className="icon white" /> Log out
+          </option>
+          <option>
+            <div className="userData">
+              <Link to="/likedItems">
+                <button
+                  className="like-btn"
+                  color={
+                    likeArr.length > 0 ? "var(--light-blue)" : "#70707049;"
+                  }
+                >
+                  <AiFillHeart />
+                </button>
+              </Link>
+              <p>{likeArr?.length}</p>
+            </div>{" "}
+          </option>
+        </select>
+
         <Link className="userData" to="/checkout">
           <TiShoppingCart className="icon" />{" "}
           <span>{cartArr?.length} items</span>
@@ -29,17 +55,6 @@ const Userinfo = () => {
         <Link to="#searchBar" className="userData search">
           <AiOutlineSearch className="icon" />
         </Link>
-        <div className="userData">
-          <Link to="/likedItems">
-            <button
-              className="like-btn"
-              color={likeArr.length > 0 ? "var(--light-blue)" : "#70707049;"}
-            >
-              <AiFillHeart />
-            </button>
-          </Link>
-          <p>{likeArr?.length}</p>
-        </div>
       </div>
     </StyledDiv>
   );
@@ -63,7 +78,7 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: space-between;
   }
-  
+
   a {
     color: black;
     text-decoration: none;

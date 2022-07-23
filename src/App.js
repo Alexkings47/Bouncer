@@ -15,6 +15,7 @@ import Wishlist from "./pages/Wishlist";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { productActions } from "./features/ProductsReducer";
+import SignIn from "./pages/SignIn";
 
 function App() {
   const { products } = useSelector((state) => state.products);
@@ -39,6 +40,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/likedItems" element={<Wishlist />} />
           <Route path="/details" element={<ProductPage />} />
+          <Route path="/profile" element ={<SignIn />} />
           <Route path="/allproducts" element={<Allproducts />} />
           <Route path="/not-found" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/not-found" replace />} />

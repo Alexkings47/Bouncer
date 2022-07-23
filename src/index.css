@@ -21,6 +21,9 @@ body {
   margin: 0 auto;
 }
 
+.box-shadow{
+box-shadow: 2px 2px 3px #cbcbcb;
+}
 select {
     border: 1px solid var(--grey);
     font-weight: 200;
